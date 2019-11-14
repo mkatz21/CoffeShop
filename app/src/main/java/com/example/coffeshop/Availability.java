@@ -11,15 +11,18 @@ public class Availability {
     public Boolean AvailabilityStatus;
     public String AvailabilityUserName;
     public Integer AvailabilityBookingID;
+    public Double AvailabilityPrice;
 
     public Availability() {
     }
 
-    public Availability(Date availabilityDate, Time availabilityTime, Boolean availabilityStatus, String availabilityUserName, Integer availabilityBookingID) {
+    public Availability(Date availabilityDate, Time availabilityTime, Boolean availabilityStatus, String availabilityUserName, Integer availabilityBookingID, Double availabilityPrice) {
         AvailabilityDate = availabilityDate;
         AvailabilityTime = availabilityTime;
         AvailabilityStatus = availabilityStatus;
         AvailabilityUserName = availabilityUserName;
         AvailabilityBookingID = availabilityBookingID;
+        AvailabilityPrice = availabilityPrice;
     }
 }
+
