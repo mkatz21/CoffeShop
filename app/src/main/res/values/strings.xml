@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">CoffeShop</string>
+    <string name="LabWebsiteLink"><a href="https://labcafe.tumblr.com">Lab</a></string>
+    <string name="LabWebsiteStreet"><a href="https://labcafe.tumblr.com">505 E Liberty St #300</a></string>
+    <string name="LabWebsiteCity"><a href="https://labcafe.tumblr.com">Ann Arbor, MI 48104</a></string>
+    <string-array name="reservation_duration_array">
+        <item>30 mins</item>
+        <item>60 mins</item>
+        <item>90 mins</item>
+        <item>120 mins</item>
+    </string-array>
+    <string-array name="reservation_table_type_array">
+        <item>Solo</item>
+        <item>Shared</item>
+        <item>Private Two Person</item>
+        <item>Private Four Person</item>
+    </string-array>
 </resources>

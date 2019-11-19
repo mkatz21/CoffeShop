@@ -1,9 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
     tools:context=".CheckInActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="third.space"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.032" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/labShopImage"
+            android:layout_width="match_parent"
+            android:layout_height="149dp"
+            app:srcCompat="@drawable/labshopimage" />
+
+        <TextView
+            android:id="@+id/textViewReservationBooked"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="You're all booked!"
+            android:textAllCaps="false" />
+        <TextView
+            android:id="@+id/textViewReservationCoffeeShop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/LabWebsiteLink"
+            android:textAllCaps="false"
+            android:textSize="14pt"
+            android:autoLink="web"
+            android:linksClickable="true"/>
+        <TextView
+            android:id="@+id/textViewReservationCoffeeShopStreet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/LabWebsiteStreet"
+            android:textAllCaps="false"
+            android:autoLink="web"
+            android:linksClickable="true"/>
+        <TextView
+            android:id="@+id/textViewReservationCoffeeShopCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/LabWebsiteCity"
+            android:textAllCaps="false"
+            android:autoLink="web"
+            android:linksClickable="true"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonReservationDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:text="October 16" />
+
+            <Button
+                android:id="@+id/buttonReservationTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:text="12:00PM - 2:00PM" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/buttonReservationHelp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:text="Help" />
+
+            <Button
+                android:id="@+id/buttonReservationModify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:text="Modify" />
+        </LinearLayout>
+        <Button
+            android:id="@+id/buttonReservationCafeMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cafe Menu" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Check In" />
+
+        <ImageView
+            android:id="@+id/labQRCode"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            app:srcCompat="@drawable/labwebsiteqrcode" />
+
+</LinearLayout>
+</LinearLayout>
