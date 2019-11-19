@@ -22,11 +22,10 @@ public class HomeActivity extends AppCompatActivity {
 
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.mainmenu, menu);
-        
+
 
         return super.onCreateOptionsMenu(menu);
     }
 }
 
 
-e
