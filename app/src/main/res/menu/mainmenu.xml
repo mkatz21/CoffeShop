@@ -11,11 +11,12 @@
     <item
         android:id="@+id/Account"
         android:title="Account" />
-    <item android:title="Item" />
     <item
         android:id="@+id/AddPayment"
         android:title="Add Payment" />
-    <item android:title="Check In" />
+    <item
+        android:id="@+id/CheckIn"
+        android:title="Check In" />
     <item
         android:id="@+id/CoffeeShop"
         android:title="Coffee Shop" />
