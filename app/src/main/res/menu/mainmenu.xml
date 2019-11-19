@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/Home"
+        android:title="Home" />
+    <item
+        android:id="@+id/MainPayment"
+        android:title="Main Payment" />
+    <item
+        android:id="@+id/Account"
+        android:title="Account" />
+    <item android:title="Item" />
+    <item
+        android:id="@+id/AddPayment"
+        android:title="Add Payment" />
+    <item android:title="Check In" />
+    <item
+        android:id="@+id/CoffeeShop"
+        android:title="Coffee Shop" />
+    <item
+        android:id="@+id/SignUp"
+        android:title="Sign Up" />
+</menu>
