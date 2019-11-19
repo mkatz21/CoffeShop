@@ -3,4 +3,5 @@
     <string name="LabWebsiteLink"><a href="https://labcafe.tumblr.com">Lab</a></string>
     <string name="LabWebsiteStreet"><a href="https://labcafe.tumblr.com">505 E Liberty St #300</a></string>
     <string name="LabWebsiteCity"><a href="https://labcafe.tumblr.com">Ann Arbor, MI 48104</a></string>
+    <string name="title_activity_home_screen">HomeScreen</string>
 </resources>

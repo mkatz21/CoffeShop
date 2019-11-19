@@ -126,7 +126,7 @@
             android:id="@+id/labQRCode"
             android:layout_width="match_parent"
             android:layout_height="95dp"
-            app:srcCompat="@drawable/LabWebsiteQRCode" />
+            app:srcCompat="@drawable/labwebsiteqrcode" />
 
 </LinearLayout>
 </LinearLayout>
