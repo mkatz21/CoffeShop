@@ -3,9 +3,10 @@ package com.example.coffeshop;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
-public class AccountActivity extends AppCompatActivity {
+public class AccountActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button AccountDetails, PastReservations, Payments, Review;
 
@@ -19,10 +20,15 @@ public class AccountActivity extends AppCompatActivity {
 
 
 
-        AccountDetails = findViewById(AccountDetails);
-        PastReservations = findViewById(PastReservations);
-        Payments = findViewById(Payments);
-        Review = findViewById(Review);
+        AccountDetails = findViewById(R.id.AccountDetails);
+        PastReservations = findViewById(R.id.PastReservations);
+        Payments = findViewById(R.id.Payments);
+        Review = findViewById(R.id.Review);
     }
 
+    @Override
+    public void onClick(View v) {
+
+
+    }
 }
