@@ -9,6 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".BlomMeadworksActivity"></activity>
+        <activity android:name=".AvalonCoffeeActivity" />
+        <activity android:name=".CometCoffeeActivity" />
+        <activity android:name=".BlackDieselActivity" />
+        <activity android:name=".LiteratiActivity" />
+        <activity android:name=".VertexActivity" />
+        <activity android:name=".EspressoRoyaleActivity" />
+        <activity android:name=".RoosRoastActivity" />
         <activity android:name=".CheckInActivity" />
         <activity android:name=".AddPaymentMethodActivity" />
         <activity android:name=".MainPaymentActivity" />
