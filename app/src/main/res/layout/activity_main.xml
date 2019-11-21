@@ -9,18 +9,17 @@
 
     <HorizontalScrollView
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="170dp"
         android:scrollbars="none"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="118dp"
-        tools:ignore="MissingConstraints">
-
+        tools:layout_editor_absoluteY="65dp">
 
         <LinearLayout
-            android:id ="@+id/populargallery"
+            android:id="@+id/gallery"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:orientation="vertical" />
+            android:orientation="horizontal" />
     </HorizontalScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
