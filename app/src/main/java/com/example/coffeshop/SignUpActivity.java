@@ -3,7 +3,7 @@ package com.example.coffeshop;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
+//test
 public class SignUpActivity extends AppCompatActivity {
 
     @Override
