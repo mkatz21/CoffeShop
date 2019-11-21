@@ -5,13 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
-
 
     //Added a comment
 
@@ -20,8 +24,21 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        LinearLayout gallery = findViewById(R.id.gallery);
 
+        LayoutInflater inflater = LayoutInflater.from(this);
 
+        for (int i = 0; i <4; i++) {
+
+            View view = inflater.inflate(R.layout.homescreencoffeeshops, gallery, false);
+
+            TextView textView = view.findViewById(R.id.text);
+            textView.setText("coffeeshop"+i);
+
+            ImageView imageView = view.findViewById(R.id.imageView);
+            imageView.setImageResource(R.mipmap.ic_launcher);
+            gallery.addView(view);
+        }
     }
 
     @Override
