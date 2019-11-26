@@ -9,20 +9,20 @@ public class Payment {
     public String PaymentCreditCardName;
     public Integer PaymentZipCode;
     public Date PaymentExpirationDate;
-    public Integer PaymentCSVNumber;
+    public Integer PaymentCVVNumber;
     public Boolean PaymentPrimaryPayment;
     public String PaymentNickName;
 
     public Payment() {
     }
 
-    public Payment(String paymentUserName, Integer paymentCreditCardNumber, String paymentCreditCardName, Integer paymentZipCode, Date paymentExpirationDate, Integer paymentCSVNumber, Boolean paymentPrimaryPayment, String paymentNickName) {
+    public Payment(String paymentUserName, Integer paymentCreditCardNumber, String paymentCreditCardName, Integer paymentZipCode, Date paymentExpirationDate, Integer paymentCVVNumber, Boolean paymentPrimaryPayment, String paymentNickName) {
         PaymentUserName = paymentUserName;
         PaymentCreditCardNumber = paymentCreditCardNumber;
         PaymentCreditCardName = paymentCreditCardName;
         PaymentZipCode = paymentZipCode;
         PaymentExpirationDate = paymentExpirationDate;
-        PaymentCSVNumber = paymentCSVNumber;
+        PaymentCVVNumber = paymentCVVNumber;
         PaymentPrimaryPayment = paymentPrimaryPayment;
         PaymentNickName = paymentNickName;
     }
