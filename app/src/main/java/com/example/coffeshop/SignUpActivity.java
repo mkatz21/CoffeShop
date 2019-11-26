@@ -47,33 +47,41 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
 
-        String email = Email.getText().toString();
-        String password = Password.getText().toString();
+        //String email = Email.getText().toString();
+        //String password = Password.getText().toString();
 
         if (v==Create) {
 
-            makeNewUsers(email,password);
+            makeNewUsers(Email.getText().toString(), Password.getText().toString());
 
         } else if (v==Create) {
 
 
-            mAuth.signInWithEmailandPassword(email, password)
-                    .addOnCompleteListener(this,
-            if (task.isSuccessful()) {
 
-                Toast.makeText(SignUpActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-
-                Intent logoutIntent = new Intent (SignUpActivity.this, AccountActivity.class);
-                startActivity(logoutIntent);}
-
-            else {
-
-                Toast.makeText(SignUpActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
-
-
-            }
-        });
+        }
     }
+
+   public void makeNewUsers (String Email, String Password) {
+       mAuth.createUserWithEmailAndPassword(Email, Password)
+               .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                   @Override
+                   public void onComplete(@NonNull Task<AuthResult> task) {
+                       if (task.isSuccessful()) {
+
+                           Toast.makeText(SignUpActivity.this, "User Registration is Successful", Toast.LENGTH_SHORT).show();
+
+                       } else {
+
+                           Toast.makeText(SignUpActivity.this, "Failed to Register", Toast.LENGTH_SHORT).show();
+
+                       }
+
+                   }
+               });}
+
+
+
+
 
 
 // this was added from other screens?//
