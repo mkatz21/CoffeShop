@@ -8,16 +8,75 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.android.gms.tasks.OnCompleteListener;
+
 //test
-public class SignUpActivity extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
+
+    EditText FirstName, LastName, Email, PhoneNumber, Password, ConfirmPassword;
+    Button Create;
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
+        FirstName = findViewById(R.id.FirstName);
+        LastName = findViewById(R.id.LastName);
+        Email = findViewById(R.id.Email);
+        PhoneNumber = findViewById(R.id.PhoneNumber);
+        Password = findViewById(R.id.Password);
+        ConfirmPassword = findViewById(R.id.ConfirmPassword);
+
+        Create.setOnClickListener(this);
+
+
+        mAuth = FirebaseAuth.getInstance();
+
     }
+
+    @Override
+    public void onClick(View v) {
+
+        String email = Email.getText().toString();
+        String password = Password.getText().toString();
+
+        if (v==Create) {
+
+            makeNewUsers(email,password);
+
+        } else if (v==Create) {
+
+
+            mAuth.signInWithEmailandPassword(email, password)
+                    .addOnCompleteListener(this,
+            if (task.isSuccessful()) {
+
+                Toast.makeText(SignUpActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+
+                Intent logoutIntent = new Intent (SignUpActivity.this, AccountActivity.class);
+                startActivity(logoutIntent);}
+
+            else {
+
+                Toast.makeText(SignUpActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+    }
+
+
+// this was added from other screens?//
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
