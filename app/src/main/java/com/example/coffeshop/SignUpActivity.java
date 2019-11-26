@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.auth.FirebaseAuth;
 
 //test
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
@@ -47,14 +48,29 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
 
-        //String email = Email.getText().toString();
-        //String password = Password.getText().toString();
+        String email = Email.getText().toString();
+        String password = Password.getText().toString();
 
         if (v==Create) {
 
             makeNewUsers(Email.getText().toString(), Password.getText().toString());
 
         } else if (v==Create) {
+
+            mAuth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+
+                                Intent HomeIntent = new Intent(this, HomeActivity.class);
+                                startActivity(HomeIntent);
+
+                            }
+                            
+
+                        }
+                    });
 
 
 
