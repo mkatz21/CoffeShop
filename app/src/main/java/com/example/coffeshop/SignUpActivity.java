@@ -38,6 +38,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         Password = findViewById(R.id.Password);
         ConfirmPassword = findViewById(R.id.ConfirmPassword);
 
+        Create = findViewById(R.id.Create);
+
         Create.setOnClickListener(this);
 
 
@@ -63,11 +65,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
 
-                                Intent HomeIntent = new Intent(this, HomeActivity.class);
-                                startActivity(HomeIntent);
+                              Intent loginIntent =  new Intent(SignUpActivity.this, HomeActivity.class);
+                              startActivity(loginIntent);
+
 
                             }
-                            
+
 
                         }
                     });
