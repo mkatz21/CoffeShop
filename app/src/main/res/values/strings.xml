@@ -15,4 +15,10 @@
         <item>Private Two Person</item>
         <item>Private Four Person</item>
     </string-array>
+    <string-array name="duration">
+        <item>30 mins</item>
+        <item>1 hour</item>
+        <item>1.5 hours</item>
+        <item>2 hours</item>
+    </string-array>
 </resources>
