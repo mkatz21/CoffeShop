@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -18,6 +19,7 @@ import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.util.Calendar;
@@ -28,6 +30,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private  static final String TAG = "HomeActivity";
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+
+    private static final String TIME = "MainActivity";
+    private TextView mDisplayTime;
+    private TimePickerDialog.OnTimeSetListener mTimeSetListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +67,51 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d(TAG, "onDateSet: mm/dd/yyyy: " + month + "-" + day + "-" + year);
                 String selecteddate = month + "-" + day + "-" + year;
                 mDisplayDate.setText(selecteddate);
+            }
+        };
+        final TextView mDisplayTime = findViewById(R.id.textViewTime);
+        mDisplayTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Calendar cal = Calendar.getInstance();
+                int hour = cal.get(Calendar.HOUR);
+                int minute = cal.get(Calendar.MINUTE);
+                boolean isPM = (hour>=12);
+
+                TimePickerDialog dialogtime = new TimePickerDialog(
+                        HomeActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        (TimePickerDialog.OnTimeSetListener) mTimeSetListener,
+                        hour,minute,isPM);
+                dialogtime.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialogtime.show();
+            }
+        });
+
+        mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
+                String timeSet = "";
+                if (hour > 12) {
+                    hour -= 12;
+                    timeSet = "PM";
+                } else if (hour == 0) {
+                    hour += 12;
+                    timeSet = "AM";
+                } else if (hour == 12){
+                    timeSet = "PM";
+                }else{
+                    timeSet = "AM";
+                }
+
+                String min = "";
+                if (minute < 10)
+                    min = "0" + minute ;
+                else
+                    min = String.valueOf(minute);
+
+                String selectedtime = hour +":"+ minute+" "+timeSet.toString();
+                mDisplayTime.setText(selectedtime);
             }
         };
     }
