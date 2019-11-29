@@ -93,18 +93,18 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
     @Override
     public void onClick(View view) {
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference("Payment");
+        //FirebaseDatabase database = FirebaseDatabase.getInstance();
+        //final DatabaseReference myRef = database.getReference("Payment");
 
-        if (view == buttonSave) {
+        //if (view == buttonSave) {
 
-            String CreditCardNumber = editTextEnterCardNumber.getText().toString();
-            String ExpDate = editTextExpDate.getText().toString();
-            String CVV = editTextCVV.getText().toString();
-            String Zipcode = editTextZipCode.getText().toString();
+            //String CreditCardNumber = editTextEnterCardNumber.getText().toString();
+            //String ExpDate = editTextExpDate.getText().toString();
+            //String CVV = editTextCVV.getText().toString();
+            //String Zipcode = editTextZipCode.getText().toString();
 
-            Payment createPayment = new Payment(CreditCardNumber, ExpDate, CVV, Zipcode);
-            myRef.push().setValue(createPayment);
+            //Payment createPayment = new Payment(CreditCardNumber, ExpDate, CVV, Zipcode);
+            //myRef.push().setValue(createPayment);
 
     }
 }

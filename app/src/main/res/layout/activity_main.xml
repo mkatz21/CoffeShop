@@ -13,7 +13,7 @@
         android:scrollbars="none"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="65dp">
+        tools:layout_editor_absoluteY="122dp">
 
         <LinearLayout
             android:id="@+id/gallery"

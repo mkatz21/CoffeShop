@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewDate"
+        android:layout_width="91dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center_horizontal"
+        android:hint="Select Date"
+        android:textColor="#006064"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/avaloncoffeeimage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:onClick="showavalon"
+                android:src="@drawable/avaloncoffee" />
+
+            <ImageView
+                android:id="@+id/blackdieselimage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:onClick="showblackdiesel"
+                android:src="@drawable/blackdiesel" />
+
+            <ImageView
+                android:id="@+id/bloommeadworksimage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:onClick="showbloommeadworks"
+                android:src="@drawable/bloommeadworks" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/labimage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:onClick="showlab"
+                android:src="@drawable/labshopimage"/>
+
+            <ImageView
+                android:id="@+id/cometcoffeeimage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:onClick="showcomet"
+                android:src="@drawable/cometcoffee"/>
+
+            <ImageView
+                android:id="@+id/verteximage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:onClick="showvertex"
+                android:src="@drawable/vertexcoffeeroasters" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:id="@+id/literatiimage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:onClick="showliterati"
+                android:src="@drawable/literaticoffee" />
+
+            <ImageView
+                android:id="@+id/espressoimage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:onClick="showespresso"
+                android:src="@drawable/espressoroyale" />
+
+            <ImageView
+                android:id="@+id/roosroastimage"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="0dp"
+                android:onClick="showroosroast"
+                android:src="@drawable/roosroast" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</LinearLayout>

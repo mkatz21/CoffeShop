@@ -100,7 +100,7 @@
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/Third"
+        app:srcCompat="@drawable/third"
         tools:layout_editor_absoluteX="75dp"
         tools:layout_editor_absoluteY="31dp" />
 
