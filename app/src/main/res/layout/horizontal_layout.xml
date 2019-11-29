@@ -25,6 +25,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <RelativeLayout
+                android:id="@+id/relativeavalon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/avaloncoffeeimage"
                 android:layout_width="120dp"
@@ -33,6 +38,24 @@
                 android:layout_marginTop="0dp"
                 android:onClick="showavalon"
                 android:src="@drawable/avaloncoffee" />
+
+            <TextView
+                android:id="@+id/avalonabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/avaloncoffeeimage"
+                android:layout_centerInParent="true"
+                android:singleLine="true"
+                android:text="Avalon Cafe"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeblackdiesel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/blackdieselimage"
@@ -43,6 +66,24 @@
                 android:onClick="showblackdiesel"
                 android:src="@drawable/blackdiesel" />
 
+                <TextView
+                    android:id="@+id/blackdiesellabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/blackdieselimage"
+                    android:layout_centerInParent="true"
+                    android:singleLine="true"
+                    android:text="Black Diesel Coffee"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativebloom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/bloommeadworksimage"
                 android:layout_width="120dp"
@@ -51,6 +92,17 @@
                 android:layout_marginTop="0dp"
                 android:onClick="showbloommeadworks"
                 android:src="@drawable/bloommeadworks" />
+            <TextView
+                android:id="@+id/bloomlabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bloommeadworksimage"
+                android:layout_centerInParent="true"
+                android:singleLine="true"
+                android:text="Black Diesel Coffee"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+            </RelativeLayout>
 
         </LinearLayout>
     </HorizontalScrollView>
@@ -64,6 +116,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
+            <RelativeLayout
+                android:id="@+id/relativelab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/labimage"
@@ -74,6 +131,24 @@
                 android:onClick="showlab"
                 android:src="@drawable/labshopimage"/>
 
+            <TextView
+                android:id="@+id/lablabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/labimage"
+                android:layout_centerInParent="true"
+                android:singleLine="true"
+                android:text="lab"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativecomet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/cometcoffeeimage"
                 android:layout_width="120dp"
@@ -83,6 +158,24 @@
                 android:onClick="showcomet"
                 android:src="@drawable/cometcoffee"/>
 
+            <TextView
+                android:id="@+id/cometcoffeelabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cometcoffeeimage"
+                android:layout_centerInParent="true"
+                android:singleLine="true"
+                android:text="Comet Coffee"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativevertex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/verteximage"
                 android:layout_width="120dp"
@@ -91,6 +184,19 @@
                 android:layout_marginTop="0dp"
                 android:onClick="showvertex"
                 android:src="@drawable/vertexcoffeeroasters" />
+
+            <TextView
+                android:id="@+id/vertexlabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/verteximage"
+                android:layout_centerInParent="true"
+                android:singleLine="true"
+                android:text="Vertex Coffee Roasters"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            </RelativeLayout>
 
         </LinearLayout>
     </HorizontalScrollView>
@@ -105,6 +211,10 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <RelativeLayout
+                android:id="@+id/relativeliterati"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/literatiimage"
@@ -115,6 +225,23 @@
                 android:onClick="showliterati"
                 android:src="@drawable/literaticoffee" />
 
+            <TextView
+                android:id="@+id/literatilabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/literatiimage"
+                android:layout_centerInParent="true"
+                android:singleLine="true"
+                android:text="Literati Coffee"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeespresso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/espressoimage"
                 android:layout_width="120dp"
@@ -123,6 +250,24 @@
                 android:layout_marginTop="0dp"
                 android:onClick="showespresso"
                 android:src="@drawable/espressoroyale" />
+
+            <TextView
+                android:id="@+id/espressolabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/espressoimage"
+                android:layout_centerInParent="true"
+                android:singleLine="true"
+                android:text="Espresso Royale"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeroosroast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/roosroastimage"
@@ -133,6 +278,18 @@
                 android:onClick="showroosroast"
                 android:src="@drawable/roosroast" />
 
+            <TextView
+                android:id="@+id/roosroastlabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/roosroastimage"
+                android:layout_centerInParent="true"
+                android:singleLine="true"
+                android:text="Espresso Royale"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            </RelativeLayout>
         </LinearLayout>
     </HorizontalScrollView>
 
