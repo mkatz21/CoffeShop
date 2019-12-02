@@ -3,6 +3,30 @@
     <string name="LabWebsiteLink"><a href="https://labcafe.tumblr.com">Lab</a></string>
     <string name="LabWebsiteStreet"><a href="https://labcafe.tumblr.com">505 E Liberty St #300</a></string>
     <string name="LabWebsiteCity"><a href="https://labcafe.tumblr.com">Ann Arbor, MI 48104</a></string>
+    <string name="CometWebsiteLink"><a href="https://mkt.com/comet-coffee">Comet</a></string>
+    <string name="CometWebsiteStreet"><a href="https://mkt.com/comet-coffee">16 Nickels Arcade</a></string>
+    <string name="CometWebsiteCity"><a href="https://mkt.com/comet-coffee">Ann Arbor, MI 48104</a></string>
+    <string name="AvalonWebsiteLink"><a href="http://www.avalonbreads.net/avalon-cafe-and-kitchen-ann-arbor">Avalon Cafe</a></string>
+    <string name="AvalonWebsiteStreet"><a href="http://www.avalonbreads.net/avalon-cafe-and-kitchen-ann-arbor">120 E Liberty St</a></string>
+    <string name="AvalonWebsiteCity"><a href="http://www.avalonbreads.net/avalon-cafe-and-kitchen-ann-arbor">Ann Arbor, MI 48104</a></string>
+    <string name="BlackDieselWebsiteLink"><a href="https://blackdieselcoffee.com">Black Diesel</a></string>
+    <string name="BlackDieselWebsiteStreet"><a href="https://blackdieselcoffee.com">1423 E Stadium Blvd</a></string>
+    <string name="BlackDieselWebsiteCity"><a href="https://blackdieselcoffee.com">Ann Arbor, MI 48108</a></string>
+    <string name="BlomWebsiteLink"><a href="http://www.drinkblom.com">Blom Meadworks</a></string>
+    <string name="BlomWebsiteStreet"><a href="http://www.drinkblom.com">100 S 4th Ave #110</a></string>
+    <string name="BlomWebsiteCity"><a href="http://www.drinkblom.com">Ann Arbor, MI 48104</a></string>
+    <string name="EspressoRoyaleWebsiteLink"><a href="https://espressoroyalecoffee.com">Espresso Royale</a></string>
+    <string name="EspressoRoyaleWebsiteStreet"><a href="https://espressoroyalecoffee.com">324 S State St</a></string>
+    <string name="EspressoRoyaleWebsiteCity"><a href="https://espressoroyalecoffee.com">Ann Arbor, MI 48104</a></string>
+    <string name="LiteratiWebsiteLink"><a href="https://www.literatibookstore.com">Literati</a></string>
+    <string name="LiteratiWebsiteStreet"><a href="https://www.literatibookstore.com">124 E Washington St</a></string>
+    <string name="LiteratiWebsiteCity"><a href="https://www.literatibookstore.com">Ann Arbor, MI 48104</a></string>
+    <string name="RoosRoastWebsiteLink"><a href="https://www.roosroast.com">Lab</a></string>
+    <string name="RoosRoastWebsiteStreet"><a href="https://www.roosroast.com">117 E Liberty St</a></string>
+    <string name="RoosRoastWebsiteCity"><a href="https://www.roosroast.com">Ann Arbor, MI 48103</a></string>
+    <string name="VertexWebsiteLink"><a href="https://www.vertex-coffee.com">Vertex Coffee Roasters</a></string>
+    <string name="VertexWebsiteStreet"><a href="https://www.vertex-coffee.com">1335 S University Ave</a></string>
+    <string name="VertexWebsiteCity"><a href="https://www.vertex-coffee.com">Ann Arbor, MI 48104</a></string>
     <string-array name="reservation_duration_array">
         <item>30 mins</item>
         <item>60 mins</item>
@@ -14,5 +38,11 @@
         <item>Shared</item>
         <item>Private Two Person</item>
         <item>Private Four Person</item>
+    </string-array>
+    <string-array name="duration">
+        <item>30 mins</item>
+        <item>1 hour</item>
+        <item>1.5 hours</item>
+        <item>2 hours</item>
     </string-array>
 </resources>
