@@ -16,7 +16,13 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.auth.FacebookAuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+//import android.widget.Registration;
+
 
 //test
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
@@ -42,7 +48,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         Create.setOnClickListener(this);
 
-
         mAuth = FirebaseAuth.getInstance();
 
     }
@@ -50,16 +55,73 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
 
-        String email = Email.getText().toString();
-        String password = Password.getText().toString();
+        String firstName_string = FirstName.getText().toString();
+        String lastName_string = LastName.getText().toString();
+        String email_string = Email.getText().toString();
+        String phoneNumber_string = PhoneNumber.getText().toString();
+        String password_string = Password.getText().toString();
+        String confirmPassword_string = ConfirmPassword.getText().toString();
+
 
         if (v==Create) {
 
-            makeNewUsers(Email.getText().toString(), Password.getText().toString());
 
-        } else if (v==Create) {
 
-            mAuth.signInWithEmailAndPassword(email, password)
+            //makeNewUsers(firstName_string, lastName_string, email_string, phoneNumber_string, password_string, confirmPassword_string);
+
+
+
+                mAuth.createUserWithEmailAndPassword(email_string, password_string)
+                        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+
+                                    Toast.makeText(SignUpActivity.this, "User Registration is Successful", Toast.LENGTH_SHORT).show();
+
+
+                                    // Write a message to the database
+                                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+
+                                    final DatabaseReference myRef = database.getReference("Users");
+
+
+
+
+
+                                        String firstName_string = FirstName.getText().toString();
+                                        String lastName_string = LastName.getText().toString();
+                                        String email_string = Email.getText().toString();
+                                        String phoneNumber_string = PhoneNumber.getText().toString();
+
+
+                                      UserInfo myUser = new UserInfo();
+                                      myUser.userInfoFirstName = firstName_string;
+
+
+
+
+                                        myRef.push().setValue(myUser);
+
+
+
+
+                                } else {
+
+                                    Toast.makeText(SignUpActivity.this, "Failed to Register", Toast.LENGTH_SHORT).show();
+
+                                }
+
+                            }
+                        });
+
+
+
+        }
+
+/*        else if (v==Create) {
+
+            mAuth.signInWithEmailAndPassword(email_string, password_string)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
@@ -77,26 +139,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
 
-        }
+        }*/
     }
 
-   public void makeNewUsers (String Email, String Password) {
-       mAuth.createUserWithEmailAndPassword(Email, Password)
-               .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                   @Override
-                   public void onComplete(@NonNull Task<AuthResult> task) {
-                       if (task.isSuccessful()) {
-
-                           Toast.makeText(SignUpActivity.this, "User Registration is Successful", Toast.LENGTH_SHORT).show();
-
-                       } else {
-
-                           Toast.makeText(SignUpActivity.this, "Failed to Register", Toast.LENGTH_SHORT).show();
-
-                       }
-
-                   }
-               });}
 
 
 
