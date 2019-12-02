@@ -11,6 +11,7 @@ public String TableSize;
     }
 
     public Table(Boolean tableOutlet, Boolean tableShared, Integer tableSeatsNumber, String tableSize) {
+        //CoffeShopID = CoffeeShopInfo.key (Need to call the coffeeshopID here)
         TableOutlet = tableOutlet;
         TableShared = tableShared;
         TableSeatsNumber = tableSeatsNumber;
