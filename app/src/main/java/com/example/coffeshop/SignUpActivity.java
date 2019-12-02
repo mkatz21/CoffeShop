@@ -87,8 +87,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
 
-
-
                                         String firstName_string = FirstName.getText().toString();
                                         String lastName_string = LastName.getText().toString();
                                         String email_string = Email.getText().toString();
@@ -97,9 +95,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                                       UserInfo myUser = new UserInfo();
                                       myUser.userInfoFirstName = firstName_string;
-
-
-
+                                      myUser.userInfoLastName = lastName_string;
+                                      myUser.userInfoEmail = email_string;
+                                      
 
                                         myRef.push().setValue(myUser);
 
