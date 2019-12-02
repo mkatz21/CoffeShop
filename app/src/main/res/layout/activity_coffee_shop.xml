@@ -37,7 +37,7 @@
             android:gravity="center"
             android:orientation="horizontal">
         <TextView
-            android:id="@+id/textViewCoffeeShopActivityShop"
+            android:id="@+id/textViewCLabShop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -48,7 +48,7 @@
             android:linksClickable="true"/>
 
         <TextView
-            android:id="@+id/textViewCoffeeShopActivityRating"
+            android:id="@+id/textViewLabRating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -57,7 +57,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textViewCoffeeShopActivityStreet"
+            android:id="@+id/textViewLabStreet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -66,7 +66,7 @@
             android:autoLink="web"
             android:linksClickable="true"/>
         <TextView
-            android:id="@+id/textViewCoffeeShopActivityCity"
+            android:id="@+id/textViewLabCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
@@ -133,7 +133,7 @@
             android:text="Book Now!" />
 
         <TextView
-            android:id="@+id/textViewCoffeeShopActivityReviews"
+            android:id="@+id/textViewLabReviews"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
