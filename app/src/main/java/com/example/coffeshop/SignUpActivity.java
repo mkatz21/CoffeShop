@@ -97,10 +97,9 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                       myUser.userInfoFirstName = firstName_string;
                                       myUser.userInfoLastName = lastName_string;
                                       myUser.userInfoEmail = email_string;
-                                      
+
 
                                         myRef.push().setValue(myUser);
-
 
 
 
