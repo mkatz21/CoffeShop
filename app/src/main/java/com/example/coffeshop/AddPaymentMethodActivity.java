@@ -98,12 +98,12 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
 
         //if (view == buttonSave) {
 
-            //String CreditCardNumber = editTextEnterCardNumber.getText().toString();
-            //String ExpDate = editTextExpDate.getText().toString();
-            //String CVV = editTextCVV.getText().toString();
-            //String Zipcode = editTextZipCode.getText().toString();
+            //String PaymentCreditCardNumber = editTextEnterCardNumber.getText().toString();
+            //String PaymentExpDate = editTextExpDate.getText().toString();
+            //String PaymentCVVNumber = editTextCVV.getText().toString();
+            //String PaymentZipCode = editTextZipCode.getText().toString();
 
-            //Payment createPayment = new Payment(CreditCardNumber, ExpDate, CVV, Zipcode);
+            //Payment createPayment = new Payment(PaymentCreditCardNumber, PaymentExpDate, PaymentCVVNumber, PaymentZipCode);
             //myRef.push().setValue(createPayment);
 
     }
