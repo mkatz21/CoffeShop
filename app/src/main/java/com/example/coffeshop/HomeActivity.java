@@ -32,6 +32,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     private static final String TAG = "HomeActivity";
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
+    public String timeSend;
 
     private static final String TIME = "MainActivity";
     private TextView mDisplayTime;
@@ -123,6 +124,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                 String selectedtime = hour +":"+ minute+" "+timeSet.toString();
                 mDisplayTime.setText(selectedtime);
+                timeSend = selectedtime;
 
 
 
@@ -133,18 +135,24 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     //This is Avalon's clicklable image coding to redirect to its specific page
     public void showavalon (View view) {
         Intent avalonIntent = new Intent(this, AvalonCoffeeActivity.class);
+        avalonIntent.putExtra("date", dateSend);
+        avalonIntent.putExtra("time", timeSend);
         startActivity(avalonIntent);
     }
 
     //This is Black Diesel's clicklable image coding to redirect to its specific page
     public void showblackdiesel(View view) {
         Intent blackdieselIntent = new Intent(this, BlackDieselActivity.class);
+        blackdieselIntent.putExtra("date", dateSend);
+        blackdieselIntent.putExtra("time", timeSend);
         startActivity(blackdieselIntent);
     }
 
     //This is Bloommeadworks's clicklable image coding to redirect to its specific page
     public void showbloommeadworks(View view) {
         Intent bloommeadworksIntent = new Intent(this, BlomMeadworksActivity.class);
+        bloommeadworksIntent.putExtra("date", dateSend);
+        bloommeadworksIntent.putExtra("time", timeSend);
         startActivity(bloommeadworksIntent);
     }
 
@@ -152,36 +160,47 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void showlab(View view) {
         Intent labIntent = new Intent(this, CoffeeShopActivity.class);
         labIntent.putExtra("date", dateSend);
+        labIntent.putExtra("time", timeSend);
         startActivity(labIntent);
     }
 
     //This is Comet's clicklable image coding to redirect to its specific page
     public void showcomet(View view) {
         Intent cometIntent = new Intent(this, CometCoffeeActivity.class);
+        cometIntent.putExtra("date", dateSend);
+        cometIntent.putExtra("time", timeSend);
         startActivity(cometIntent);
     }
 
     //This is Vertex's clicklable image coding to redirect to its specific page
     public void showvertex(View view) {
         Intent vertexIntent = new Intent(this, VertexActivity.class);
+        vertexIntent.putExtra("date", dateSend);
+        vertexIntent.putExtra("time", timeSend);
         startActivity(vertexIntent);
     }
 
     //This is Literati's clicklable image coding to redirect to its specific page
     public void showliterati(View view) {
         Intent literatiIntent = new Intent(this, LiteratiActivity.class);
+        literatiIntent.putExtra("date", dateSend);
+        literatiIntent.putExtra("time", timeSend);
         startActivity(literatiIntent);
     }
 
     //This is Espresso's clicklable image coding to redirect to its specific page
     public void showespresso(View view) {
         Intent espressoIntent = new Intent(this, EspressoRoyaleActivity.class);
+        espressoIntent.putExtra("date", dateSend);
+        espressoIntent.putExtra("time", timeSend);
         startActivity(espressoIntent);
     }
 
     //This is RoosRoasts's clicklable image coding to redirect to its specific page
     public void showroosroast(View view) {
         Intent roosroastIntent = new Intent(this, RoosRoastActivity.class);
+        roosroastIntent.putExtra("date", dateSend);
+        roosroastIntent.putExtra("time", timeSend);
         startActivity(roosroastIntent);
     }
 

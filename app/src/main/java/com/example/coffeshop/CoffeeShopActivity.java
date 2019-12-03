@@ -18,8 +18,8 @@ import android.widget.Toast;
 public class CoffeeShopActivity extends AppCompatActivity implements View.OnClickListener {
     Spinner spinnerReservationDuration, spinnerReservationTableType;
     Button buttonCheckout;
-    String reservationCoffeeShop, reservationDate;
-    TextView textViewLab, textViewDate;
+    String reservationCoffeeShop, reservationDate, reservationTime;
+    TextView textViewLab, textViewDate, textViewTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +31,18 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
 
         textViewLab = findViewById(R.id.textViewLab);
         textViewDate = findViewById(R.id.textViewReservationDate);
+        textViewTime = findViewById(R.id.textViewReservationTime);
 
-        spinnerReservationDuration=findViewById(R.id.spinnerAvailabilityDuration);
+        spinnerReservationDuration=findViewById(R.id.spinnerReservationDuration);
 spinnerReservationTableType = findViewById(R.id.spinnerAvailabilityTableType);
 
 Intent labIntent =getIntent();
 if (labIntent != null){
     reservationDate = labIntent.getStringExtra("date");
     textViewDate.setText(reservationDate);
+    reservationTime = labIntent.getStringExtra("time");
+    textViewTime.setText(reservationTime);
+
 }
 
 

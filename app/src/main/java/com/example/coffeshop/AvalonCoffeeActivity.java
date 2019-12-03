@@ -8,24 +8,45 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class AvalonCoffeeActivity extends AppCompatActivity {
-
+public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnClickListener {
     Spinner spinnerReservationDuration, spinnerReservationTableType;
+    Button buttonCheckout;
+    String reservationCoffeeShop, reservationDate, reservationTime;
+    TextView textViewLab, textViewDate, textViewTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_avalon_coffee);
+        setContentView(R.layout.activity_coffee_shop);
 
-        spinnerReservationDuration=findViewById(R.id.spinnerAvailabilityDuration);
+        buttonCheckout = findViewById(R.id.buttonAvailabilityCheckout);
+        buttonCheckout.setOnClickListener(this);
+
+        textViewLab = findViewById(R.id.textViewLab);
+        textViewDate = findViewById(R.id.textViewReservationDate);
+        textViewTime = findViewById(R.id.textViewReservationTime);
+
+        spinnerReservationDuration=findViewById(R.id.spinnerReservationDuration);
         spinnerReservationTableType = findViewById(R.id.spinnerAvailabilityTableType);
 
+        Intent labIntent =getIntent();
+        if (labIntent != null){
+            reservationDate = labIntent.getStringExtra("date");
+            textViewDate.setText(reservationDate);
+            reservationTime = labIntent.getStringExtra("time");
+            textViewTime.setText(reservationTime);
 
-        // Create an ArrayAdapter using the string array and a default spinner layout
+        }
+
+
+// Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapterDuration = ArrayAdapter.createFromResource(this,
                 R.array.reservation_duration_array, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears
@@ -38,6 +59,10 @@ public class AvalonCoffeeActivity extends AppCompatActivity {
         adapterTableType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerReservationTableType.setAdapter(adapterTableType);
+
+
+
+
     }
 
     @Override
@@ -46,6 +71,8 @@ public class AvalonCoffeeActivity extends AppCompatActivity {
         inflater.inflate(R.menu.mainmenu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -81,5 +108,13 @@ public class AvalonCoffeeActivity extends AppCompatActivity {
             startActivity(signupIntent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == buttonCheckout){
+            reservationCoffeeShop = textViewLab.getText().toString();
+
+        }
     }
 }
