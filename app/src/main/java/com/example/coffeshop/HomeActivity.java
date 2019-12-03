@@ -15,9 +15,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -39,6 +41,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.horizontal_layout);
+
+        //This section is to create a duration dropdown menu
+        Spinner durationdropdown = findViewById(R.id.spinnerduration);
+        ArrayAdapter<CharSequence> adapter =ArrayAdapter.createFromResource(this,R.array.duration,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        durationdropdown.setAdapter(adapter);
+
 
         //This section is to create the date selector
         final TextView mDisplayDate = findViewById(R.id.textViewDate);
@@ -112,6 +121,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                 String selectedtime = hour +":"+ minute+" "+timeSet.toString();
                 mDisplayTime.setText(selectedtime);
+
+
+
             }
         };
     }

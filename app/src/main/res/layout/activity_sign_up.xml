@@ -7,116 +7,125 @@
     tools:context=".SignUpActivity">
 
     <EditText
-        android:id="@+id/FirstName"
-        android:layout_width="213dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="First Name"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="192dp" />
-
-    <EditText
-        android:id="@+id/Email"
-        android:layout_width="213dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Email"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="289dp" />
-
-    <EditText
-        android:id="@+id/Password"
-        android:layout_width="213dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Password"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="379dp" />
-
-    <Button
-        android:id="@+id/Create"
-        android:layout_width="145dp"
-        android:layout_height="48dp"
-        android:text="Create Account"
-        tools:layout_editor_absoluteX="123dp"
-        tools:layout_editor_absoluteY="499dp" />
-
-    <EditText
-        android:id="@+id/PhoneNumber"
-        android:layout_width="213dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Phone Number "
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="334dp" />
-
-    <EditText
-        android:id="@+id/ConfirmPassword"
-        android:layout_width="213dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Confirm Password"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="424dp" />
-
-    <EditText
-        android:id="@+id/LastName"
-        android:layout_width="213dp"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Last Name"
-        tools:layout_editor_absoluteX="89dp"
-        tools:layout_editor_absoluteY="244dp" />
-
-    <EditText
         android:id="@+id/editText7"
         android:layout_width="371dp"
         android:layout_height="74dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="128dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
         android:text="By signing up you agree to the Third Space Privacy Policy and Terms of Condition"
-        tools:layout_editor_absoluteX="20dp"
-        tools:layout_editor_absoluteY="595dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Create" />
 
     <EditText
         android:id="@+id/editText8"
         android:layout_width="213dp"
         android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:singleLine="true"
         android:text="CREATE AN ACCOUNT"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="125dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <EditText
+        android:id="@+id/LastName"
+        android:layout_width="213dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FirstName" />
+
+    <Button
+        android:id="@+id/Create"
+        android:layout_width="145dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="16dp"
+        android:text="Create Account"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ConfirmPassword" />
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="213dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="88dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PhoneNumber" />
+
+    <EditText
+        android:id="@+id/ConfirmPassword"
+        android:layout_width="213dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="88dp"
+        android:ems="10"
+        android:hint="Confirm Password"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Password" />
+
+    <EditText
+        android:id="@+id/FirstName"
+        android:layout_width="213dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="First Name"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText8" />
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="213dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="88dp"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LastName" />
+
+    <EditText
+        android:id="@+id/PhoneNumber"
+        android:layout_width="213dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="88dp"
+        android:ems="10"
+        android:hint="Phone Number"
+        android:inputType="textPersonName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Email" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/third"
-        tools:layout_editor_absoluteX="75dp"
-        tools:layout_editor_absoluteY="31dp" />
-
-    <ImageButton
-        android:id="@+id/home"
-        android:layout_width="79dp"
-        android:layout_height="61dp"
-        app:srcCompat="@drawable/house"
-        tools:layout_editor_absoluteX="240dp"
-        tools:layout_editor_absoluteY="823dp" />
+        android:layout_marginStart="75dp"
+        android:layout_marginTop="31dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/third" />
 
     <SearchView
         android:layout_width="56dp"
         android:layout_height="73dp"
-        tools:layout_editor_absoluteX="354dp"
-        tools:layout_editor_absoluteY="-1dp" >
+        android:layout_marginStart="61dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="parent">
 
     </SearchView>
 

@@ -26,4 +26,11 @@ public class UserInfo {
         this.userInfoCurrentZipcode = userInfoCurrentZipcode;
         this.userInfoImage = userInfoImage;
     }
+
+    public UserInfo(String userInfoPassword, String userInfoFirstName, String userInfoLastName, String userInfoEmail) {
+        this.userInfoPassword = userInfoPassword;
+        this.userInfoFirstName = userInfoFirstName;
+        this.userInfoLastName = userInfoLastName;
+        this.userInfoEmail = userInfoEmail;
+    }
 }
