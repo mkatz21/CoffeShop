@@ -70,6 +70,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             //makeNewUsers(firstName_string, lastName_string, email_string, phoneNumber_string, password_string, confirmPassword_string);
 
 
+            Toast.makeText(this, email_string + password_string, Toast.LENGTH_SHORT).show();
 
                 mAuth.createUserWithEmailAndPassword(email_string, password_string)
                         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -138,12 +139,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         }*/
     }
-
-
-
-
-
-
 
 // this was added from other screens?//
 
