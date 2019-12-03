@@ -29,13 +29,14 @@ import java.util.Calendar;
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
 
     //This section is to create the date selector variables
-    private  static final String TAG = "HomeActivity";
+    private static final String TAG = "HomeActivity";
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
     private static final String TIME = "MainActivity";
     private TextView mDisplayTime;
     private TimePickerDialog.OnTimeSetListener mTimeSetListener;
+    public String dateSend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +77,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d(TAG, "onDateSet: mm/dd/yyyy: " + month + "-" + day + "-" + year);
                 String selecteddate = month + "-" + day + "-" + year;
                 mDisplayDate.setText(selecteddate);
+                dateSend = selecteddate;
             }
         };
         final TextView mDisplayTime = findViewById(R.id.textViewTime);
@@ -149,6 +151,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     //This is Labs's clicklable image coding to redirect to its specific page
     public void showlab(View view) {
         Intent labIntent = new Intent(this, CoffeeShopActivity.class);
+        labIntent.putExtra("date", dateSend);
         startActivity(labIntent);
     }
 

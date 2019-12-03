@@ -37,7 +37,7 @@
             android:gravity="center"
             android:orientation="horizontal">
         <TextView
-            android:id="@+id/textViewCLabShop"
+            android:id="@+id/textViewLab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -74,6 +74,19 @@
             android:textAllCaps="false"
             android:autoLink="web"
             android:linksClickable="true"/>
+
+        <TextView
+            android:id="@+id/textViewReservationDate"
+            android:layout_width="91dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal"
+            android:hint="Select Date"
+            android:textColor="#006064"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:background="@drawable/textviewborder"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -127,10 +140,10 @@
                 android:spinnerMode="dropdown"/>
         </LinearLayout>
         <Button
-            android:id="@+id/buttonAvailabilityBookNow"
+            android:id="@+id/buttonAvailabilityCheckout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Book Now!" />
+            android:text="Check out" />
 
         <TextView
             android:id="@+id/textViewLabReviews"

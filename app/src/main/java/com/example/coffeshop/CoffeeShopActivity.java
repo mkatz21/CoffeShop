@@ -8,20 +8,39 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class CoffeeShopActivity extends AppCompatActivity {
+public class CoffeeShopActivity extends AppCompatActivity implements View.OnClickListener {
     Spinner spinnerReservationDuration, spinnerReservationTableType;
+    Button buttonCheckout;
+    String reservationCoffeeShop, reservationDate;
+    TextView textViewLab, textViewDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coffee_shop);
 
-spinnerReservationDuration=findViewById(R.id.spinnerAvailabilityDuration);
+        buttonCheckout = findViewById(R.id.buttonAvailabilityCheckout);
+        buttonCheckout.setOnClickListener(this);
+
+        textViewLab = findViewById(R.id.textViewLab);
+        textViewDate = findViewById(R.id.textViewReservationDate);
+
+        spinnerReservationDuration=findViewById(R.id.spinnerAvailabilityDuration);
 spinnerReservationTableType = findViewById(R.id.spinnerAvailabilityTableType);
+
+Intent labIntent =getIntent();
+if (labIntent != null){
+    reservationDate = labIntent.getStringExtra("date");
+    textViewDate.setText(reservationDate);
+}
+
 
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapterDuration = ArrayAdapter.createFromResource(this,
@@ -36,6 +55,10 @@ spinnerReservationTableType = findViewById(R.id.spinnerAvailabilityTableType);
         adapterTableType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinnerReservationTableType.setAdapter(adapterTableType);
+
+
+
+
     }
 
     @Override
@@ -44,6 +67,8 @@ spinnerReservationTableType = findViewById(R.id.spinnerAvailabilityTableType);
         inflater.inflate(R.menu.mainmenu, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -79,5 +104,13 @@ spinnerReservationTableType = findViewById(R.id.spinnerAvailabilityTableType);
             startActivity(signupIntent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == buttonCheckout){
+          reservationCoffeeShop = textViewLab.getText().toString();
+
+        }
     }
 }
