@@ -122,13 +122,18 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
         if (view == buttonBook) {
 
             String CreditCardName = editTextEnterCardNumber.getText().toString();
-                   String ExpirationDate = editTextExpDate.getText().toString();
-                 String CCVNumber = editTextCVV.getText().toString();
-               String PostalCode = editTextZipCode.getText().toString();
-             String Firstname = editTextFirstName.getText().toString();
-           String Lastname = editTextLastName.getText().toString();
+            String ExpirationDate = editTextExpDate.getText().toString();
+            String CCVNumber = editTextCVV.getText().toString();
+            String PostalCode = editTextZipCode.getText().toString();
+            String Firstname = editTextFirstName.getText().toString();
+            String Lastname = editTextLastName.getText().toString();
+            String UserReservationCoffeeShop = textViewCoffeeShopName.getText().toString();
+            String UserReservationDate = textViewDate.getText().toString();
+            String ReservationDuration = textViewDuration.getText().toString();
+            String ReservationTime = textViewTime.getText().toString();
 
-              UserReservation createUserReservation = new UserReservation(CreditCardName, ExpirationDate, CCVNumber, PostalCode, Firstname, Lastname);
+
+              UserReservation createUserReservation = new UserReservation(CreditCardName, ExpirationDate, CCVNumber, PostalCode, Firstname, Lastname, UserReservationCoffeeShop, UserReservationDate, ReservationDuration, ReservationTime);
               myRef.push().setValue(createUserReservation);
     }
 }}
