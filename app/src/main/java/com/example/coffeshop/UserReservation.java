@@ -11,9 +11,12 @@ public class UserReservation {
     public String PostalCode;
     public String ExpirationDate;
     public String CCVNumber;
+    public String ReservationDuration;
+    public String ReservationTime;
 
 
-    public UserReservation(String creditCardName, String expirationDate, String CCVNumber, String postalCode, String firstname, String lastname) {
+
+    public UserReservation(String UserReservationCoffeeShop, String UserReservationDate, String creditCardName, String expirationDate, String CCVNumber, String postalCode, String firstname, String lastname, String ReservationDuration, String ReservationTime) {
     }
 
     public UserReservation(String userReservationCoffeeShop, String userReservationDate, String userReservationBookingID, String firstname, String lastname, String creditCardName, String postalCode, String expirationDate, String CCVNumber) {
@@ -26,5 +29,7 @@ public class UserReservation {
         this.PostalCode = postalCode;
         this.ExpirationDate = expirationDate;
         this.CCVNumber = CCVNumber;
+        this.ReservationDuration = ReservationDuration;
+        this.ReservationTime = ReservationTime;
     }
 }
