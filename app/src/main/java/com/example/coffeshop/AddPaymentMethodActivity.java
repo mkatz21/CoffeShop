@@ -117,7 +117,7 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
     @Override
     public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference("UserReservation");
+        DatabaseReference myRef = database.getReference("UserReservation");
 
         if (view == buttonBook) {
 
