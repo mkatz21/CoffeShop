@@ -36,11 +36,11 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
         spinnerReservationDuration=findViewById(R.id.spinnerReservationDuration);
         spinnerReservationTableType = findViewById(R.id.spinnerAvailabilityTableType);
 
-        Intent labIntent =getIntent();
-        if (labIntent != null){
-            reservationDate = labIntent.getStringExtra("date");
+        Intent avalonIntent =getIntent();
+        if (avalonIntent != null){
+            reservationDate = avalonIntent.getStringExtra("date");
             textViewDate.setText(reservationDate);
-            reservationTime = labIntent.getStringExtra("time");
+            reservationTime = avalonIntent.getStringExtra("time");
             textViewTime.setText(reservationTime);
 
         }

@@ -117,16 +117,16 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
     @Override
     public void onClick(View view) {
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
-                DatabaseReference myRef = database.getReference("UserReservation");
+        final DatabaseReference myRef = database.getReference("UserReservation");
 
         if (view == buttonBook) {
 
             String CreditCardName = editTextEnterCardNumber.getText().toString();
-            String ExpirationDate = editTextExpDate.getText().toString();
-            String CCVNumber = editTextCVV.getText().toString();
-            String PostalCode = editTextZipCode.getText().toString();
-            String Firstname = editTextFirstName.getText().toString();
-            String Lastname = editTextLastName.getText().toString();
+                   String ExpirationDate = editTextExpDate.getText().toString();
+                 String CCVNumber = editTextCVV.getText().toString();
+               String PostalCode = editTextZipCode.getText().toString();
+             String Firstname = editTextFirstName.getText().toString();
+           String Lastname = editTextLastName.getText().toString();
 
               UserReservation createUserReservation = new UserReservation(CreditCardName, ExpirationDate, CCVNumber, PostalCode, Firstname, Lastname);
               myRef.push().setValue(createUserReservation);
