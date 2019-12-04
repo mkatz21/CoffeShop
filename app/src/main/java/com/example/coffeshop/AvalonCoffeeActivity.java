@@ -19,7 +19,7 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
     Spinner spinnerReservationDuration, spinnerReservationTableType;
     Button buttonCheckout;
     String reservationCoffeeShop, reservationDate, reservationTime;
-    TextView textViewLab, textViewDate, textViewTime;
+    TextView textViewAvalon, textViewDate, textViewTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
         buttonCheckout = findViewById(R.id.buttonAvailabilityCheckout);
         buttonCheckout.setOnClickListener(this);
 
-        textViewLab = findViewById(R.id.textViewLab);
+        textViewAvalon = findViewById(R.id.textViewAvalon);
         textViewDate = findViewById(R.id.textViewReservationDate);
         textViewTime = findViewById(R.id.textViewReservationTime);
 
@@ -113,7 +113,12 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View view) {
         if (view == buttonCheckout){
-            reservationCoffeeShop = textViewLab.getText().toString();
+            reservationCoffeeShop = textViewAvalon.getText().toString();
+            Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
+            reservationIntent.putExtra("date", reservationDate);
+            reservationIntent.putExtra("time", reservationTime);
+            reservationIntent.putExtra("Coffee Shop", reservationCoffeeShop);
+            startActivity(reservationIntent);
 
         }
     }
