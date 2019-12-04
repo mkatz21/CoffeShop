@@ -74,6 +74,47 @@
             android:textAllCaps="false"
             android:autoLink="web"
             android:linksClickable="true"/>
+        <RelativeLayout
+            android:id="@+id/relativeheader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/textViewReservationDate"
+                android:layout_width="91dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center_horizontal"
+                android:hint="Select Date"
+                android:textColor="#006064"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@drawable/textviewborder"/>
+
+            <TextView
+                android:id="@+id/textViewReservationTime"
+                android:layout_width="91dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="140dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center_horizontal"
+                android:hint="Select Time"
+                android:textColor="#006064"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@drawable/textviewborder"/>
+            <Spinner
+                android:id="@+id/spinnerReservationDuration"
+                android:layout_width="91dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="240dp"
+                android:layout_marginTop="30dp"
+                android:textColor="#006064"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:background="@drawable/textviewborder"
+                android:spinnerMode="dropdown"/>
+        </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -96,12 +137,6 @@
                 android:ems="10"
                 android:text="10:45am" />
 
-            <Spinner
-                android:id="@+id/spinnerAvailabilityOtherTimes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/btn_dropdown"
-                android:spinnerMode="dropdown"/>
         </LinearLayout>
 
         <LinearLayout
