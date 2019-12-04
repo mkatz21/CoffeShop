@@ -67,6 +67,7 @@ public class EspressoRoyaleActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 int selectionCurrent = spinnerReservationDuration.getSelectedItemPosition();
+
                 if (selectionCurrent == 0) {
                     textViewCurrentPrice.setText(formatter.format(dblthirtyprice));
                 } else if (selectionCurrent == 1) {
@@ -88,10 +89,24 @@ public class EspressoRoyaleActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 int selectiontabletype = spinnerReservationTableType.getSelectedItemPosition();
-                if (selectiontabletype == 1) {
+                int selectionCurrent = spinnerReservationDuration.getSelectedItemPosition();
+                if (selectiontabletype == 1 & selectionCurrent == 0) {
 
-                    editableprice = Double.parseDouble(textViewCurrentPrice.getText().toString());
-                    newprice = editableprice - dblshareddiscount;
+                    newprice = dblthirtyprice - dblshareddiscount;
+                    textViewCurrentPrice.setText(formatter.format(newprice));
+
+                } else if (selectiontabletype == 1 & selectionCurrent == 1) {
+
+                    newprice = dblhourprice - dblshareddiscount;
+                    textViewCurrentPrice.setText(formatter.format(newprice));
+
+                } else if (selectiontabletype == 1 & selectionCurrent == 2) {
+
+                    newprice = dblhourandhalfprice - dblshareddiscount;
+                    textViewCurrentPrice.setText(formatter.format(newprice));
+                } else if (selectiontabletype == 1 & selectionCurrent == 3) {
+
+                    newprice = dbltwohourprice - dblshareddiscount;
                     textViewCurrentPrice.setText(formatter.format(newprice));
 
                 }
