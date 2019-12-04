@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "586865790686-7tthmnp8fik9lfa8cp1dbg0jfrh364r0.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.coffeshop",
-            "certificate_hash": "ca0ba08f1077548d4c87cfd569edbfceadb98012"
-          }
-        },
-        {
           "client_id": "586865790686-u8ls3rnsosab4iqflg4om4pbqufqo07f.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -46,3 +38,4 @@
   ],
   "configuration_version": "1"
 }
+

@@ -7,7 +7,7 @@
     tools:context=".AddPaymentMethodActivity">
 
     <TextView
-        android:id="@+id/textViewthird.space"
+        android:id="@+id/textViewthirdspace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.142"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewthird.space" />
+        app:layout_constraintTop_toTopOf="@+id/textViewthirdspace" />
 
     <EditText
         android:id="@+id/editTextEnterCardNumber"
@@ -101,7 +101,7 @@
         android:text="Reservation Summary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewthird.space" />
+        app:layout_constraintTop_toTopOf="@+id/textViewthirdspace" />
 
     <TextView
         android:id="@+id/textViewCoffeeShopName"
@@ -154,10 +154,10 @@
         android:text="Payment Summary "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewthird.space" />
+        app:layout_constraintTop_toTopOf="@+id/textViewthirdspace" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/textViewTotal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="125dp"
@@ -186,7 +186,7 @@
         android:text="Enter Reservation Details"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textViewthird.space" />
+        app:layout_constraintTop_toTopOf="@+id/textViewthirdspace" />
 
     <EditText
         android:id="@+id/editTextFirstName"

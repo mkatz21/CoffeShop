@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AddPaymentMethodActivity extends AppCompatActivity implements View.OnClickListener {
@@ -59,9 +60,10 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
     }
 
 
-    // Part A, Identify all of the edit texts and buttons
-    Button buttonSave;
-    EditText editTextEnterCardNumber,editTextExpDate, editTextCVV, editTextZipCode;
+    // Part A, Identify all of the components (edit texts, buttons, view texts)
+    Button buttonBook;
+    EditText editTextFirstName, editTextLastName, editTextEnterCardNumber,editTextExpDate, editTextCVV, editTextZipCode;
+    TextView textViewthirdspace, textViewReservationSummary, textViewCoffeeShopName, textViewDuration, textViewDate, textViewTime, textViewPaymentSummary, textViewTotal, textViewTotalAmount, textViewReservationDetails, textViewCCInfo;
 
 
     @Override
@@ -70,16 +72,30 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
         setContentView(R.layout.activity_add_payment_method);
 
 
-        //Part B find buttons
 
-        buttonSave = findViewById(R.id.buttonBook);
 
+        buttonBook = findViewById(R.id.buttonBook);
+
+        editTextFirstName = findViewById(R.id.editTextFirstName);
+        editTextLastName = findViewById(R.id.editTextLastName);
         editTextEnterCardNumber = findViewById(R.id.editTextEnterCardNumber);
         editTextExpDate = findViewById(R.id.editTextExpDate);
         editTextCVV = findViewById(R.id.editTextCVV);
         editTextZipCode = findViewById(R.id.editTextZipCode);
 
-        buttonSave.setOnClickListener(this);
+        textViewthirdspace = findViewById(R.id.textViewthirdspace);
+        textViewReservationSummary = findViewById(R.id.textViewReservationSummary);
+        textViewCoffeeShopName = findViewById(R.id.textViewCoffeeShopName);
+        textViewDuration = findViewById(R.id.textViewDuration);
+        textViewDate = findViewById(R.id.textViewDate);
+        textViewTime = findViewById(R.id.textViewTime);
+        textViewPaymentSummary = findViewById(R.id.textViewPaymentSummary);
+        textViewTotal = findViewById(R.id.textViewTotal);
+        textViewTotalAmount = findViewById(R.id.textViewTotalAmount);
+        textViewReservationDetails = findViewById(R.id.textViewReservationDetails);
+        textViewCCInfo = findViewById(R.id.textViewCCInfo);
+
+        buttonBook.setOnClickListener(this);
 
     }
 
@@ -88,9 +104,9 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
     public void onClick(View view) {
 
         //FirebaseDatabase database = FirebaseDatabase.getInstance();
-        //final DatabaseReference myRef = database.getReference("Payment");
+        //final DatabaseReference myRef = database.getReference("User Reservation");
 
-        //if (view == buttonSave) {
+        //if (view == buttonBook) {
 
             //String PaymentCreditCardNumber = editTextEnterCardNumber.getText().toString();
             //String PaymentExpDate = editTextExpDate.getText().toString();
