@@ -133,6 +133,13 @@
             android:text="Book Now!" />
 
         <TextView
+            android:id="@+id/textViewCurrentPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Price" />
+
+        <TextView
             android:id="@+id/textViewEspressoRoyaleReviews"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
