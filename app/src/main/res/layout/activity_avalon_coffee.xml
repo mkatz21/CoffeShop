@@ -162,10 +162,10 @@
                 android:spinnerMode="dropdown"/>
         </LinearLayout>
         <Button
-            android:id="@+id/buttonAvailabilityBookNow"
+            android:id="@+id/buttonAvailabilityCheckout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Book Now!" />
+            android:text="Check out" />
 
         <TextView
             android:id="@+id/textViewAvalonReviews"
