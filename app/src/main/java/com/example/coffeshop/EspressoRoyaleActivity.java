@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,10 +23,10 @@ import org.w3c.dom.Text;
 import java.text.NumberFormat;
 
 public class EspressoRoyaleActivity extends AppCompatActivity implements View.OnClickListener {
-
     Spinner spinnerReservationDuration, spinnerReservationTableType;
     TextView textViewCurrentPrice;
     Button buttonAvailabilityTime1;
+
 
     //Declare prices
     Double dblthirtyprice = 5.00;
@@ -176,4 +177,5 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
             }
         }
     }
+
 }
