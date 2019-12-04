@@ -24,7 +24,7 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_coffee_shop);
+        setContentView(R.layout.activity_avalon_coffee);
 
         buttonCheckout = findViewById(R.id.buttonAvailabilityCheckout);
         buttonCheckout.setOnClickListener(this);
@@ -36,11 +36,11 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
         spinnerReservationDuration=findViewById(R.id.spinnerReservationDuration);
         spinnerReservationTableType = findViewById(R.id.spinnerAvailabilityTableType);
 
-        Intent avalonIntent =getIntent();
-        if (avalonIntent != null){
-            reservationDate = avalonIntent.getStringExtra("date");
+        Intent labIntent =getIntent();
+        if (labIntent != null){
+            reservationDate = labIntent.getStringExtra("date");
             textViewDate.setText(reservationDate);
-            reservationTime = avalonIntent.getStringExtra("time");
+            reservationTime = labIntent.getStringExtra("time");
             textViewTime.setText(reservationTime);
 
         }
