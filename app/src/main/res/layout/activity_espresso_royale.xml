@@ -110,6 +110,7 @@
             android:gravity="center"
             android:orientation="horizontal">
 
+
             <Spinner
                 android:id="@+id/spinnerAvailabilityDuration"
                 android:layout_width="wrap_content"
@@ -126,6 +127,7 @@
                 android:background="@android:drawable/btn_dropdown"
                 android:spinnerMode="dropdown"/>
         </LinearLayout>
+
         <Button
             android:id="@+id/buttonAvailabilityBookNow"
             android:layout_width="match_parent"

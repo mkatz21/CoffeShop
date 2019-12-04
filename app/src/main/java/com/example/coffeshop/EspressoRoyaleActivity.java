@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,10 +21,11 @@ import org.w3c.dom.Text;
 
 import java.text.NumberFormat;
 
-public class EspressoRoyaleActivity extends AppCompatActivity {
+public class EspressoRoyaleActivity extends AppCompatActivity implements View.OnClickListener {
 
     Spinner spinnerReservationDuration, spinnerReservationTableType;
     TextView textViewCurrentPrice;
+    Button buttonAvailabilityTime1;
 
     //Declare prices
     Double dblthirtyprice = 5.00;
@@ -30,7 +33,6 @@ public class EspressoRoyaleActivity extends AppCompatActivity {
     Double dblhourandhalfprice = 15.00;
     Double dbltwohourprice = 20.00;
     Double dblshareddiscount = 3.00;
-    double editableprice;
     double newprice;
 
     NumberFormat formatter = NumberFormat.getCurrencyInstance();
@@ -42,9 +44,12 @@ public class EspressoRoyaleActivity extends AppCompatActivity {
 
         textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
 
-        spinnerReservationDuration=findViewById(R.id.spinnerAvailabilityDuration);
+        spinnerReservationDuration = findViewById(R.id.spinnerAvailabilityDuration);
         spinnerReservationTableType = findViewById(R.id.spinnerAvailabilityTableType);
 
+        buttonAvailabilityTime1 = findViewById(R.id.buttonAvailabilityTime1);
+
+        buttonAvailabilityTime1.setOnClickListener(this);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapterDuration = ArrayAdapter.createFromResource(this,
@@ -60,7 +65,7 @@ public class EspressoRoyaleActivity extends AppCompatActivity {
         //This code is to change the checkout price as reservation table type changes
         spinnerReservationTableType.setAdapter(adapterTableType);
 
-            //This code is to change the checkout price as duration changes
+        //This code is to change the checkout price as duration changes
         spinnerReservationDuration.setAdapter(adapterDuration);
         spinnerReservationDuration.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -119,6 +124,7 @@ public class EspressoRoyaleActivity extends AppCompatActivity {
         });
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -128,37 +134,46 @@ public class EspressoRoyaleActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.MainPayment) {
+        if (item.getItemId() == R.id.MainPayment) {
 
             Intent mainPaymentIntent = new Intent(this, MainPaymentActivity.class);
             startActivity(mainPaymentIntent);
 
-        } else if(item.getItemId() == R.id.CoffeeShop) {
+        } else if (item.getItemId() == R.id.CoffeeShop) {
 
             Toast.makeText(this, "You are already on the Coffee Shop Page", Toast.LENGTH_SHORT).show();
 
-        } else if(item.getItemId() == R.id.Account) {
+        } else if (item.getItemId() == R.id.Account) {
 
             Intent accountIntent = new Intent(this, AccountActivity.class);
             startActivity(accountIntent);
 
-        } else if(item.getItemId() == R.id.AddPayment) {
+        } else if (item.getItemId() == R.id.AddPayment) {
 
             Intent addPaymentIntent = new Intent(this, AddPaymentMethodActivity.class);
             startActivity(addPaymentIntent);
-        } else if(item.getItemId() == R.id.CheckIn) {
+        } else if (item.getItemId() == R.id.CheckIn) {
 
             Intent checkInIntent = new Intent(this, CheckInActivity.class);
             startActivity(checkInIntent);
-        } else if(item.getItemId() == R.id.Home) {
+        } else if (item.getItemId() == R.id.Home) {
 
             Intent homeIntent = new Intent(this, HomeActivity.class);
             startActivity(homeIntent);
-        } else if(item.getItemId() == R.id.SignUp) {
+        } else if (item.getItemId() == R.id.SignUp) {
 
             Intent signupIntent = new Intent(this, SignUpActivity.class);
             startActivity(signupIntent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == buttonAvailabilityTime1) {
+            {
+                buttonAvailabilityTime1.setBackgroundColor(Color.GREEN);
+            }
+        }
     }
 }
