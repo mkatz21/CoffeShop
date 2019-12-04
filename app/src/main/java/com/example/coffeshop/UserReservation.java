@@ -10,13 +10,13 @@ public class UserReservation {
     public String CreditCardName;
     public String PostalCode;
     public String ExpirationDate;
-    public int CCVNumber;
+    public String CCVNumber;
 
 
-    public UserReservation() {
+    public UserReservation(String creditCardName, String expirationDate, String CCVNumber, String postalCode, String firstname, String lastname) {
     }
 
-    public UserReservation(String userReservationCoffeeShop, String userReservationDate, String userReservationBookingID, String firstname, String lastname, String creditCardName, String postalCode, String expirationDate, int CCVNumber) {
+    public UserReservation(String userReservationCoffeeShop, String userReservationDate, String userReservationBookingID, String firstname, String lastname, String creditCardName, String postalCode, String expirationDate, String CCVNumber) {
         this.UserReservationCoffeeShop = userReservationCoffeeShop;
         this.UserReservationDate = userReservationDate;
         this.UserReservationBookingID = userReservationBookingID;

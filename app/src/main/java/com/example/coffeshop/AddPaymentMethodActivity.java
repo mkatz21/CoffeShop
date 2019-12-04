@@ -14,6 +14,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class AddPaymentMethodActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
@@ -103,18 +106,20 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
     @Override
     public void onClick(View view) {
 
-        //FirebaseDatabase database = FirebaseDatabase.getInstance();
-        //final DatabaseReference myRef = database.getReference("User Reservation");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("User Reservation");
 
-        //if (view == buttonBook) {
+        if (view == buttonBook) {
 
-            //String CreditCardName = editTextEnterCardNumber.getText().toString();
-            //String ExpirationDate = editTextExpDate.getText().toString();
-            //String PaymentCVVNumber = editTextCVV.getText().toString();
-            //String PaymentZipCode = editTextZipCode.getText().toString();
+            String CreditCardName = editTextEnterCardNumber.getText().toString();
+            String ExpirationDate = editTextExpDate.getText().toString();
+            String CCVNumber = editTextCVV.getText().toString();
+            String PostalCode = editTextZipCode.getText().toString();
+            String Firstname = editTextFirstName.getText().toString();
+            String Lastname = editTextLastName.getText().toString();
 
-            //Payment createPayment = new Payment(PaymentCreditCardNumber, PaymentExpDate, PaymentCVVNumber, PaymentZipCode);
-            //myRef.push().setValue(createPayment);
+            UserReservation createUserReservation = new UserReservation(CreditCardName, ExpirationDate, CCVNumber, PostalCode, Firstname, Lastname);
+            myRef.push().setValue(createUserReservation);
 
     }
-}
+}}
