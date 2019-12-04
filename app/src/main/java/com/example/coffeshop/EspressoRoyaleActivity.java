@@ -30,6 +30,8 @@ public class EspressoRoyaleActivity extends AppCompatActivity {
     Double dblhourandhalfprice = 15.00;
     Double dbltwohourprice = 20.00;
     Double dblshareddiscount = 3.00;
+    double editableprice;
+    double newprice;
 
     NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
@@ -49,14 +51,17 @@ public class EspressoRoyaleActivity extends AppCompatActivity {
                 R.array.reservation_duration_array, android.R.layout.simple_spinner_item);
 // Specify the layout to use when the list of choices appears
         adapterDuration.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-        spinnerReservationDuration.setAdapter(adapterDuration);
 
+        // Apply the adapter to the spinner
         ArrayAdapter<CharSequence> adapterTableType = ArrayAdapter.createFromResource(this,
                 R.array.reservation_table_type_array, android.R.layout.simple_spinner_item);
         adapterTableType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
+        //This code is to change the checkout price as reservation table type changes
         spinnerReservationTableType.setAdapter(adapterTableType);
+
+            //This code is to change the checkout price as duration changes
+        spinnerReservationDuration.setAdapter(adapterDuration);
         spinnerReservationDuration.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
@@ -79,6 +84,24 @@ public class EspressoRoyaleActivity extends AppCompatActivity {
             }
         });
 
+        spinnerReservationTableType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                int selectiontabletype = spinnerReservationTableType.getSelectedItemPosition();
+                if (selectiontabletype == 1) {
+
+                    editableprice = Double.parseDouble(textViewCurrentPrice.getText().toString());
+                    newprice = editableprice - dblshareddiscount;
+                    textViewCurrentPrice.setText(formatter.format(newprice));
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     @Override
