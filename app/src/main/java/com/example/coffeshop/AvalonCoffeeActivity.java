@@ -24,7 +24,7 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_avalon_coffee);
+        setContentView(R.layout.activity_coffee_shop);
 
         buttonCheckout = findViewById(R.id.buttonAvailabilityCheckout);
         buttonCheckout.setOnClickListener(this);
