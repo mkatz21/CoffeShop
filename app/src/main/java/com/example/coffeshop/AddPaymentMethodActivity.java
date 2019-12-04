@@ -108,8 +108,8 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
 
         //if (view == buttonBook) {
 
-            //String PaymentCreditCardNumber = editTextEnterCardNumber.getText().toString();
-            //String PaymentExpDate = editTextExpDate.getText().toString();
+            //String CreditCardName = editTextEnterCardNumber.getText().toString();
+            //String ExpirationDate = editTextExpDate.getText().toString();
             //String PaymentCVVNumber = editTextCVV.getText().toString();
             //String PaymentZipCode = editTextZipCode.getText().toString();
 
