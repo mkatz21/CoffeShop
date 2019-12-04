@@ -136,4 +136,9 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
               UserReservation createUserReservation = new UserReservation(CreditCardName, ExpirationDate, CCVNumber, PostalCode, Firstname, Lastname, UserReservationCoffeeShop, UserReservationDate, ReservationDuration, ReservationTime);
               myRef.push().setValue(createUserReservation);
     }
+
+        if (view == buttonBook){
+            Toast.makeText(this, "Your Reservation Has Been Booked!", Toast.LENGTH_SHORT).show();
+
+        }
 }}
