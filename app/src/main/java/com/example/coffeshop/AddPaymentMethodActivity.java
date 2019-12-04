@@ -19,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class AddPaymentMethodActivity extends AppCompatActivity implements View.OnClickListener {
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -68,6 +69,7 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
     EditText editTextFirstName, editTextLastName, editTextEnterCardNumber,editTextExpDate, editTextCVV, editTextZipCode;
     TextView textViewthirdspace, textViewReservationSummary, textViewCoffeeShopName, textViewDuration, textViewDate, textViewTime, textViewPaymentSummary, textViewTotal, textViewTotalAmount, textViewReservationDetails, textViewCCInfo;
 
+    String reservationCoffeeShop, reservationDate, reservationTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,26 +102,33 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
 
         buttonBook.setOnClickListener(this);
 
+        Intent reservationIntent =getIntent();
+        if (reservationIntent != null){
+            reservationDate = reservationIntent.getStringExtra("date");
+            textViewDate.setText(reservationDate);
+            reservationTime = reservationIntent.getStringExtra("time");
+            textViewTime.setText(reservationTime);
+            reservationCoffeeShop = reservationIntent.getStringExtra("Coffee Shop");
+            textViewCoffeeShopName.setText(reservationCoffeeShop);
     }
 
+    }
 
     @Override
     public void onClick(View view) {
-
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
+                FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference("User Reservation");
 
         if (view == buttonBook) {
 
             String CreditCardName = editTextEnterCardNumber.getText().toString();
-            String ExpirationDate = editTextExpDate.getText().toString();
-            String CCVNumber = editTextCVV.getText().toString();
-            String PostalCode = editTextZipCode.getText().toString();
-            String Firstname = editTextFirstName.getText().toString();
-            String Lastname = editTextLastName.getText().toString();
+                   String ExpirationDate = editTextExpDate.getText().toString();
+                 String CCVNumber = editTextCVV.getText().toString();
+               String PostalCode = editTextZipCode.getText().toString();
+             String Firstname = editTextFirstName.getText().toString();
+           String Lastname = editTextLastName.getText().toString();
 
-            UserReservation createUserReservation = new UserReservation(CreditCardName, ExpirationDate, CCVNumber, PostalCode, Firstname, Lastname);
-            myRef.push().setValue(createUserReservation);
-
+              UserReservation createUserReservation = new UserReservation(CreditCardName, ExpirationDate, CCVNumber, PostalCode, Firstname, Lastname);
+              myRef.push().setValue(createUserReservation);
     }
 }}

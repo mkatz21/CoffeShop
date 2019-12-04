@@ -114,6 +114,11 @@ if (labIntent != null){
     public void onClick(View view) {
         if (view == buttonCheckout){
           reservationCoffeeShop = textViewLab.getText().toString();
+            Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
+            reservationIntent.putExtra("date", reservationDate);
+            reservationIntent.putExtra("time", reservationTime);
+            reservationIntent.putExtra("Coffee Shop", reservationCoffeeShop);
+            startActivity(reservationIntent);
 
         }
     }
