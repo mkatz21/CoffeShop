@@ -47,13 +47,6 @@
                 android:autoLink="web"
                 android:linksClickable="true"/>
 
-            <TextView
-                android:id="@+id/textViewRating"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="     * * * *"
-                android:textAllCaps="false" />
         </LinearLayout>
 
         <TextView
@@ -142,10 +135,10 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/buttonAvailabilityCheckout"
+            android:id="@+id/buttonAvailabilityTime1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Check out" />
+            android:text="Availability" />
 
         <TextView
             android:id="@+id/textViewCurrentPrice"
@@ -154,12 +147,6 @@
             android:gravity="center_horizontal"
             android:text="Price" />
 
-        <TextView
-            android:id="@+id/textViewEspressoRoyaleReviews"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Reviews" />
 
 
     </LinearLayout>
