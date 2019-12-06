@@ -172,8 +172,6 @@ public class VertexActivity extends AppCompatActivity implements View.OnClickLis
                 mDisplayTime.setText(selectedtime);
                 reservationTime = selectedtime;
 
-
-
             }
         };
     }

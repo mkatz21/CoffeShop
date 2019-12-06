@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/thridspacetext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="third.space"
+        android:textStyle="bold"
+        android:layout_marginStart="150dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.032" />
 
     <RelativeLayout
         android:id="@+id/relativeheader"
@@ -14,7 +29,7 @@
             android:layout_width="91dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="140dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
             android:text="Time"
             android:textColor="#006064"
@@ -27,7 +42,7 @@
             android:layout_width="91dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
             android:text="Date"
             android:textColor="#006064"
@@ -40,7 +55,7 @@
             android:layout_width="91dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="240dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
             android:text="Duration"
             android:textColor="#006064"
@@ -53,7 +68,7 @@
             android:layout_width="91dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="240dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="23dp"
             android:textColor="#006064"
             android:textSize="12sp"
             android:textStyle="bold"
@@ -65,7 +80,7 @@
             android:layout_width="91dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="140dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="23dp"
             android:gravity="center_horizontal"
             android:hint="Select Time"
             android:textColor="#006064"
@@ -78,7 +93,7 @@
             android:layout_width="91dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="23dp"
             android:gravity="center_horizontal"
             android:hint="Select Date"
             android:textColor="#006064"
@@ -118,8 +133,8 @@
 
             <ImageView
                 android:id="@+id/avaloncoffeeimage"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="0dp"
                 android:onClick="showavalon"
@@ -145,8 +160,8 @@
 
             <ImageView
                 android:id="@+id/blackdieselimage"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="0dp"
                 android:onClick="showblackdiesel"
@@ -172,8 +187,8 @@
 
             <ImageView
                 android:id="@+id/bloommeadworksimage"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="0dp"
                 android:onClick="showbloommeadworks"
@@ -222,8 +237,8 @@
 
             <ImageView
                 android:id="@+id/labimage"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="0dp"
                 android:onClick="showlab"
@@ -249,8 +264,8 @@
 
             <ImageView
                 android:id="@+id/cometcoffeeimage"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="0dp"
                 android:onClick="showcomet"
@@ -276,8 +291,8 @@
 
             <ImageView
                 android:id="@+id/verteximage"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="0dp"
                 android:onClick="showvertex"
@@ -328,8 +343,8 @@
 
             <ImageView
                 android:id="@+id/literatiimage"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="0dp"
                 android:onClick="showliterati"
@@ -354,8 +369,8 @@
 
             <ImageView
                 android:id="@+id/espressoimage"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="0dp"
                 android:onClick="showespresso"
@@ -381,8 +396,8 @@
 
             <ImageView
                 android:id="@+id/roosroastimage"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="0dp"
                 android:onClick="showroosroast"
@@ -403,12 +418,6 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <ImageView
-        android:layout_width="120dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginStart="125dp"
-        android:src="@drawable/third"/>
 
 </LinearLayout>
 
