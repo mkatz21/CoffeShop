@@ -200,7 +200,7 @@
                 android:layout_below="@id/bloommeadworksimage"
                 android:layout_centerInParent="true"
                 android:singleLine="true"
-                android:text="Black Diesel Coffee"
+                android:text="Blom Meadworks"
                 android:textSize="12sp"
                 android:textStyle="bold" />
             </RelativeLayout>
@@ -410,7 +410,7 @@
                 android:layout_below="@id/roosroastimage"
                 android:layout_centerInParent="true"
                 android:singleLine="true"
-                android:text="Espresso Royale"
+                android:text="Roos Roast"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 

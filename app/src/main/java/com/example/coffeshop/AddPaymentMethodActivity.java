@@ -69,7 +69,7 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
     EditText editTextFirstName, editTextLastName, editTextEnterCardNumber,editTextExpDate, editTextCVV, editTextZipCode;
     TextView textViewthirdspace, textViewReservationSummary, textViewCoffeeShopName, textViewDuration, textViewDate, textViewTime, textViewPaymentSummary, textViewTotal, textViewTotalAmount, textViewReservationDetails, textViewCCInfo;
 
-    String reservationCoffeeShop, reservationDate, reservationTime;
+    String reservationCoffeeShop, reservationDate, reservationTime, reservationprice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +110,7 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
             textViewTime.setText(reservationTime);
             reservationCoffeeShop = reservationIntent.getStringExtra("Coffee Shop");
             textViewCoffeeShopName.setText(reservationCoffeeShop);
+            textViewPaymentSummary.setText(reservationprice);
     }
 
     }

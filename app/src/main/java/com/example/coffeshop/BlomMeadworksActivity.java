@@ -30,7 +30,7 @@ import java.util.Calendar;
 public class BlomMeadworksActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener{
 
-    String reservationCoffeeShop, reservationDate, reservationTime;
+    String reservationCoffeeShop, reservationDate, reservationTime, reservationprice;
     TextView textViewBlom, textViewDate, textViewTime;
 
     Spinner spinnerBMtimeslots;
@@ -226,10 +226,12 @@ public class BlomMeadworksActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
         if (view == buttonAvailabilityBookNow){
             reservationCoffeeShop = textViewBlom.getText().toString();
+            reservationprice = textViewCurrentPrice.getText().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
             reservationIntent.putExtra("date", reservationDate);
             reservationIntent.putExtra("time", reservationTime);
             reservationIntent.putExtra("Coffee Shop", reservationCoffeeShop);
+            reservationIntent.putExtra("Price", reservationprice);
             startActivity(reservationIntent);
 
         }
@@ -270,6 +272,7 @@ public class BlomMeadworksActivity extends AppCompatActivity implements View.OnC
         }
 
         textViewCurrentPrice.setText(formatter.format(newprice));
+
 
     }
 }
