@@ -8,18 +8,40 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class VertexActivity extends AppCompatActivity {
+public class VertexActivity extends AppCompatActivity implements View.OnClickListener {
 
     Spinner spinnerReservationDuration, spinnerReservationTableType;
+    Button buttonCheckout;
+    String reservationCoffeeShop, reservationDate, reservationTime;
+    TextView textViewVertex, textViewDate, textViewTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vertex);
+
+        buttonCheckout = findViewById(R.id.buttonCheckout);
+        buttonCheckout.setOnClickListener(this);
+
+        textViewVertex = findViewById(R.id.textViewVertex);
+        textViewDate = findViewById(R.id.textViewReservationDate);
+        textViewTime = findViewById(R.id.textViewReservationTime);
+
+
+        Intent vertexIntent =getIntent();
+        if (vertexIntent != null) {
+            reservationDate = vertexIntent.getStringExtra("date");
+            textViewDate.setText(reservationDate);
+            reservationTime = vertexIntent.getStringExtra("time");
+            textViewTime.setText(reservationTime);
+        }
 
         spinnerReservationDuration=findViewById(R.id.spinnerAvailabilityDuration);
         spinnerReservationTableType = findViewById(R.id.spinnerAvailabilityTableType);
@@ -81,5 +103,18 @@ public class VertexActivity extends AppCompatActivity {
             startActivity(signupIntent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == buttonCheckout){
+            reservationCoffeeShop = textViewVertex.getText().toString();
+            Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
+            reservationIntent.putExtra("date", reservationDate);
+            reservationIntent.putExtra("time", reservationTime);
+            reservationIntent.putExtra("Coffee Shop", reservationCoffeeShop);
+            startActivity(reservationIntent);
+
+        }
     }
 }

@@ -120,7 +120,7 @@
                 android:spinnerMode="dropdown"/>
 
             <Spinner
-                android:id="@+id/spinnerERtimeslots"
+                android:id="@+id/spinnerAvailabilityTableType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
@@ -129,98 +129,18 @@
 
         </LinearLayout>
 
-        <View
-            android:id="@+id/divider2"
-            android:layout_width="395dp"
-            android:layout_height="5dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <RadioGroup
-            android:id="@+id/radioGroupDuration"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/buttonAvailabilityBookNow"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/radioButton30"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:text="30 minutes"
-                android:textSize="12sp" />
-
-            <RadioButton
-                android:id="@+id/radioButton1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:text="1 hour"
-                android:textSize="12sp" />
-            <RadioButton
-                android:id="@+id/radioButton1half"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:text="1.5 hours"
-                android:textSize="12sp" />
-            <RadioButton
-                android:id="@+id/radioButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:text="2 hours"
-                android:textSize="12sp" />
-        </RadioGroup>
-
-        <RadioGroup
-            android:id="@+id/radioGroupTableType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:gravity="center_horizontal"
-            android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/radioButtonOwnTable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:text="Own Table"
-            android:textSize="12sp"
-            android:checked="true"/>
-
-        <RadioButton
-            android:id="@+id/radioButtonSharedTable"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="0dp"
-            android:text="Shared Table"
-            android:textSize="12sp" />
-        </RadioGroup>
+            android:text="Book Now!" />
 
         <TextView
             android:id="@+id/textViewCurrentPrice"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:text="Total Price" />
-
-        <Button
-            android:id="@+id/buttonAvailabilityBookNow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Book Now!" />
+            android:text="Price" />
 
         <TextView
             android:id="@+id/textViewEspressoRoyaleReviews"
