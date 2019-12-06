@@ -31,13 +31,12 @@ import java.util.List;
 
 public class EspressoRoyaleActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener {
-    Spinner spinnerReservationDuration, spinnerReservationTableType, spinnerERtimeslots;
+    Spinner spinnerERtimeslots;
     TextView textViewCurrentPrice;
     Button buttonAvailabilityBookNow;
     RadioButton radioButtonOwnTable, radioButtonSharedTable, radioButton30,radioButton1,radioButton1half,radioButton2;
 
-    //Declare prices
-    Double dblthirtyprice = 5.00;
+    //Declare prices and discounts
     Double dblshareddiscount = 3.00;
     Double newprice;
     Double oldprice=5.00;
@@ -58,6 +57,7 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
     //String ERTimeSlot14 = "4:30pm";
     //String ERTimeSlot15 = "5:00pm";
 
+    //Setting the price into a Currency format
     NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
     @Override
@@ -66,9 +66,6 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
         setContentView(R.layout.activity_espresso_royale);
 
         textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
-
-        spinnerReservationDuration = findViewById(R.id.spinnerAvailabilityDuration);
-        spinnerReservationTableType = findViewById(R.id.spinnerAvailabilityTableType);
 
         buttonAvailabilityBookNow = findViewById(R.id.buttonAvailabilityBookNow);
 
@@ -87,31 +84,15 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
         radioButton1half.setOnCheckedChangeListener(this);
         radioButton2.setOnCheckedChangeListener(this);
 
+        //Creating spinner and setting it with the array timeslots
         spinnerERtimeslots = findViewById(R.id.spinnerERtimeslots);
         ArrayAdapter<CharSequence> adapterERtimeslots = ArrayAdapter.createFromResource(this,R.array.timeslots, android.R.layout.simple_spinner_item);
         adapterERtimeslots.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerERtimeslots.setAdapter(adapterERtimeslots);
 
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        //ArrayAdapter<CharSequence> adapterDuration = ArrayAdapter.createFromResource(this,
-                //R.array.reservation_duration_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        //adapterDuration.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Apply the adapter to the spinner
-        //ArrayAdapter<CharSequence> adapterTableType = ArrayAdapter.createFromResource(this,
-                //R.array.reservation_table_type_array, android.R.layout.simple_spinner_item);
-        //adapterTableType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        //This code is to change the checkout price as reservation table type changes
-        //spinnerReservationTableType.setAdapter(adapterTableType);
-
-        //This code is to change the checkout price as duration changes
-        //spinnerReservationDuration.setAdapter(adapterDuration);
-        //spinnerReservationDuration.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
     }
 
+    //Setting up what happens when each button is clicked from the duration point of view
     @Override
     public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
         if (radioButton30.isChecked()) {
@@ -125,6 +106,7 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
         }
     }
 
+    //This is the code to update the price based on the combination of what radio buttons have been clicked
     public void UpdateCheckOutPrice() {
         if (radioButtonOwnTable.isChecked() & radioButton30.isChecked()) {
             newprice = oldprice*1;
