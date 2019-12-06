@@ -8,17 +8,39 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
-public class RoosRoastActivity extends AppCompatActivity {
+public class RoosRoastActivity extends AppCompatActivity implements View.OnClickListener {
     Spinner spinnerReservationDuration, spinnerReservationTableType;
+    Button buttonCheckout;
+    String reservationCoffeeShop, reservationDate, reservationTime;
+    TextView textViewRoosRoast, textViewDate, textViewTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roos_roast);
+
+        buttonCheckout = findViewById(R.id.buttonCheckout);
+        buttonCheckout.setOnClickListener(this);
+
+        textViewRoosRoast = findViewById(R.id.textViewRoosRoast);
+        textViewDate = findViewById(R.id.textViewReservationDate);
+        textViewTime = findViewById(R.id.textViewReservationTime);
+
+
+        Intent roosroastIntent =getIntent();
+        if (roosroastIntent != null) {
+            reservationDate = roosroastIntent.getStringExtra("date");
+            textViewDate.setText(reservationDate);
+            reservationTime = roosroastIntent.getStringExtra("time");
+            textViewTime.setText(reservationTime);
+        }
 
         spinnerReservationDuration=findViewById(R.id.spinnerAvailabilityDuration);
         spinnerReservationTableType = findViewById(R.id.spinnerAvailabilityTableType);
@@ -80,5 +102,18 @@ public class RoosRoastActivity extends AppCompatActivity {
             startActivity(signupIntent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == buttonCheckout){
+            reservationCoffeeShop = textViewRoosRoast.getText().toString();
+            Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
+            reservationIntent.putExtra("date", reservationDate);
+            reservationIntent.putExtra("time", reservationTime);
+            reservationIntent.putExtra("Coffee Shop", reservationCoffeeShop);
+            startActivity(reservationIntent);
+
+        }
     }
 }

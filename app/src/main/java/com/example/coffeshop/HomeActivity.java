@@ -150,10 +150,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
     //This is Bloommeadworks's clicklable image coding to redirect to its specific page
     public void showbloommeadworks(View view) {
-        Intent bloommeadworksIntent = new Intent(this, BlomMeadworksActivity.class);
-        bloommeadworksIntent.putExtra("date", dateSend);
-        bloommeadworksIntent.putExtra("time", timeSend);
-        startActivity(bloommeadworksIntent);
+        Intent blomIntent = new Intent(this, BlomMeadworksActivity.class);
+        blomIntent.putExtra("date", dateSend);
+        blomIntent.putExtra("time", timeSend);
+        startActivity(blomIntent);
     }
 
     //This is Labs's clicklable image coding to redirect to its specific page
