@@ -33,7 +33,7 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
         RadioButton.OnCheckedChangeListener {
     Spinner spinnerReservationDuration, spinnerReservationTableType, spinnerERtimeslots;
     TextView textViewCurrentPrice;
-    Button buttonAvailabilityTime1, buttonAvailabilityBookNow;
+    Button buttonAvailabilityBookNow;
     RadioButton radioButtonOwnTable, radioButtonSharedTable, radioButton30,radioButton1,radioButton1half,radioButton2;
 
     //Declare prices
@@ -70,8 +70,6 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
         spinnerReservationDuration = findViewById(R.id.spinnerAvailabilityDuration);
         spinnerReservationTableType = findViewById(R.id.spinnerAvailabilityTableType);
 
-
-        buttonAvailabilityTime1 = findViewById(R.id.buttonAvailabilityTime1);
         buttonAvailabilityBookNow = findViewById(R.id.buttonAvailabilityBookNow);
 
         radioButtonOwnTable = findViewById(R.id.radioButtonOwnTable);
@@ -82,7 +80,6 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
         radioButton2 = findViewById(R.id.radioButton2);
 
         buttonAvailabilityBookNow.setOnClickListener(this);
-        buttonAvailabilityTime1.setOnClickListener(this);
         radioButtonOwnTable.setOnCheckedChangeListener(this);
         radioButtonSharedTable.setOnCheckedChangeListener(this);
         radioButton30.setOnCheckedChangeListener(this);
@@ -196,15 +193,6 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
 
     @Override
     public void onClick(View view) {
-        if (view == buttonAvailabilityTime1) {
-            {
-                buttonAvailabilityTime1.setBackgroundColor(Color.GREEN);
-            }
-        } else if (view == buttonAvailabilityBookNow) {
-            buttonAvailabilityTime1.setVisibility(View.INVISIBLE);
 
         }
-    }
-
-
 }
