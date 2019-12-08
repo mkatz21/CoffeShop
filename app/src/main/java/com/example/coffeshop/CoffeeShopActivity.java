@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -28,10 +29,10 @@ import java.text.NumberFormat;
 import java.util.Calendar;
 
 public class CoffeeShopActivity extends AppCompatActivity implements View.OnClickListener,
-        RadioButton.OnCheckedChangeListener {
+        RadioButton.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {
 
-    String reservationCoffeeShop, reservationAddress, reservationCity, reservationDate, reservationTime, reservationDuration, reservationTable, reservationPrice;
-    TextView textViewLab, textViewLabStreet,textViewLabCity, textViewDate, textViewTime;
+    String reservationCoffeeShop, reservationDate, reservationTime, reservationDuration, reservationTable, reservationPrice, reservationSpinnerTime;
+    TextView textViewLab, textViewDate, textViewTime;
 
     Spinner spinnerLABtimeslots;
     TextView textViewCurrentPrice;
@@ -62,8 +63,6 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_coffee_shop);
 
         textViewLab = findViewById(R.id.textViewLab);
-        textViewLabStreet = findViewById(R.id.textViewLabStreet);
-        textViewLabCity = findViewById(R.id.textViewLabCity);
         textViewDate = findViewById(R.id.textViewReservationDate);
         textViewTime = findViewById(R.id.textViewReservationTime);
 
@@ -233,12 +232,10 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
         if (view == buttonAvailabilityBookNow){
           reservationCoffeeShop = textViewLab.getText().toString();
-          reservationAddress = textViewLabStreet.getText().toString();
-          reservationCity = textViewLabCity.getText().toString();
           reservationPrice = textViewCurrentPrice.getText().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
             reservationIntent.putExtra("date", reservationDate);
-            reservationIntent.putExtra("time", reservationTime);
+            reservationIntent.putExtra("time", reservationSpinnerTime);
             reservationIntent.putExtra("Coffee Shop", reservationCoffeeShop);
             reservationIntent.putExtra("Duration", reservationDuration);
             reservationIntent.putExtra("Table Type", reservationTable);
@@ -300,5 +297,15 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
 
         textViewCurrentPrice.setText(formatter.format(newprice));
 
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        reservationSpinnerTime = spinnerLABtimeslots.getSelectedItem().toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+reservationSpinnerTime = "10:00";
     }
 }
