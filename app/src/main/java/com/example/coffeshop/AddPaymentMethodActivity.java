@@ -69,9 +69,9 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
     // Part A, Identify all of the components (edit texts, buttons, view texts)
     Button buttonBook;
     EditText editTextFirstName, editTextLastName, editTextEnterCardNumber,editTextExpDate, editTextCVV, editTextZipCode;
-    TextView textViewthirdspace, textViewReservationSummary, textViewCoffeeShopName, textViewDuration, textViewDate, textViewTime, textViewPaymentSummary, textViewTotal, textViewTotalAmount, textViewReservationDetails, textViewCCInfo;
+    TextView textViewthirdspace, textViewReservationSummary, textViewCoffeeShopName, textViewDuration, textViewDate, textViewTime, textViewPaymentSummary, textViewTotal, textViewTotalAmount, textViewReservationDetails, textViewCCInfo, textViewTableType;
 
-    String reservationCoffeeShop, reservationDate, reservationTime, reservationprice;
+    String reservationCoffeeShop, reservationDate, reservationTime, reservationPrice, reservationDuration, reservationTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,6 +101,7 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
         textViewTotalAmount = findViewById(R.id.textViewTotalAmount);
         textViewReservationDetails = findViewById(R.id.textViewReservationDetails);
         textViewCCInfo = findViewById(R.id.textViewCCInfo);
+        textViewTableType = findViewById(R.id.textViewTableType);
 
         buttonBook.setOnClickListener(this);
 
@@ -112,7 +113,13 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
             textViewTime.setText(reservationTime);
             reservationCoffeeShop = reservationIntent.getStringExtra("Coffee Shop");
             textViewCoffeeShopName.setText(reservationCoffeeShop);
-            textViewPaymentSummary.setText(reservationprice);
+            reservationPrice = reservationIntent.getStringExtra("Price");
+            textViewTotalAmount.setText(reservationPrice);
+            reservationDuration = reservationIntent.getStringExtra("Duration");
+            textViewDuration.setText(reservationDuration);
+            reservationTable = reservationIntent.getStringExtra("Table Type");
+            textViewTableType.setText(reservationTable);
+
     }
 
     }

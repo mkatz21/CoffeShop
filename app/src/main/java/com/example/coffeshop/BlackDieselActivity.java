@@ -30,7 +30,7 @@ import java.util.Calendar;
 public class BlackDieselActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener{
 
-    String reservationCoffeeShop, reservationDate, reservationTime;
+    String reservationCoffeeShop, reservationDate, reservationTime, reservationDuration, reservationTable, reservationPrice;
     TextView textViewBlackDiesel, textViewDate, textViewTime;
     Spinner spinnerBDtimeslots;
     TextView textViewCurrentPrice;
@@ -54,6 +54,8 @@ public class BlackDieselActivity extends AppCompatActivity implements View.OnCli
     private static final String TIME = "MainActivity";
     private TextView mDisplayTime;
     private TimePickerDialog.OnTimeSetListener mTimeSetListener;
+
+
 
 
     @Override
@@ -89,6 +91,8 @@ public class BlackDieselActivity extends AppCompatActivity implements View.OnCli
         ArrayAdapter<CharSequence> adapterBDtimeslots = ArrayAdapter.createFromResource(this, R.array.timeslots, android.R.layout.simple_spinner_item);
         adapterBDtimeslots.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerBDtimeslots.setAdapter(adapterBDtimeslots);
+
+
 
         Intent blackdieselIntent =getIntent();
         if (blackdieselIntent != null) {
@@ -225,10 +229,14 @@ public class BlackDieselActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if (view == buttonAvailabilityBookNow){
             reservationCoffeeShop = textViewBlackDiesel.getText().toString();
+            reservationPrice = textViewCurrentPrice.getText().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
             reservationIntent.putExtra("date", reservationDate);
             reservationIntent.putExtra("time", reservationTime);
             reservationIntent.putExtra("Coffee Shop", reservationCoffeeShop);
+            reservationIntent.putExtra("Duration", reservationDuration);
+            reservationIntent.putExtra("Table Type", reservationTable);
+            reservationIntent.putExtra("Price", reservationPrice);
             startActivity(reservationIntent);
         }
     }
@@ -251,23 +259,41 @@ public class BlackDieselActivity extends AppCompatActivity implements View.OnCli
     public void UpdateCheckOutPrice() {
         if (radioButtonOwnTable.isChecked() & radioButton30.isChecked()) {
             newprice = oldprice*1;
+            reservationDuration = "30 minutes";
+            reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton30.isChecked()){
             newprice = oldprice-dblshareddiscount;
+            reservationDuration = "30 minutes";
+            reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton1.isChecked()){
             newprice = oldprice*2;
+            reservationDuration = "1 hour";
+            reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton1.isChecked()){
             newprice = (oldprice)*2-dblshareddiscount;
+            reservationDuration = "1 hour";
+            reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton1half.isChecked()){
             newprice = oldprice*3;
+            reservationDuration = "1.5 hours";
+            reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton1half.isChecked()){
             newprice = (oldprice)*3-dblshareddiscount;
+            reservationDuration = "1.5 hours";
+            reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton2.isChecked()){
             newprice = oldprice*4;
+            reservationDuration = "2 hours";
+            reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton2.isChecked()) {
             newprice = (oldprice) * 4 - dblshareddiscount;
+            reservationDuration = "2 hours";
+            reservationTable = "Shared Table";
         }
 
         textViewCurrentPrice.setText(formatter.format(newprice));
 
     }
+
+
 }
