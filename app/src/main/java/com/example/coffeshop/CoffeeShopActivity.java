@@ -233,6 +233,7 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
         if (view == buttonAvailabilityBookNow){
           reservationCoffeeShop = textViewLab.getText().toString();
           reservationPrice = textViewCurrentPrice.getText().toString();
+          reservationSpinnerTime = spinnerLABtimeslots.getSelectedItem().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
             reservationIntent.putExtra("date", reservationDate);
             reservationIntent.putExtra("time", reservationSpinnerTime);
@@ -306,6 +307,6 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-reservationSpinnerTime = "10:00";
+        reservationSpinnerTime = "10:00";
     }
 }
