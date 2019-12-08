@@ -65,6 +65,8 @@ public class VertexActivity extends AppCompatActivity implements View.OnClickLis
         textViewDate = findViewById(R.id.textViewReservationDate);
         textViewTime = findViewById(R.id.textViewReservationTime);
 
+        textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
+
         buttonAvailabilityBookNow = findViewById(R.id.buttonAvailabilityBookNow);
 
         radioButtonOwnTable = findViewById(R.id.radioButtonOwnTable);

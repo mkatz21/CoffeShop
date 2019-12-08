@@ -65,6 +65,7 @@ public class CometCoffeeActivity extends AppCompatActivity implements View.OnCli
         textViewDate = findViewById(R.id.textViewReservationDate);
         textViewTime = findViewById(R.id.textViewReservationTime);
 
+        textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
 
         buttonAvailabilityBookNow = findViewById(R.id.buttonAvailabilityBookNow);
 
