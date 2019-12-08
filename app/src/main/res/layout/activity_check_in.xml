@@ -76,7 +76,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textView.date"
                 android:layout_width="300dp"
                 android:layout_height="match_parent"
                 android:background="#004D3E3E"
@@ -88,7 +88,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/textView.time"
                 android:layout_width="299dp"
                 android:layout_height="56dp"
                 android:text="12:00PM-2:00PM"
