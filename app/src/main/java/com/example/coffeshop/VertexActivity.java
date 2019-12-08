@@ -83,9 +83,10 @@ public class VertexActivity extends AppCompatActivity implements View.OnClickLis
         radioButton2.setOnCheckedChangeListener(this);
 
         //Creating spinner and setting it with the array timeslots
-        spinnerVtimeslots = findViewById(R.id.spinnerVtimeslots);
+        spinnerVtimeslots = findViewById(R.id.spinnerVTimeSlots);
         ArrayAdapter<CharSequence> adapterVtimeslots = ArrayAdapter.createFromResource(this,R.array.timeslots, android.R.layout.simple_spinner_item);
         adapterVtimeslots.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerVtimeslots.setAdapter(adapterVtimeslots);
 
 
 

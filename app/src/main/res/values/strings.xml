@@ -21,7 +21,7 @@
     <string name="LiteratiWebsiteLink"><a href="https://www.literatibookstore.com">Literati</a></string>
     <string name="LiteratiWebsiteStreet"><a href="https://www.literatibookstore.com">124 E Washington St</a></string>
     <string name="LiteratiWebsiteCity"><a href="https://www.literatibookstore.com">Ann Arbor, MI 48104</a></string>
-    <string name="RoosRoastWebsiteLink"><a href="https://www.roosroast.com">Lab</a></string>
+    <string name="RoosRoastWebsiteLink"><a href="https://www.roosroast.com">Roos Roast</a></string>
     <string name="RoosRoastWebsiteStreet"><a href="https://www.roosroast.com">117 E Liberty St</a></string>
     <string name="RoosRoastWebsiteCity"><a href="https://www.roosroast.com">Ann Arbor, MI 48103</a></string>
     <string name="VertexWebsiteLink"><a href="https://www.vertex-coffee.com">Vertex Coffee Roasters</a></string>
@@ -43,7 +43,7 @@
         <item>1.5 hours</item>
         <item>2 hours</item>
     </string-array>
-    <string-array name="timeslots">
+    <string-array name ="timeslots">
         <item>10:00</item>
         <item>10:30</item>
         <item>11:00</item>

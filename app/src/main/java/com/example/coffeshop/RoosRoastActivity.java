@@ -84,9 +84,10 @@ public class RoosRoastActivity extends AppCompatActivity implements View.OnClick
         radioButton2.setOnCheckedChangeListener(this);
 
         //Creating spinner and setting it with the array timeslots
-        spinnerRRtimeslots = findViewById(R.id.spinnerRRtimeslots);
+        spinnerRRtimeslots = findViewById(R.id.spinnerRRTimeSlots);
         ArrayAdapter<CharSequence> adapterRRtimeslots = ArrayAdapter.createFromResource(this,R.array.timeslots, android.R.layout.simple_spinner_item);
         adapterRRtimeslots.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerRRtimeslots.setAdapter(adapterRRtimeslots);
 
         Intent roosroastIntent =getIntent();
         if (roosroastIntent != null) {

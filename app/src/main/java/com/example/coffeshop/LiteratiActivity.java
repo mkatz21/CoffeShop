@@ -84,9 +84,10 @@ public class LiteratiActivity extends AppCompatActivity implements View.OnClickL
         radioButton2.setOnCheckedChangeListener(this);
 
         //Creating spinner and setting it with the array timeslots
-        spinnerLITtimeslots = findViewById(R.id.spinnerLITtimeslots);
+        spinnerLITtimeslots = findViewById(R.id.spinnerLITTimeSlots);
         ArrayAdapter<CharSequence> adapterLITtimeslots = ArrayAdapter.createFromResource(this,R.array.timeslots, android.R.layout.simple_spinner_item);
         adapterLITtimeslots.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerLITtimeslots.setAdapter(adapterLITtimeslots);
 
 
         Intent literatiIntent =getIntent();

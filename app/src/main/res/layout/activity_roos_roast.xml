@@ -127,7 +127,7 @@
                 android:orientation="horizontal">
 
                 <Spinner
-                    android:id="@+id/spinnerRRtimeslots"
+                    android:id="@+id/spinnerRRTimeSlots"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"

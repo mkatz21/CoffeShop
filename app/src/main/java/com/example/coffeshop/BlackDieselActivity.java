@@ -85,8 +85,8 @@ public class BlackDieselActivity extends AppCompatActivity implements View.OnCli
         radioButton2.setOnCheckedChangeListener(this);
 
         //Creating spinner and setting it with the array timeslots
-        spinnerBDtimeslots = findViewById(R.id.spinnerBDtimeslots);
-        ArrayAdapter<CharSequence> adapterBDtimeslots = ArrayAdapter.createFromResource(this,R.array.timeslots, android.R.layout.simple_spinner_item);
+        spinnerBDtimeslots = findViewById(R.id.spinnerBDTimeSlots);
+        ArrayAdapter<CharSequence> adapterBDtimeslots = ArrayAdapter.createFromResource(this, R.array.timeslots, android.R.layout.simple_spinner_item);
         adapterBDtimeslots.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerBDtimeslots.setAdapter(adapterBDtimeslots);
 

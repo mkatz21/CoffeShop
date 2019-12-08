@@ -84,9 +84,10 @@ public class CometCoffeeActivity extends AppCompatActivity implements View.OnCli
         radioButton2.setOnCheckedChangeListener(this);
 
         //Creating spinner and setting it with the array timeslots
-        spinnerCCtimeslots = findViewById(R.id.spinnerCCtimeslots);
+        spinnerCCtimeslots = findViewById(R.id.spinnerCCTimeSlots);
         ArrayAdapter<CharSequence> adapterCCtimeslots = ArrayAdapter.createFromResource(this,R.array.timeslots, android.R.layout.simple_spinner_item);
         adapterCCtimeslots.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerCCtimeslots.setAdapter(adapterCCtimeslots);
 
         Intent cometIntent =getIntent();
         if (cometIntent != null) {

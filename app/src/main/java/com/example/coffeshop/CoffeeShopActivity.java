@@ -83,9 +83,10 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
         radioButton2.setOnCheckedChangeListener(this);
 
         //Creating spinner and setting it with the array timeslots
-        spinnerLABtimeslots = findViewById(R.id.spinnerLABtimeslots);
+        spinnerLABtimeslots = findViewById(R.id.spinnerLABTimeSlots);
         ArrayAdapter<CharSequence> adapterLABtimeslots = ArrayAdapter.createFromResource(this,R.array.timeslots, android.R.layout.simple_spinner_item);
         adapterLABtimeslots.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerLABtimeslots.setAdapter(adapterLABtimeslots);
 
 
         Intent labIntent =getIntent();
