@@ -30,8 +30,8 @@ import java.util.Calendar;
 public class CoffeeShopActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener {
 
-    String reservationCoffeeShop, reservationDate, reservationTime, reservationDuration, reservationTable, reservationPrice;
-    TextView textViewLab, textViewDate, textViewTime;
+    String reservationCoffeeShop, reservationAddress, reservationCity, reservationDate, reservationTime, reservationDuration, reservationTable, reservationPrice;
+    TextView textViewLab, textViewLabStreet,textViewLabCity, textViewDate, textViewTime;
 
     Spinner spinnerLABtimeslots;
     TextView textViewCurrentPrice;
@@ -62,6 +62,8 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_coffee_shop);
 
         textViewLab = findViewById(R.id.textViewLab);
+        textViewLabStreet = findViewById(R.id.textViewLabStreet);
+        textViewLabCity = findViewById(R.id.textViewLabCity);
         textViewDate = findViewById(R.id.textViewReservationDate);
         textViewTime = findViewById(R.id.textViewReservationTime);
 
@@ -231,6 +233,8 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
         if (view == buttonAvailabilityBookNow){
           reservationCoffeeShop = textViewLab.getText().toString();
+          reservationAddress = textViewLabStreet.getText().toString();
+          reservationCity = textViewLabCity.getText().toString();
           reservationPrice = textViewCurrentPrice.getText().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
             reservationIntent.putExtra("date", reservationDate);

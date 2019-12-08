@@ -120,7 +120,6 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
             reservationTable = reservationIntent.getStringExtra("Table Type");
             textViewTableType.setText(reservationTable);
 
-
     }
 
     }
