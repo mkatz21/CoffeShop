@@ -14,7 +14,9 @@ public class UserReservation {
     public String ReservationDuration;
     public String ReservationTime;
 
+    public UserReservation(){
 
+    }
 
     public UserReservation(String UserReservationCoffeeShop, String UserReservationDate, String creditCardName, String expirationDate, String CCVNumber, String postalCode, String firstname, String lastname, String ReservationDuration, String ReservationTime) {
     }

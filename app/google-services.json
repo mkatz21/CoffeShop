@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "586865790686-m2hqm399stjggig9rbbnv0129vjq2i4p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.coffeshop",
+            "certificate_hash": "36844f616798de4b30fb05c2bac78f9a50b9e663"
+          }
+        },
+        {
+          "client_id": "586865790686-7tthmnp8fik9lfa8cp1dbg0jfrh364r0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.coffeshop",
+            "certificate_hash": "ca0ba08f1077548d4c87cfd569edbfceadb98012"
+          }
+        },
+        {
           "client_id": "586865790686-u8ls3rnsosab4iqflg4om4pbqufqo07f.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -38,4 +54,3 @@
   ],
   "configuration_version": "1"
 }
-

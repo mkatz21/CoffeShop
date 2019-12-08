@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -117,8 +119,8 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
 
     @Override
     public void onClick(View view) {
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference("UserReservation");
+        final FirebaseDatabase database = FirebaseDatabase.getInstance();
+        final DatabaseReference myRef = database.getReference("Reservations");
 
         if (view == buttonBook) {
 
@@ -135,11 +137,16 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
 
 
               UserReservation createUserReservation = new UserReservation(CreditCardName, ExpirationDate, CCVNumber, PostalCode, Firstname, Lastname, UserReservationCoffeeShop, UserReservationDate, ReservationDuration, ReservationTime);
-              myRef.push().setValue(createUserReservation);
+              myRef.child("payment").setValue(createUserReservation).addOnSuccessListener(new OnSuccessListener<Void>() {
+                  @Override
+                  public void onSuccess(Void aVoid) {
+                      Toast.makeText(AddPaymentMethodActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                  }
+              }).addOnFailureListener(new OnFailureListener() {
+                  @Override
+                  public void onFailure(@NonNull Exception e) {
+                      Toast.makeText(AddPaymentMethodActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
+                  }
+              });
     }
-
-        if (view == buttonBook){
-            Toast.makeText(this, "Your Reservation Has Been Booked!", Toast.LENGTH_SHORT).show();
-
-        }
 }}
