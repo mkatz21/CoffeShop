@@ -38,55 +38,64 @@
             android:gravity="center_horizontal"
             android:text="You're all booked!"
             android:textAllCaps="false" />
+
         <TextView
             android:id="@+id/textViewReservationCoffeeShop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:autoLink="web"
             android:gravity="center_horizontal"
+            android:linksClickable="true"
             android:text="@string/LabWebsiteLink"
             android:textAllCaps="false"
-            android:textSize="14pt"
-            android:autoLink="web"
-            android:linksClickable="true"/>
+            android:textSize="14pt" />
+
         <TextView
             android:id="@+id/textViewReservationCoffeeShopStreet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/LabWebsiteStreet"
-            android:textAllCaps="false"
             android:autoLink="web"
-            android:linksClickable="true"/>
+            android:gravity="center_horizontal"
+            android:linksClickable="true"
+            android:text="@string/LabWebsiteStreet"
+            android:textAllCaps="false" />
+
         <TextView
             android:id="@+id/textViewReservationCoffeeShopCity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/LabWebsiteCity"
-            android:textAllCaps="false"
             android:autoLink="web"
-            android:linksClickable="true"/>
+            android:gravity="center_horizontal"
+            android:linksClickable="true"
+            android:text="@string/LabWebsiteCity"
+            android:textAllCaps="false" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/buttonReservationDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:text="October 16" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:background="#004D3E3E"
+                android:text="OCTOBER 16"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="#141010"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/buttonReservationTime"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:text="12:00PM - 2:00PM" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="299dp"
+                android:layout_height="56dp"
+                android:text="12:00PM-2:00PM"
+                android:textAlignment="center"
+                android:textColor="#1D1A1A"
+                android:textSize="18sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -110,6 +119,7 @@
                 android:ems="10"
                 android:text="Modify" />
         </LinearLayout>
+
         <Button
             android:id="@+id/buttonReservationCafeMenu"
             android:layout_width="match_parent"
@@ -129,5 +139,5 @@
             android:layout_height="95dp"
             app:srcCompat="@drawable/labwebsiteqrcode" />
 
-</LinearLayout>
+    </LinearLayout>
 </LinearLayout>
