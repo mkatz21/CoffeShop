@@ -43,7 +43,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-
+        //button functionality 
         if (view == buttonLogIn){
             loginUser(editTextUserName.getText().toString(), editTextPassword.getText().toString());
         } else if( view == buttonCreateAccount){
@@ -56,7 +56,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         }
 
 
-
+//log in user using authentithication
     private void loginUser(String email, String password) {
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
