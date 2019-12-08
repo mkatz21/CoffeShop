@@ -56,6 +56,8 @@ public class BlackDieselActivity extends AppCompatActivity implements View.OnCli
     private TimePickerDialog.OnTimeSetListener mTimeSetListener;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +91,8 @@ public class BlackDieselActivity extends AppCompatActivity implements View.OnCli
         ArrayAdapter<CharSequence> adapterBDtimeslots = ArrayAdapter.createFromResource(this, R.array.timeslots, android.R.layout.simple_spinner_item);
         adapterBDtimeslots.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerBDtimeslots.setAdapter(adapterBDtimeslots);
+
+
 
         Intent blackdieselIntent =getIntent();
         if (blackdieselIntent != null) {
@@ -270,4 +274,6 @@ public class BlackDieselActivity extends AppCompatActivity implements View.OnCli
         textViewCurrentPrice.setText(formatter.format(newprice));
 
     }
+
+
 }
