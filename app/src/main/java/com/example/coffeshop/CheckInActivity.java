@@ -9,14 +9,39 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class CheckInActivity extends AppCompatActivity implements View.OnClickListener {
 
+    String reservationCoffeeShop, reservationCoffeeShopStreet, reservationCoffeeShopCity, reservationTime, reservationDate;
+    TextView textViewReservationCoffeeShop, textViewReservationCoffeeShopStreet, textViewReservationCoffeeShopCity, textViewDate, textViewTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_in);
+
+
+        textViewDate = findViewById(R.id.textViewDate);
+        textViewTime = findViewById(R.id.textViewTime);
+        textViewReservationCoffeeShop = findViewById(R.id.textViewReservationCoffeeShop);
+        textViewReservationCoffeeShopCity = findViewById(R.id.textViewReservationCoffeeShopCity);
+        textViewReservationCoffeeShopStreet = findViewById(R.id.textViewReservationCoffeeShopStreet);
+
+        Intent checkInIntent =getIntent();
+        if (checkInIntent != null){
+            reservationCoffeeShop = checkInIntent.getStringExtra("Coffee Shop");
+            textViewReservationCoffeeShop.setText(reservationCoffeeShop);
+            reservationCoffeeShopStreet = checkInIntent.getStringExtra("Street");
+            textViewReservationCoffeeShopStreet.setText(reservationCoffeeShopStreet);
+            reservationCoffeeShopCity = checkInIntent.getStringExtra("City");
+            textViewReservationCoffeeShopCity.setText(reservationCoffeeShopCity);
+            reservationDate = checkInIntent.getStringExtra("date");
+            textViewDate.setText(reservationDate);
+            reservationTime = checkInIntent.getStringExtra("time");
+            textViewTime.setText(reservationTime);
+
+        }
 
     }
 

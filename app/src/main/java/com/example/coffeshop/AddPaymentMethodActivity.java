@@ -71,7 +71,7 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
     EditText editTextFirstName, editTextLastName, editTextEnterCardNumber,editTextExpDate, editTextCVV, editTextZipCode;
     TextView textViewthirdspace, textViewReservationSummary, textViewCoffeeShopName, textViewDuration, textViewDate, textViewTime, textViewPaymentSummary, textViewTotal, textViewTotalAmount, textViewReservationDetails, textViewCCInfo, textViewTableType;
 
-    String reservationCoffeeShop, reservationDate, reservationTime, reservationPrice, reservationDuration, reservationTable;
+    String reservationCoffeeShop, reservationDate, bookedTime, reservationPrice, reservationDuration, reservationTable, reservationCoffeeShopStreet, reservationCoffeeShopCity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,8 +109,8 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
         if (reservationIntent != null){
             reservationDate = reservationIntent.getStringExtra("date");
             textViewDate.setText(reservationDate);
-            reservationTime = reservationIntent.getStringExtra("time");
-            textViewTime.setText(reservationTime);
+            bookedTime = reservationIntent.getStringExtra("time");
+            textViewTime.setText(bookedTime);
             reservationCoffeeShop = reservationIntent.getStringExtra("Coffee Shop");
             textViewCoffeeShopName.setText(reservationCoffeeShop);
             reservationPrice = reservationIntent.getStringExtra("Price");
@@ -119,6 +119,8 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
             textViewDuration.setText(reservationDuration);
             reservationTable = reservationIntent.getStringExtra("Table Type");
             textViewTableType.setText(reservationTable);
+            reservationCoffeeShopStreet = reservationIntent.getStringExtra("Street");
+            reservationCoffeeShopCity = reservationIntent.getStringExtra("City");
 
     }
 
@@ -141,6 +143,17 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
             String UserReservationDate = textViewDate.getText().toString();
             String ReservationDuration = textViewDuration.getText().toString();
             String ReservationTime = textViewTime.getText().toString();
+
+            Intent checkInIntent = new Intent(this, CheckInActivity.class);
+            checkInIntent.putExtra("date", reservationDate);
+            checkInIntent.putExtra("time", bookedTime);
+            checkInIntent.putExtra("Coffee Shop", reservationCoffeeShop);
+            checkInIntent.putExtra("Duration", reservationDuration);
+            checkInIntent.putExtra("Table Type", reservationTable);
+            checkInIntent.putExtra("Price", reservationPrice);
+            checkInIntent.putExtra("Street", reservationCoffeeShopStreet);
+            checkInIntent.putExtra("City", reservationCoffeeShopCity);
+            startActivity(checkInIntent);
 
 
               UserReservation createUserReservation = new UserReservation(CreditCardName, ExpirationDate, CCVNumber, PostalCode, Firstname, Lastname, UserReservationCoffeeShop, UserReservationDate, ReservationDuration, ReservationTime);
