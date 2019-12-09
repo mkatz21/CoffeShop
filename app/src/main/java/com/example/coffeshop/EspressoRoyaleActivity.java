@@ -31,6 +31,10 @@ import java.util.List;
 
 public class EspressoRoyaleActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener {
+
+    String reservationCoffeeShop, reservationDate, reservationTime, reservationDuration, reservationTable, reservationPrice;
+    TextView textViewEspressoRoyale, textViewDate, textViewTime;
+
     Spinner spinnerERtimeslots;
     TextView textViewCurrentPrice;
     Button buttonAvailabilityBookNow;
@@ -41,21 +45,6 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
     Double newprice;
     Double oldprice=5.00;
 
-    //String ERTimeSlot1 = "10:00am";
-    //String ERTimeSlot2 = "10:30am";
-    //String ERTimeSlot3 = "11:00am";
-    //String ERTimeSlot4 = "11:30am";
-    //String ERTimeSlot5 = "12:00pm";
-    //String ERTimeSlot6 = "12:30pm";
-    //String ERTimeSlot7 = "1:00pm";
-    //String ERTimeSlot8 = "1:30pm";
-    //String ERTimeSlot9 = "2:00pm";
-    //String ERTimeSlot10 = "2:30pm";
-    //String ERTimeSlot11 = "3:00pm";
-    //String ERTimeSlot12 = "3:30pm";
-    //String ERTimeSlot13 = "4:00pm";
-    //String ERTimeSlot14 = "4:30pm";
-    //String ERTimeSlot15 = "5:00pm";
 
     //Setting the price into a Currency format
     NumberFormat formatter = NumberFormat.getCurrencyInstance();
@@ -64,6 +53,10 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_espresso_royale);
+
+        textViewEspressoRoyale = findViewById(R.id.textViewEspressoRoyale);
+        textViewDate = findViewById(R.id.textViewReservationDate);
+        textViewTime = findViewById(R.id.textViewReservationTime);
 
         textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
 
@@ -86,10 +79,18 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
 
         //Creating spinner and setting it with the array timeslots
         spinnerERtimeslots = findViewById(R.id.spinnerERtimeslots);
-        ArrayAdapter<CharSequence> adapterERtimeslots = ArrayAdapter.createFromResource(this,R.array.timeslots, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> adapterERtimeslots = ArrayAdapter.createFromResource(this, R.array.timeslots, android.R.layout.simple_spinner_item);
         adapterERtimeslots.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerERtimeslots.setAdapter(adapterERtimeslots);
 
+        Intent cometIntent = getIntent();
+        if (cometIntent != null) {
+            reservationDate = cometIntent.getStringExtra("date");
+            textViewDate.setText(reservationDate);
+            reservationTime = cometIntent.getStringExtra("time");
+            textViewTime.setText(reservationTime);
+
+        }
     }
 
     //Setting up what happens when each button is clicked from the duration point of view
@@ -110,25 +111,41 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
     public void UpdateCheckOutPrice() {
         if (radioButtonOwnTable.isChecked() & radioButton30.isChecked()) {
             newprice = oldprice*1;
+            reservationDuration = "30 minutes";
+            reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton30.isChecked()){
             newprice = oldprice-dblshareddiscount;
+            reservationDuration = "30 minutes";
+            reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton1.isChecked()){
             newprice = oldprice*2;
+            reservationDuration = "1 hour";
+            reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton1.isChecked()){
             newprice = (oldprice)*2-dblshareddiscount;
+            reservationDuration = "1 hour";
+            reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton1half.isChecked()){
             newprice = oldprice*3;
+            reservationDuration = "1.5 hours";
+            reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton1half.isChecked()){
             newprice = (oldprice)*3-dblshareddiscount;
+            reservationDuration = "1.5 hours";
+            reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton2.isChecked()){
             newprice = oldprice*4;
+            reservationDuration = "2 hours";
+            reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton2.isChecked()) {
             newprice = (oldprice) * 4 - dblshareddiscount;
+            reservationDuration = "2 hours";
+            reservationTable = "Shared Table";
         }
 
         textViewCurrentPrice.setText(formatter.format(newprice));
 
-    }
+        }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -175,6 +192,15 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
 
     @Override
     public void onClick(View view) {
-
+        reservationCoffeeShop = textViewEspressoRoyale.getText().toString();
+        reservationPrice = textViewCurrentPrice.getText().toString();
+        Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
+        reservationIntent.putExtra("date", reservationDate);
+        reservationIntent.putExtra("time", reservationTime);
+        reservationIntent.putExtra("Coffee Shop", reservationCoffeeShop);
+        reservationIntent.putExtra("Duration", reservationDuration);
+        reservationIntent.putExtra("Table Type", reservationTable);
+        reservationIntent.putExtra("Price", reservationPrice);
+        startActivity(reservationIntent);
         }
 }

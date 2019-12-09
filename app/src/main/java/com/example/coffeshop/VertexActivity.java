@@ -30,7 +30,7 @@ import java.util.Calendar;
 public class VertexActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener {
 
-    String reservationCoffeeShop, reservationDate, reservationTime;
+    String reservationCoffeeShop, reservationDate, reservationTime, reservationDuration, reservationTable, reservationPrice;
     TextView textViewVertex, textViewDate, textViewTime;
 
     Spinner spinnerVtimeslots;
@@ -226,10 +226,14 @@ public class VertexActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         if (view == buttonAvailabilityBookNow){
             reservationCoffeeShop = textViewVertex.getText().toString();
+            reservationPrice = textViewCurrentPrice.getText().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
             reservationIntent.putExtra("date", reservationDate);
             reservationIntent.putExtra("time", reservationTime);
             reservationIntent.putExtra("Coffee Shop", reservationCoffeeShop);
+            reservationIntent.putExtra("Duration", reservationDuration);
+            reservationIntent.putExtra("Table Type", reservationTable);
+            reservationIntent.putExtra("Price", reservationPrice);
             startActivity(reservationIntent);
 
         }
@@ -256,16 +260,28 @@ public class VertexActivity extends AppCompatActivity implements View.OnClickLis
             newprice = oldprice-dblshareddiscount;
         } else if (radioButtonOwnTable.isChecked() & radioButton1.isChecked()){
             newprice = oldprice*2;
+            reservationDuration = "1 hour";
+            reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton1.isChecked()){
             newprice = (oldprice)*2-dblshareddiscount;
+            reservationDuration = "1 hour";
+            reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton1half.isChecked()){
             newprice = oldprice*3;
+            reservationDuration = "1.5 hours";
+            reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton1half.isChecked()){
             newprice = (oldprice)*3-dblshareddiscount;
+            reservationDuration = "1.5 hours";
+            reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton2.isChecked()){
             newprice = oldprice*4;
+            reservationDuration = "2 hours";
+            reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton2.isChecked()) {
             newprice = (oldprice) * 4 - dblshareddiscount;
+            reservationDuration = "2 hours";
+            reservationTable = "Shared Table";
         }
 
         textViewCurrentPrice.setText(formatter.format(newprice));
