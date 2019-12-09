@@ -32,8 +32,8 @@ import java.util.List;
 public class EspressoRoyaleActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener {
 
-    String reservationCoffeeShop, reservationDate, reservationTime, reservationDuration, reservationTable, reservationPrice;
-    TextView textViewEspressoRoyale, textViewDate, textViewTime;
+    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice;
+    TextView textViewEspressoRoyale, textViewDate;
 
     Spinner spinnerERtimeslots;
     TextView textViewCurrentPrice;
@@ -56,7 +56,6 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
 
         textViewEspressoRoyale = findViewById(R.id.textViewEspressoRoyale);
         textViewDate = findViewById(R.id.textViewReservationDate);
-        textViewTime = findViewById(R.id.textViewReservationTime);
 
         textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
 
@@ -87,9 +86,6 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
         if (cometIntent != null) {
             reservationDate = cometIntent.getStringExtra("date");
             textViewDate.setText(reservationDate);
-            reservationTime = cometIntent.getStringExtra("time");
-            textViewTime.setText(reservationTime);
-
         }
     }
 
@@ -194,9 +190,10 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
     public void onClick(View view) {
         reservationCoffeeShop = textViewEspressoRoyale.getText().toString();
         reservationPrice = textViewCurrentPrice.getText().toString();
+        reservationSpinnerTime = spinnerERtimeslots.getSelectedItem().toString();
         Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
         reservationIntent.putExtra("date", reservationDate);
-        reservationIntent.putExtra("time", reservationTime);
+        reservationIntent.putExtra("time", reservationSpinnerTime);
         reservationIntent.putExtra("Coffee Shop", reservationCoffeeShop);
         reservationIntent.putExtra("Duration", reservationDuration);
         reservationIntent.putExtra("Table Type", reservationTable);

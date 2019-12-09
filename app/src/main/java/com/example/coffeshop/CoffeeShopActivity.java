@@ -31,8 +31,8 @@ import java.util.Calendar;
 public class CoffeeShopActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {
 
-    String reservationCoffeeShop, reservationDate, reservationTime, reservationDuration, reservationTable, reservationPrice, reservationSpinnerTime, reservationCoffeeShopStreet, reservationCoffeeShopCity;
-    TextView textViewLab, textViewDate, textViewTime, textViewLabStreet, textViewLabCity;
+    String reservationCoffeeShop, reservationDate, reservationDuration, reservationTable, reservationPrice, reservationSpinnerTime, reservationCoffeeShopStreet, reservationCoffeeShopCity;
+    TextView textViewLab, textViewDate, textViewLabStreet, textViewLabCity;
 
     Spinner spinnerLABtimeslots;
     TextView textViewCurrentPrice;
@@ -64,7 +64,6 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
 
         textViewLab = findViewById(R.id.textViewLab);
         textViewDate = findViewById(R.id.textViewReservationDate);
-        textViewTime = findViewById(R.id.textViewReservationTime);
         textViewLabStreet =findViewById(R.id.textViewLabStreet);
         textViewLabCity =findViewById(R.id.textViewLabCity);
 
@@ -98,8 +97,6 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
         if (labIntent != null){
             reservationDate = labIntent.getStringExtra("date");
             textViewDate.setText(reservationDate);
-            reservationTime = labIntent.getStringExtra("time");
-            textViewTime.setText(reservationTime);
         }
 
         //This section is to create the date selector
@@ -132,57 +129,6 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
                 reservationDate = selecteddate;
             }
         };
-        final TextView mDisplayTime = findViewById(R.id.textViewReservationTime);
-        mDisplayTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                java.util.Calendar cal = java.util.Calendar.getInstance();
-                int hour = cal.get(java.util.Calendar.HOUR);
-                int minute = cal.get(Calendar.MINUTE);
-                boolean isPM = (hour>=12);
-
-                TimePickerDialog dialogtime = new TimePickerDialog(
-                        CoffeeShopActivity.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        (TimePickerDialog.OnTimeSetListener) mTimeSetListener,
-                        hour,minute,isPM);
-                dialogtime.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialogtime.show();
-            }
-        });
-
-        mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                String timeSet = "";
-                if (hour > 12) {
-                    hour -= 12;
-                    timeSet = "PM";
-                } else if (hour == 0) {
-                    hour += 12;
-                    timeSet = "AM";
-                } else if (hour == 12){
-                    timeSet = "PM";
-                }else{
-                    timeSet = "AM";
-                }
-
-                String min = "";
-                if (minute < 10)
-                    min = "0" + minute ;
-                else
-                    min = String.valueOf(minute);
-
-                String selectedtime = hour +":"+ minute+" "+timeSet.toString();
-                mDisplayTime.setText(selectedtime);
-                reservationTime = selectedtime;
-
-
-
-            }
-        };
-
-
     }
 
     @Override

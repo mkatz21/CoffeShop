@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class CheckInActivity extends AppCompatActivity implements View.OnClickListener {
 
-    String reservationCoffeeShop, reservationCoffeeShopStreet, reservationCoffeeShopCity, reservationTime, reservationDate;
+    String reservationCoffeeShop, reservationCoffeeShopStreet, reservationCoffeeShopCity, reservationSpinnerTime, reservationDate;
     TextView textViewReservationCoffeeShop, textViewReservationCoffeeShopStreet, textViewReservationCoffeeShopCity, textViewDate, textViewTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +38,8 @@ public class CheckInActivity extends AppCompatActivity implements View.OnClickLi
             textViewReservationCoffeeShopCity.setText(reservationCoffeeShopCity);
             reservationDate = checkInIntent.getStringExtra("date");
             textViewDate.setText(reservationDate);
-            reservationTime = checkInIntent.getStringExtra("time");
-            textViewTime.setText(reservationTime);
+            reservationSpinnerTime = checkInIntent.getStringExtra("time");
+            textViewTime.setText(reservationSpinnerTime);
 
         }
 

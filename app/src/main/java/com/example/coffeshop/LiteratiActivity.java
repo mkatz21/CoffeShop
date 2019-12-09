@@ -31,8 +31,8 @@ public class LiteratiActivity extends AppCompatActivity implements View.OnClickL
         RadioButton.OnCheckedChangeListener {
 
 
-    String reservationCoffeeShop, reservationDate, reservationTime, reservationDuration, reservationTable, reservationPrice;
-    TextView textViewLiterati, textViewDate, textViewTime;
+    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice;
+    TextView textViewLiterati, textViewDate;
 
     Spinner spinnerLITtimeslots;
     TextView textViewCurrentPrice;
@@ -64,7 +64,6 @@ public class LiteratiActivity extends AppCompatActivity implements View.OnClickL
 
         textViewLiterati = findViewById(R.id.textViewLiterati);
         textViewDate = findViewById(R.id.textViewReservationDate);
-        textViewTime = findViewById(R.id.textViewReservationTime);
 
         buttonAvailabilityBookNow = findViewById(R.id.buttonAvailabilityBookNow);
 
@@ -94,8 +93,6 @@ public class LiteratiActivity extends AppCompatActivity implements View.OnClickL
         if (literatiIntent != null) {
             reservationDate = literatiIntent.getStringExtra("date");
             textViewDate.setText(reservationDate);
-            reservationTime = literatiIntent.getStringExtra("time");
-            textViewTime.setText(reservationTime);
         }
 
 
@@ -129,56 +126,6 @@ public class LiteratiActivity extends AppCompatActivity implements View.OnClickL
                 reservationDate = selecteddate;
             }
         };
-        final TextView mDisplayTime = findViewById(R.id.textViewReservationTime);
-        mDisplayTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                java.util.Calendar cal = java.util.Calendar.getInstance();
-                int hour = cal.get(java.util.Calendar.HOUR);
-                int minute = cal.get(Calendar.MINUTE);
-                boolean isPM = (hour>=12);
-
-                TimePickerDialog dialogtime = new TimePickerDialog(
-                        LiteratiActivity.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        (TimePickerDialog.OnTimeSetListener) mTimeSetListener,
-                        hour,minute,isPM);
-                dialogtime.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialogtime.show();
-            }
-        });
-
-        mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                String timeSet = "";
-                if (hour > 12) {
-                    hour -= 12;
-                    timeSet = "PM";
-                } else if (hour == 0) {
-                    hour += 12;
-                    timeSet = "AM";
-                } else if (hour == 12){
-                    timeSet = "PM";
-                }else{
-                    timeSet = "AM";
-                }
-
-                String min = "";
-                if (minute < 10)
-                    min = "0" + minute ;
-                else
-                    min = String.valueOf(minute);
-
-                String selectedtime = hour +":"+ minute+" "+timeSet.toString();
-                mDisplayTime.setText(selectedtime);
-                reservationTime = selectedtime;
-
-
-
-            }
-        };
-
     }
 
     @Override
@@ -229,9 +176,10 @@ public class LiteratiActivity extends AppCompatActivity implements View.OnClickL
         if (view == buttonAvailabilityBookNow){
             reservationCoffeeShop = textViewLiterati.getText().toString();
             reservationPrice = textViewCurrentPrice.getText().toString();
+            reservationSpinnerTime = spinnerLITtimeslots.getSelectedItem().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
             reservationIntent.putExtra("date", reservationDate);
-            reservationIntent.putExtra("time", reservationTime);
+            reservationIntent.putExtra("time", reservationSpinnerTime);
             reservationIntent.putExtra("Coffee Shop", reservationCoffeeShop);
             reservationIntent.putExtra("Duration", reservationDuration);
             reservationIntent.putExtra("Table Type", reservationTable);

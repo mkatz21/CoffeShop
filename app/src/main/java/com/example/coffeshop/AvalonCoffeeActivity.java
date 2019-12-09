@@ -30,8 +30,8 @@ import java.util.Calendar;
 public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener {
 
-    String reservationCoffeeShop, reservationDate, reservationTime, reservationDuration, reservationTable, reservationPrice;
-    TextView textViewAvalon, textViewDate, textViewTime;
+    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice;
+    TextView textViewAvalon, textViewDate;
     Spinner spinnerAVtimeslots;
     TextView textViewCurrentPrice;
     Button buttonAvailabilityBookNow;
@@ -62,7 +62,6 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
 
         textViewAvalon = findViewById(R.id.textViewAvalon);
         textViewDate = findViewById(R.id.textViewReservationDate);
-        textViewTime = findViewById(R.id.textViewReservationTime);
 
         textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
 
@@ -94,9 +93,6 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
         if (avalonIntent != null){
             reservationDate = avalonIntent.getStringExtra("date");
             textViewDate.setText(reservationDate);
-            reservationTime = avalonIntent.getStringExtra("time");
-            textViewTime.setText(reservationTime);
-
         }
 
         //This section is to create the date selector
@@ -127,55 +123,6 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
                 String selecteddate = month + "-" + day + "-" + year;
                 mDisplayDate.setText(selecteddate);
                 reservationDate = selecteddate;
-            }
-        };
-        final TextView mDisplayTime = findViewById(R.id.textViewReservationTime);
-        mDisplayTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                java.util.Calendar cal = java.util.Calendar.getInstance();
-                int hour = cal.get(java.util.Calendar.HOUR);
-                int minute = cal.get(Calendar.MINUTE);
-                boolean isPM = (hour>=12);
-
-                TimePickerDialog dialogtime = new TimePickerDialog(
-                        AvalonCoffeeActivity.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        (TimePickerDialog.OnTimeSetListener) mTimeSetListener,
-                        hour,minute,isPM);
-                dialogtime.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialogtime.show();
-            }
-        });
-
-        mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                String timeSet = "";
-                if (hour > 12) {
-                    hour -= 12;
-                    timeSet = "PM";
-                } else if (hour == 0) {
-                    hour += 12;
-                    timeSet = "AM";
-                } else if (hour == 12){
-                    timeSet = "PM";
-                }else{
-                    timeSet = "AM";
-                }
-
-                String min = "";
-                if (minute < 10)
-                    min = "0" + minute ;
-                else
-                    min = String.valueOf(minute);
-
-                String selectedtime = hour +":"+ minute+" "+timeSet.toString();
-                mDisplayTime.setText(selectedtime);
-                reservationTime = selectedtime;
-
-
-
             }
         };
     }
@@ -229,15 +176,15 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
         if (view == buttonAvailabilityBookNow){
             reservationCoffeeShop = textViewAvalon.getText().toString();
             reservationPrice = textViewCurrentPrice.getText().toString();
+            reservationSpinnerTime = spinnerAVtimeslots.getSelectedItem().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
             reservationIntent.putExtra("date", reservationDate);
-            reservationIntent.putExtra("time", reservationTime);
+            reservationIntent.putExtra("time", reservationSpinnerTime);
             reservationIntent.putExtra("Coffee Shop", reservationCoffeeShop);
             reservationIntent.putExtra("Duration", reservationDuration);
             reservationIntent.putExtra("Table Type", reservationTable);
             reservationIntent.putExtra("Price", reservationPrice);
             startActivity(reservationIntent);
-
         }
     }
 
