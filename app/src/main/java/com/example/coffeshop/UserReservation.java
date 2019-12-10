@@ -13,25 +13,26 @@ public class UserReservation {
     public String CCVNumber;
     public String ReservationDuration;
     public String ReservationTime;
+    public String TableType;
+    public String PricePaid;
 
     public UserReservation(){
 
     }
 
-    public UserReservation(String UserReservationCoffeeShop, String UserReservationDate, String creditCardName, String expirationDate, String CCVNumber, String postalCode, String firstname, String lastname, String ReservationDuration, String ReservationTime) {
-    }
+    public UserReservation(String UserReservationCoffeeShop, String UserReservationDate, String Firstname, String Lastname, String CreditCardName, String PostalCode,String ExpirationDate, String CCVNumber, String ReservationDuration, String ReservationTime, String TableType, String PricePaid) {
 
-    public UserReservation(String userReservationCoffeeShop, String userReservationDate, String userReservationBookingID, String firstname, String lastname, String creditCardName, String postalCode, String expirationDate, String CCVNumber) {
-        this.UserReservationCoffeeShop = userReservationCoffeeShop;
-        this.UserReservationDate = userReservationDate;
-        this.UserReservationBookingID = userReservationBookingID;
-        this.Firstname = firstname;
-        this.Lastname = lastname;
-        this.CreditCardName = creditCardName;
-        this.PostalCode = postalCode;
-        this.ExpirationDate = expirationDate;
+        this.UserReservationCoffeeShop = UserReservationCoffeeShop;
+        this.UserReservationDate = UserReservationDate;
+        this.Firstname = Firstname;
+        this.Lastname = Lastname;
+        this.CreditCardName = CreditCardName;
+        this.PostalCode = PostalCode;
+        this.ExpirationDate = ExpirationDate;
         this.CCVNumber = CCVNumber;
         this.ReservationDuration = ReservationDuration;
         this.ReservationTime = ReservationTime;
+        this.TableType = TableType;
+        this.PricePaid = PricePaid;
     }
 }
