@@ -98,11 +98,4 @@
         app:layout_constraintTop_toBottomOf="@+id/Logout"
         app:srcCompat="@drawable/house" />
 
-    <SearchView
-        android:layout_width="56dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="40dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

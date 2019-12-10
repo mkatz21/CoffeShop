@@ -103,6 +103,7 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
             String ReservationTime = textViewTime.getText().toString();
             String TableType = textViewTableType.getText().toString();
             String PricePaid = textViewTotalAmount.getText().toString();
+            String UserReservationBookingID = myRef.push().getKey();
 
 
             Intent checkInIntent = new Intent(this, CheckInActivity.class);
@@ -116,8 +117,9 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
             checkInIntent.putExtra("City", reservationCoffeeShopCity);
             startActivity(checkInIntent);
 
-            UserReservation createUserReservation = new UserReservation(UserReservationCoffeeShop, UserReservationDate, Firstname, Lastname, CreditCardName, PostalCode, ExpirationDate, CCVNumber, ReservationDuration, ReservationTime, TableType, PricePaid);
-            myRef.child("Reservation").setValue(createUserReservation).addOnSuccessListener(new OnSuccessListener<Void>() {
+            UserReservation createUserReservation = new UserReservation(UserReservationCoffeeShop, UserReservationDate, Firstname, Lastname, CreditCardName, PostalCode, ExpirationDate, CCVNumber, ReservationDuration, ReservationTime, TableType, PricePaid, UserReservationBookingID);
+            myRef.push().setValue(createUserReservation);
+            myRef.child("Reservation").setValue(UserReservationBookingID).addOnSuccessListener(new OnSuccessListener<Void>() {
                 @Override
                 public void onSuccess(Void aVoid) {
                     Toast.makeText(AddPaymentMethodActivity.this, "Success", Toast.LENGTH_SHORT).show();

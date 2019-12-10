@@ -20,7 +20,7 @@ public class UserReservation {
 
     }
 
-    public UserReservation(String UserReservationCoffeeShop, String UserReservationDate, String Firstname, String Lastname, String CreditCardName, String PostalCode,String ExpirationDate, String CCVNumber, String ReservationDuration, String ReservationTime, String TableType, String PricePaid) {
+    public UserReservation(String UserReservationCoffeeShop, String UserReservationDate, String Firstname, String Lastname, String CreditCardName, String PostalCode,String ExpirationDate, String CCVNumber, String ReservationDuration, String ReservationTime, String TableType, String PricePaid, String UserReservationBookingID) {
 
         this.UserReservationCoffeeShop = UserReservationCoffeeShop;
         this.UserReservationDate = UserReservationDate;
@@ -34,5 +34,6 @@ public class UserReservation {
         this.ReservationTime = ReservationTime;
         this.TableType = TableType;
         this.PricePaid = PricePaid;
+        this.UserReservationBookingID = UserReservationBookingID;
     }
 }
