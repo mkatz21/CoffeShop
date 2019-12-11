@@ -4,14 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CompoundButton;
@@ -20,14 +17,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import org.w3c.dom.Text;
-
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.List;
 
 public class EspressoRoyaleActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener {
@@ -152,7 +142,7 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.MainPayment) {
+        if (item.getItemId() == R.id.YourReservations) {
 
             Intent mainPaymentIntent = new Intent(this, MainPaymentActivity.class);
             startActivity(mainPaymentIntent);

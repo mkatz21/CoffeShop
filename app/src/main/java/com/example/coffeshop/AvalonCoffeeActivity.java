@@ -21,11 +21,9 @@ import android.widget.DatePicker;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.TimePicker;
 import android.widget.Toast;
 
 import java.text.NumberFormat;
-import java.util.Calendar;
 
 public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener {
@@ -137,7 +135,7 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.MainPayment) {
+        if(item.getItemId() == R.id.YourReservations) {
 
             Intent mainPaymentIntent = new Intent(this, MainPaymentActivity.class);
             startActivity(mainPaymentIntent);

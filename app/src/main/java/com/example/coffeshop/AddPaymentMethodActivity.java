@@ -144,7 +144,7 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == R.id.MainPayment) {
+        if (item.getItemId() == R.id.YourReservations) {
 
             Intent mainPaymentIntent = new Intent(this, MainPaymentActivity.class);
             startActivity(mainPaymentIntent);

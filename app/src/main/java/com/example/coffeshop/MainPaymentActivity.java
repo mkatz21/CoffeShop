@@ -81,7 +81,7 @@ public class MainPaymentActivity extends AppCompatActivity {
             Intent homeIntent = new Intent(this, HomeActivity.class);
             startActivity(homeIntent);
 
-        } else if(item.getItemId() == R.id.MainPayment) {
+        } else if(item.getItemId() == R.id.YourReservations) {
 
             Toast.makeText(this, "You are already on the Home Page", Toast.LENGTH_SHORT).show();
 
