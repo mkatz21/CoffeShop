@@ -10,9 +10,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -98,10 +98,13 @@ public class MainPaymentActivity extends AppCompatActivity {
 
             Intent checkInIntent = new Intent(this, CheckInActivity.class);
             startActivity(checkInIntent);
-        } else if(item.getItemId() == R.id.CoffeeShop) {
+        } else if(item.getItemId() == R.id.Logout) {
 
-            Intent coffeeShopIntent = new Intent(this, CoffeeShopActivity.class);
-            startActivity(coffeeShopIntent);
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(this, "Logout successful", Toast.LENGTH_LONG).show();
+            Intent logoutIntent = new Intent(this, LogInActivity.class);
+            startActivity(logoutIntent);
+
         } else if(item.getItemId() == R.id.SignUp) {
 
             Intent signupIntent = new Intent(this, SignUpActivity.class);

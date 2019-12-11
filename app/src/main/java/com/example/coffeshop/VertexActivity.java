@@ -24,6 +24,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.text.NumberFormat;
 import java.util.Calendar;
 
@@ -193,9 +195,12 @@ public class VertexActivity extends AppCompatActivity implements View.OnClickLis
             Intent mainPaymentIntent = new Intent(this, MainPaymentActivity.class);
             startActivity(mainPaymentIntent);
 
-        } else if(item.getItemId() == R.id.CoffeeShop) {
+        } else if(item.getItemId() == R.id.Logout) {
 
-            Toast.makeText(this, "You are already on the Coffee Shop Page", Toast.LENGTH_SHORT).show();
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(this, "Logout successful", Toast.LENGTH_LONG).show();
+            Intent logoutIntent = new Intent(this, LogInActivity.class);
+            startActivity(logoutIntent);
 
         } else if(item.getItemId() == R.id.Account) {
 

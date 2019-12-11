@@ -6,11 +6,11 @@
         android:id="@+id/Home"
         android:title="Home" />
     <item
-        android:id="@+id/YourReservations"
-        android:title="Your Reservations" />
-    <item
         android:id="@+id/Account"
         android:title="Account" />
+    <item
+        android:id="@+id/YourReservations"
+        android:title="Your Reservations" />
     <item
         android:id="@+id/AddPayment"
         android:title="Add Payment" />
@@ -18,9 +18,9 @@
         android:id="@+id/CheckIn"
         android:title="Check In" />
     <item
-        android:id="@+id/CoffeeShop"
-        android:title="Coffee Shop" />
-    <item
         android:id="@+id/SignUp"
         android:title="Sign Up" />
+    <item
+        android:id="@+id/Logout"
+        android:title="Logout" />
 </menu>

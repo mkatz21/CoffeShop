@@ -21,6 +21,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.Calendar;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
@@ -235,10 +237,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
                 Intent checkInIntent = new Intent(this, CheckInActivity.class);
                 startActivity(checkInIntent);
-            } else if (item.getItemId() == R.id.CoffeeShop) {
+            } else if (item.getItemId() == R.id.Logout) {
 
-                Intent coffeeShopIntent = new Intent(this, CoffeeShopActivity.class);
-                startActivity(coffeeShopIntent);
+                FirebaseAuth.getInstance().signOut();
+                Toast.makeText(this, "Logout successful", Toast.LENGTH_LONG).show();
+                Intent logoutIntent = new Intent(this, LogInActivity.class);
+                startActivity(logoutIntent);
+
             } else if (item.getItemId() == R.id.SignUp) {
 
                 Intent signupIntent = new Intent(this, SignUpActivity.class);

@@ -166,10 +166,13 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
 
             Intent HomeIntent = new Intent(this, HomeActivity.class);
             startActivity(HomeIntent);
-        } else if (item.getItemId() == R.id.CoffeeShop) {
+        } else if (item.getItemId() == R.id.Logout) {
 
-            Intent coffeeShopIntent = new Intent(this, CoffeeShopActivity.class);
-            startActivity(coffeeShopIntent);
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(this, "Logout successful", Toast.LENGTH_LONG).show();
+            Intent logoutIntent = new Intent(this, LogInActivity.class);
+            startActivity(logoutIntent);
+
         } else if (item.getItemId() == R.id.SignUp) {
 
             Intent signupIntent = new Intent(this, SignUpActivity.class);

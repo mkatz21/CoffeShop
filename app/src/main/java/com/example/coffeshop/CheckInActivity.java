@@ -76,7 +76,7 @@ public class CheckInActivity extends AppCompatActivity implements View.OnClickLi
 
             Intent HomeIntent = new Intent(this, HomeActivity.class);
             startActivity(HomeIntent);
-        } else if(item.getItemId() == R.id.CoffeeShop) {
+        } else if(item.getItemId() == R.id.Logout) {
 
             Intent coffeeShopIntent = new Intent(this, CoffeeShopActivity.class);
             startActivity(coffeeShopIntent);
