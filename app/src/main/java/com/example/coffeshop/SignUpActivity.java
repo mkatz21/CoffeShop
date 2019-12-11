@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.Task;
@@ -27,7 +29,9 @@ import com.google.firebase.database.FirebaseDatabase;
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText FirstName, LastName, Email, PhoneNumber, Password, ConfirmPassword;
+    TextView textviewpolicy;
     Button Create;
+    Switch switchedittext;
 
     private FirebaseAuth mAuth;
 
@@ -41,11 +45,14 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         Email = findViewById(R.id.Email);
         PhoneNumber = findViewById(R.id.PhoneNumber);
         Password = findViewById(R.id.Password);
-        ConfirmPassword = findViewById(R.id.ConfirmPassword);
+        switchedittext = findViewById(R.id.switchedittext);
+        textviewpolicy = findViewById(R.id.textviewpolicy);
+
 
         Create = findViewById(R.id.Create);
 
         Create.setOnClickListener(this);
+        switchedittext.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -59,7 +66,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         String email_string = Email.getText().toString();
         String phoneNumber_string = PhoneNumber.getText().toString();
         String password_string = Password.getText().toString();
-        String confirmPassword_string = ConfirmPassword.getText().toString();
 
 
         if (v==Create) {
@@ -116,6 +122,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         }
 
+        }
+
 /*        else if (v==Create) {
 
             mAuth.signInWithEmailAndPassword(email_string, password_string)
@@ -137,7 +145,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
 
         }*/
-    }
 
 // this was added from other screens?//
 
@@ -161,8 +168,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         } else if(item.getItemId() == R.id.Account) {
 
-            Intent accountIntent = new Intent(this, AccountActivity.class);
-            startActivity(accountIntent);
+            Toast.makeText(this, "You are already on the Account Page", Toast.LENGTH_SHORT).show();
 
         } else if(item.getItemId() == R.id.AddPayment) {
 
@@ -179,11 +185,8 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             Intent logoutIntent = new Intent(this, LogInActivity.class);
             startActivity(logoutIntent);
 
-        } else if(item.getItemId() == R.id.SignUp) {
-
-            Intent signupIntent = new Intent(this, SignUpActivity.class);
-            startActivity(signupIntent);
         }
+
         return super.onOptionsItemSelected(item);
     }
 

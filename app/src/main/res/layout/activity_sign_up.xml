@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".SignUpActivity"
+    android:background="@drawable/backgroundofapp">
 
-    <EditText
-        android:id="@+id/editText7"
-        android:layout_width="371dp"
-        android:layout_height="74dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="128dp"
+    <TextView
+        android:id="@+id/textviewpolicy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="15dp"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="textMultiLine"
@@ -19,18 +21,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Create" />
 
-    <EditText
-        android:id="@+id/editText8"
-        android:layout_width="213dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:singleLine="true"
-        android:text="CREATE AN ACCOUNT"
+    <ImageView
+        android:id="@+id/imageViewAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        tools:srcCompat="@tools:sample/avatars[0]" />
 
     <EditText
         android:id="@+id/LastName"
@@ -52,7 +51,7 @@
         android:layout_marginTop="16dp"
         android:text="Create Account"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ConfirmPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/Password" />
 
     <EditText
         android:id="@+id/Password"
@@ -65,28 +64,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/PhoneNumber" />
 
-    <EditText
-        android:id="@+id/ConfirmPassword"
-        android:layout_width="213dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="88dp"
-        android:ems="10"
-        android:hint="Confirm Password"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Password" />
 
     <EditText
         android:id="@+id/FirstName"
         android:layout_width="213dp"
         android:layout_height="45dp"
         android:layout_marginStart="88dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:ems="10"
         android:hint="First Name"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText8" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewAccount" />
 
     <EditText
         android:id="@+id/Email"
@@ -114,20 +103,20 @@
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
+        android:layout_marginStart="88dp"
         android:layout_marginTop="31dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/third" />
 
-    <SearchView
-        android:layout_width="56dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="61dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="parent">
-
-    </SearchView>
+    <Switch
+        android:id="@+id/switchedittext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Account Information"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="88dp"
+        tools:layout_editor_absoluteY="236dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

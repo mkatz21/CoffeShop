@@ -156,8 +156,8 @@ public class BlackDieselActivity extends AppCompatActivity implements View.OnCli
 
         } else if(item.getItemId() == R.id.Account) {
 
-            Intent accountIntent = new Intent(this, AccountActivity.class);
-            startActivity(accountIntent);
+            Intent signupIntent = new Intent(this, SignUpActivity.class);
+            startActivity(signupIntent);
 
         } else if(item.getItemId() == R.id.AddPayment) {
 
@@ -171,11 +171,8 @@ public class BlackDieselActivity extends AppCompatActivity implements View.OnCli
 
             Intent homeIntent = new Intent(this, HomeActivity.class);
             startActivity(homeIntent);
-        } else if(item.getItemId() == R.id.SignUp) {
-
-            Intent signupIntent = new Intent(this, SignUpActivity.class);
-            startActivity(signupIntent);
         }
+
         return super.onOptionsItemSelected(item);
     }
 

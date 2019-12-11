@@ -18,9 +18,6 @@
         android:id="@+id/CheckIn"
         android:title="Check In" />
     <item
-        android:id="@+id/SignUp"
-        android:title="Sign Up" />
-    <item
         android:id="@+id/Logout"
         android:title="Logout" />
 </menu>

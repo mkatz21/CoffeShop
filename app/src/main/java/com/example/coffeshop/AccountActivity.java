@@ -59,8 +59,9 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
         } else if(item.getItemId() == R.id.AddPayment) {
 
-            Intent addPaymentIntent = new Intent(this, AddPaymentMethodActivity.class);
-            startActivity(addPaymentIntent);
+            Intent signupIntent = new Intent(this, SignUpActivity.class);
+            startActivity(signupIntent);
+
         } else if(item.getItemId() == R.id.Home) {
 
             Intent HomeIntent = new Intent(this, HomeActivity.class);
@@ -69,11 +70,8 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
 
             Intent coffeeShopIntent = new Intent(this, CoffeeShopActivity.class);
             startActivity(coffeeShopIntent);
-        } else if(item.getItemId() == R.id.SignUp) {
-
-            Intent signupIntent = new Intent(this, SignUpActivity.class);
-            startActivity(signupIntent);
         }
+
         return super.onOptionsItemSelected(item);
     }
 
