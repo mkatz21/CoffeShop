@@ -2,9 +2,9 @@ package com.example.coffeshop;
 
 public class UserReservation {
 
-    public String UserReservationCoffeeShop;
+    public String userreservationcoffeeshop;
     public String UserReservationDate;
-    public String UserReservationBookingID;
+    public String userreservationbookingID;
     public String Firstname;
     public String Lastname;
     public String CreditCardName;
@@ -20,9 +20,25 @@ public class UserReservation {
 
     }
 
-    public UserReservation(String UserReservationCoffeeShop, String UserReservationDate, String Firstname, String Lastname, String CreditCardName, String PostalCode,String ExpirationDate, String CCVNumber, String ReservationDuration, String ReservationTime, String TableType, String PricePaid, String UserReservationBookingID) {
+    public String getUserreservationcoffeeshop() {
+        return userreservationcoffeeshop;
+    }
 
-        this.UserReservationCoffeeShop = UserReservationCoffeeShop;
+    public void setUserreservationcoffeeshop(String userreservationcoffeeshop) {
+        this.userreservationcoffeeshop = userreservationcoffeeshop;
+    }
+
+    public String getUserreservationbookingID() {
+        return userreservationbookingID;
+    }
+
+    public void setUserreservationbookingID(String userreservationbookingID) {
+        this.userreservationbookingID = userreservationbookingID;
+    }
+
+    public UserReservation(String userreservationcoffeeshop, String UserReservationDate, String Firstname, String Lastname, String CreditCardName, String PostalCode, String ExpirationDate, String CCVNumber, String ReservationDuration, String ReservationTime, String TableType, String PricePaid, String userreservationbookingID) {
+
+        this.userreservationcoffeeshop = userreservationcoffeeshop;
         this.UserReservationDate = UserReservationDate;
         this.Firstname = Firstname;
         this.Lastname = Lastname;
@@ -34,6 +50,6 @@ public class UserReservation {
         this.ReservationTime = ReservationTime;
         this.TableType = TableType;
         this.PricePaid = PricePaid;
-        this.UserReservationBookingID = UserReservationBookingID;
+        this.userreservationbookingID = userreservationbookingID;
     }
 }
