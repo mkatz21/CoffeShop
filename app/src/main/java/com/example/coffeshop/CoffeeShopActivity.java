@@ -45,6 +45,7 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
     Double oldprice=5.00;
 
     //Setting the price into a Currency format
+                //Adding in a comment so I can re-pull down and overwrite my mistakes
     NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
     //This section is to create the date selector variables
