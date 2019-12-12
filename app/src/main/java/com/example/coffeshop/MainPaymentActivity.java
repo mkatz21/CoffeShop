@@ -31,6 +31,7 @@ public class MainPaymentActivity extends AppCompatActivity {
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String email = user.getEmail();
 
+    //Adding in a comment so I can re-pull down and overwrite my mistakes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
