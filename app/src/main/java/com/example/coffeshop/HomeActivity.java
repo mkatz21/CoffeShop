@@ -42,13 +42,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.horizontal_layout);
-
+/* Commenting this out for now, to remove in general code cleanup
         //This section is to create a duration dropdown menu
         Spinner durationdropdown = findViewById(R.id.spinnerduration);
         ArrayAdapter<CharSequence> adapter =ArrayAdapter.createFromResource(this,R.array.duration,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         durationdropdown.setAdapter(adapter);
-
+*/
 
         //This section is to create the date selector
         final TextView mDisplayDate = findViewById(R.id.textViewDate);
@@ -80,6 +80,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 dateSend = selecteddate;
             }
         };
+
+        /*
         final TextView mDisplayTime = findViewById(R.id.textViewTime);
         mDisplayTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +131,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         };
+
+
+         */
     }
 
     //This is Avalon's clicklable image coding to redirect to its specific page

@@ -24,18 +24,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/textViewTimeDescription"
-            android:layout_width="91dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="140dp"
-            android:layout_marginTop="8dp"
-            android:gravity="center_horizontal"
-            android:text="Time"
-            android:textColor="#006064"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:background="@drawable/textviewborder"/>
 
         <TextView
             android:id="@+id/textViewDateDescription"
@@ -45,44 +33,6 @@
             android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
             android:text="Date"
-            android:textColor="#006064"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:background="@drawable/textviewborder"/>
-
-        <TextView
-            android:id="@+id/textViewDurationDescription"
-            android:layout_width="91dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="240dp"
-            android:layout_marginTop="8dp"
-            android:gravity="center_horizontal"
-            android:text="Duration"
-            android:textColor="#006064"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:background="@drawable/textviewborder"/>
-
-        <Spinner
-            android:id="@+id/spinnerduration"
-            android:layout_width="91dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="240dp"
-            android:layout_marginTop="23dp"
-            android:textColor="#006064"
-            android:textSize="12sp"
-            android:textStyle="bold"
-            android:background="@drawable/textviewborder"
-            android:spinnerMode="dropdown"/>
-
-        <TextView
-            android:id="@+id/textViewTime"
-            android:layout_width="91dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="140dp"
-            android:layout_marginTop="23dp"
-            android:gravity="center_horizontal"
-            android:hint="Select Time"
             android:textColor="#006064"
             android:textSize="12sp"
             android:textStyle="bold"
