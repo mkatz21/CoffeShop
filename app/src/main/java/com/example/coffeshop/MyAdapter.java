@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
+    //Adding in a comment so I can re-pull down and overwrite my mistakes
     Context context;
     ArrayList<UserReservation> myreservations;
 
