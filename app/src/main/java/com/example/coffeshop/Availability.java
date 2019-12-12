@@ -1,6 +1,5 @@
 package com.example.coffeshop;
 
-import java.sql.Time;
 import java.util.Date;
 
 public class Availability {
@@ -11,7 +10,6 @@ public class Availability {
     public Boolean AvailabilityStatus;
     public String AvailabilityUserName;
     public Integer AvailabilityBookingID;
-    public Double AvailabilityPrice;
 
     public Availability() {
     }
@@ -22,7 +20,6 @@ public class Availability {
         AvailabilityStatus = availabilityStatus;
         AvailabilityUserName = availabilityUserName;
         AvailabilityBookingID = availabilityBookingID;
-        AvailabilityPrice = availabilityPrice;
     }
 }
 

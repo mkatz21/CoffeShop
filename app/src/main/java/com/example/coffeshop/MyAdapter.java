@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,13 +28,15 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MyViewHolder(LayoutInflater.from(context).inflate(R.layout.cardview,parent,false));
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview, parent, false);
+        MyViewHolder viewholder =new MyViewHolder(view);
+        return viewholder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.bookingid.setText(myreservations.get(position).getUserreservationbookingID());
-        holder.coffeeshopreserved.setText(myreservations.get(position).getUserreservationcoffeeshop());
+        holder.bookingid.setText(myreservations.get(position).userreservationbookingID);
+        holder.coffeeshopreserved.setText(myreservations.get(position).userreservationcoffeeshop);
     }
 
     @Override
@@ -45,10 +48,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     {
         TextView bookingid, coffeeshopreserved;
+        RelativeLayout parent;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
+            parent = itemView.findViewById(R.id.parentLayout);
             bookingid = itemView.findViewById(R.id.bookingid);
             coffeeshopreserved = itemView.findViewById(R.id.coffeeshopreserved);
         }

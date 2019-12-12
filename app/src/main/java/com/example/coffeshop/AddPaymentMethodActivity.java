@@ -117,20 +117,8 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
             checkInIntent.putExtra("City", reservationCoffeeShopCity);
             startActivity(checkInIntent);
 
-            UserReservation createUserReservation = new UserReservation(userreservationcoffeeshop, UserReservationDate, Firstname, Lastname, CreditCardName, PostalCode, ExpirationDate, CCVNumber, ReservationDuration, ReservationTime, TableType, PricePaid, userreservationbookingID);
+            UserReservation createUserReservation = new UserReservation(userreservationcoffeeshop, UserReservationDate, Firstname, Lastname, CreditCardName, PostalCode, ExpirationDate, CCVNumber, ReservationDuration, ReservationTime, TableType, PricePaid, userreservationbookingID, email);
             myRef.push().setValue(createUserReservation);
-            myRef.child("Reservation").setValue(userreservationbookingID).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void aVoid) {
-                    Toast.makeText(AddPaymentMethodActivity.this, "Success", Toast.LENGTH_SHORT).show();
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(AddPaymentMethodActivity.this, e.toString(), Toast.LENGTH_SHORT).show();
-                }
-            });
-
         }
     }
 

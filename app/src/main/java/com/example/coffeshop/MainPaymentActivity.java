@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -27,6 +28,8 @@ public class MainPaymentActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<UserReservation> reservationslist;
     MyAdapter reservationadapater;
+    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    String email = user.getEmail();
 
 
     @Override
@@ -34,25 +37,23 @@ public class MainPaymentActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_payment);
 
-        recyclerView = findViewById(R.id.myRecycler);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        reservationslist = new ArrayList<UserReservation>();
+        recyclerView = findViewById(R.id.myRecycler);;
+        reservationslist = new ArrayList<>();
 
         reference = FirebaseDatabase.getInstance().getReference().child("UserReservation");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-
                    // Toast.makeText(MainPaymentActivity.this, dataSnapshot1.getKey(), Toast.LENGTH_SHORT).show();
-                    UserReservation r = dataSnapshot.getValue(UserReservation.class);
+                    UserReservation r = dataSnapshot1.getValue(UserReservation.class);
+                    Toast.makeText(MainPaymentActivity.this, r.email, Toast.LENGTH_SHORT).show();
                     reservationslist.add(r);
 
                 }
-
-                Toast.makeText(MainPaymentActivity.this, String.valueOf(reservationslist.size()), Toast.LENGTH_SHORT).show();
                 reservationadapater = new MyAdapter(MainPaymentActivity.this,reservationslist);
                 recyclerView.setAdapter(reservationadapater);
+                recyclerView.setLayoutManager(new LinearLayoutManager(MainPaymentActivity.this));
             }
 
             @Override

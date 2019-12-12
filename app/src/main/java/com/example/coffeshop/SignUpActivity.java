@@ -31,7 +31,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     EditText FirstName, LastName, Email, PhoneNumber, Password, ConfirmPassword;
     TextView textviewpolicy;
     Button Create;
-    Switch switchedittext;
 
     private FirebaseAuth mAuth;
 
@@ -45,14 +44,12 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
         Email = findViewById(R.id.Email);
         PhoneNumber = findViewById(R.id.PhoneNumber);
         Password = findViewById(R.id.Password);
-        switchedittext = findViewById(R.id.switchedittext);
         textviewpolicy = findViewById(R.id.textviewpolicy);
 
 
         Create = findViewById(R.id.Create);
 
         Create.setOnClickListener(this);
-        switchedittext.setOnClickListener(this);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -61,11 +58,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
 
-        String firstName_string = FirstName.getText().toString();
-        String lastName_string = LastName.getText().toString();
-        String email_string = Email.getText().toString();
-        String phoneNumber_string = PhoneNumber.getText().toString();
-        String password_string = Password.getText().toString();
+        final String firstName_string = FirstName.getText().toString();
+        final String lastName_string = LastName.getText().toString();
+        final String email_string = Email.getText().toString();
+        final String phoneNumber_string = PhoneNumber.getText().toString();
+        final String password_string = Password.getText().toString();
 
 
         if (v==Create) {
@@ -91,21 +88,13 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
                                     final DatabaseReference myRef = database.getReference("Users");
 
-
-
-                                        String firstName_string = FirstName.getText().toString();
-                                        String lastName_string = LastName.getText().toString();
-                                        String email_string = Email.getText().toString();
-                                        String phoneNumber_string = PhoneNumber.getText().toString();
-
-
                                       UserInfo myUser = new UserInfo();
                                       myUser.userInfoFirstName = firstName_string;
                                       myUser.userInfoLastName = lastName_string;
                                       myUser.userInfoEmail = email_string;
 
 
-                                        myRef.push().setValue(myUser);
+                                      myRef.push().setValue(myUser);
 
 
 

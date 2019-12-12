@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="100dp"
     android:weightSum="2"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:id="@+id/parentLayout">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
 
@@ -17,37 +18,25 @@
             android:layout_height="wrap_content"
             android:text="Booking ID"
             android:textSize="15sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/bookingid"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/bookingid"/>
+            android:layout_height="wrap_content" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="CoffeeShop"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/coffeeshopreserved"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/coffeeshopreserved"/>
+            android:layout_height="29dp" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_weight="1"
-        android:layout_height="match_parent"
-        >
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/reservationpic"/>
-
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

@@ -216,35 +216,35 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
     public void UpdateCheckOutPrice() {
         if (radioButtonOwnTable.isChecked() & radioButton30.isChecked()) {
             newprice = oldprice*1;
-            reservationDuration = "30 minutes";
+            reservationDuration = "0.5";
             reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton30.isChecked()){
             newprice = oldprice-dblshareddiscount;
-            reservationDuration = "30 minutes";
+            reservationDuration = "0.5";
             reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton1.isChecked()){
             newprice = oldprice*2;
-            reservationDuration = "1 hour";
+            reservationDuration = "0.5";
             reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton1.isChecked()){
             newprice = (oldprice)*2-dblshareddiscount;
-            reservationDuration = "1 hour";
+            reservationDuration = "1";
             reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton1half.isChecked()){
             newprice = oldprice*3;
-            reservationDuration = "1.5 hours";
+            reservationDuration = "1.5";
             reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton1half.isChecked()){
             newprice = (oldprice)*3-dblshareddiscount;
-            reservationDuration = "1.5 hours";
+            reservationDuration = "1.5";
             reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton2.isChecked()){
             newprice = oldprice*4;
-            reservationDuration = "2 hours";
+            reservationDuration = "2";
             reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton2.isChecked()) {
             newprice = (oldprice) * 4 - dblshareddiscount;
-            reservationDuration = "2 hours";
+            reservationDuration = "2";
             reservationTable = "Shared Table";
         }
 

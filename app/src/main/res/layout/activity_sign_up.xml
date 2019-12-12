@@ -109,14 +109,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/third" />
 
-    <Switch
-        android:id="@+id/switchedittext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Edit Account Information"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="88dp"
-        tools:layout_editor_absoluteY="236dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

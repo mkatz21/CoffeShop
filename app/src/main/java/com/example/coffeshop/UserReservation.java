@@ -15,6 +15,7 @@ public class UserReservation {
     public String ReservationTime;
     public String TableType;
     public String PricePaid;
+    public String email;
 
     public UserReservation(){
 
@@ -36,7 +37,7 @@ public class UserReservation {
         this.userreservationbookingID = userreservationbookingID;
     }
 
-    public UserReservation(String userreservationcoffeeshop, String UserReservationDate, String Firstname, String Lastname, String CreditCardName, String PostalCode, String ExpirationDate, String CCVNumber, String ReservationDuration, String ReservationTime, String TableType, String PricePaid, String userreservationbookingID) {
+    public UserReservation(String userreservationcoffeeshop, String UserReservationDate, String Firstname, String Lastname, String CreditCardName, String PostalCode, String ExpirationDate, String CCVNumber, String ReservationDuration, String ReservationTime, String TableType, String PricePaid, String userreservationbookingID, String email) {
 
         this.userreservationcoffeeshop = userreservationcoffeeshop;
         this.UserReservationDate = UserReservationDate;
@@ -51,5 +52,6 @@ public class UserReservation {
         this.TableType = TableType;
         this.PricePaid = PricePaid;
         this.userreservationbookingID = userreservationbookingID;
+        this.email = email;
     }
 }
