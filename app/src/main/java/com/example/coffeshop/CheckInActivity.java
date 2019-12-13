@@ -4,18 +4,38 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.zxing.WriterException;
+
+import androidmads.library.qrgenearator.QRGContents;
+import androidmads.library.qrgenearator.QRGEncoder;
 
 public class CheckInActivity extends AppCompatActivity implements View.OnClickListener {
 
     String reservationCoffeeShop, reservationCoffeeShopStreet, reservationCoffeeShopCity, reservationSpinnerTime, reservationDate;
     TextView textViewReservationCoffeeShop, textViewReservationCoffeeShopStreet, textViewReservationCoffeeShopCity, textViewDate, textViewTime;
+
+    //QR Generation
+    ImageView qrImage;
+    String inputValue, TAG = "GenerateQRCode";
+    Bitmap bitmap;
+    QRGEncoder qrgEncoder;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +47,9 @@ public class CheckInActivity extends AppCompatActivity implements View.OnClickLi
         textViewReservationCoffeeShop = findViewById(R.id.textViewReservationCoffeeShop);
         textViewReservationCoffeeShopCity = findViewById(R.id.textViewReservationCoffeeShopCity);
         textViewReservationCoffeeShopStreet = findViewById(R.id.textViewReservationCoffeeShopStreet);
+
+        //QR Generation
+        qrImage = findViewById(R.id.defaultQRCode);
 
         Intent checkInIntent =getIntent();
         if (checkInIntent != null){
@@ -40,7 +63,31 @@ public class CheckInActivity extends AppCompatActivity implements View.OnClickLi
             textViewDate.setText(reservationDate);
             reservationSpinnerTime = checkInIntent.getStringExtra("time");
             textViewTime.setText(reservationSpinnerTime);
+            inputValue = checkInIntent.getStringExtra("BookingID");
 
+        }
+
+        //Generate QR Code from BookingID using code from http://www.androidmads.info/2018/07/how-to-generate-qr-code-in-android.html
+        if (inputValue.length()> 0){
+            WindowManager manager = (WindowManager) getSystemService(WINDOW_SERVICE);
+            Display display = manager.getDefaultDisplay();
+            Point point = new Point();
+            display.getSize(point);
+            int width = point.x;
+            int height = point.y;
+            int smallerDimension = width < height ? width : height;
+            smallerDimension = smallerDimension * 3 / 4;
+
+            qrgEncoder = new QRGEncoder(
+                    inputValue, null,
+                    QRGContents.Type.TEXT,
+                    smallerDimension);
+            try {
+                bitmap = qrgEncoder.encodeAsBitmap();
+                qrImage.setImageBitmap(bitmap);
+            } catch (WriterException e) {
+                Log.v(TAG, e.toString());
+            }
         }
 
     }

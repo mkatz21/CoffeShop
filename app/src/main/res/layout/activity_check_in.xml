@@ -130,10 +130,9 @@
             android:text="Check In" />
 
         <ImageView
-            android:id="@+id/labQRCode"
+            android:id="@+id/defaultQRCode"
             android:layout_width="match_parent"
-            android:layout_height="95dp"
-            app:srcCompat="@drawable/labwebsiteqrcode" />
+            android:layout_height="95dp" />
 
-    </LinearLayout>
-</LinearLayout>
+     </LinearLayout>
+ </LinearLayout>

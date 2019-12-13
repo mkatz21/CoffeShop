@@ -115,6 +115,7 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
             checkInIntent.putExtra("Price", reservationPrice);
             checkInIntent.putExtra("Street", reservationCoffeeShopStreet);
             checkInIntent.putExtra("City", reservationCoffeeShopCity);
+            checkInIntent.putExtra("BookingID", userreservationbookingID);
             startActivity(checkInIntent);
 
             UserReservation createUserReservation = new UserReservation(userreservationcoffeeshop, UserReservationDate, Firstname, Lastname, CreditCardName, PostalCode, ExpirationDate, CCVNumber, ReservationDuration, ReservationTime, TableType, PricePaid, userreservationbookingID, email);
