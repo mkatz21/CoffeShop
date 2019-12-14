@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MainPaymentActivity extends AppCompatActivity {
 
@@ -51,7 +52,26 @@ public class MainPaymentActivity extends AppCompatActivity {
                     Toast.makeText(MainPaymentActivity.this, r.email, Toast.LENGTH_SHORT).show();
                     reservationslist.add(r);
 
+                    /* This code also limits the arraylist to just the reservation created in the moment
+                    Doesn't do what we need it to do but gets close?
+                    if (r.email == email) {
+                        reservationslist.add(r);
+                    }
+                    else if (r.email != email){
+                        continue;
+                    }
+
+                     */
+
                 }
+                /* ** This code will refine the arraylist to just the reservation created in the moment
+                doesn't do what we need it to do but some variant of this hopefully will filter the arraylist just down to current user
+                Iterator<UserReservation> iterator = reservationslist.iterator();
+                while (iterator.hasNext()) {
+                    UserReservation a = iterator.next();
+                    if (a.email != email) iterator.remove();
+                }
+*/
                 reservationadapater = new MyAdapter(MainPaymentActivity.this,reservationslist);
                 recyclerView.setAdapter(reservationadapater);
                 recyclerView.setLayoutManager(new LinearLayoutManager(MainPaymentActivity.this));
