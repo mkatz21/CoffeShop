@@ -1,7 +1,7 @@
 package com.example.coffeshop;
 
 import androidx.annotation.NonNull;
-
+//Time class used for timepicker
 public class Time {
 
     int hour;

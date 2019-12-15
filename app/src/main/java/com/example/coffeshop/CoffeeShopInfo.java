@@ -2,6 +2,7 @@ package com.example.coffeshop;
 
 import android.media.Image;
 
+//This is to create the CoffeeShop DB object for firebase. We then went in and manually created each individual coffee shop directly in the console
 public class CoffeeShopInfo {
 
     public Integer CoffeeShopInfoOpenHour;

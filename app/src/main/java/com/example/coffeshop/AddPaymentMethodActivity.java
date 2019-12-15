@@ -63,6 +63,8 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
 
         buttonBook.setOnClickListener(this);
 
+
+        // Getting information that was sent over from the Coffee shop pages and saving info in strings + setting text
         Intent reservationIntent = getIntent();
         if (reservationIntent != null) {
             reservationDate = reservationIntent.getStringExtra("date");
@@ -89,6 +91,7 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
         final FirebaseDatabase database = FirebaseDatabase.getInstance();
         final DatabaseReference myRef = database.getReference("UserReservation");
 
+        //When clicking the reservation button, saves inputted text into strings
         if (view == buttonBook) {
 
             String userreservationcoffeeshop = textViewCoffeeShopName.getText().toString();
@@ -105,7 +108,7 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
             String PricePaid = textViewTotalAmount.getText().toString();
             String userreservationbookingID = myRef.push().getKey();
 
-
+//Clicking the button sends the user to the Check In screen and sends over additional string information to that class
             Intent checkInIntent = new Intent(this, CheckInActivity.class);
             checkInIntent.putExtra("date", reservationDate);
             checkInIntent.putExtra("time", bookedTime);
@@ -118,12 +121,12 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
             checkInIntent.putExtra("BookingID", userreservationbookingID);
             startActivity(checkInIntent);
 
+            // The button also creates a UserReservation object via the strings created from inputted text
             UserReservation createUserReservation = new UserReservation(userreservationcoffeeshop, UserReservationDate, Firstname, Lastname, CreditCardName, PostalCode, ExpirationDate, CCVNumber, ReservationDuration, ReservationTime, TableType, PricePaid, userreservationbookingID, email);
             myRef.push().setValue(createUserReservation);
         }
     }
 
-    //Adding in a comment so I can re-pull down and overwrite my mistakes
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

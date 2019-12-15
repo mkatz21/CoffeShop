@@ -174,6 +174,7 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
         return super.onOptionsItemSelected(item);
     }
 
+    // Creating strings from info, including the basic info of the coffeeshop and sending it up to the add payment page
     @Override
     public void onClick(View view) {
         reservationCoffeeShop = textViewEspressoRoyale.getText().toString();

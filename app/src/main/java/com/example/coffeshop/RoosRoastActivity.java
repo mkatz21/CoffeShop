@@ -164,6 +164,7 @@ public class RoosRoastActivity extends AppCompatActivity implements View.OnClick
         return super.onOptionsItemSelected(item);
     }
 
+    // Creating strings from info, including the basic info of the coffeeshop and sending it up to the add payment page
     @Override
     public void onClick(View view) {
         if (view == buttonAvailabilityBookNow){

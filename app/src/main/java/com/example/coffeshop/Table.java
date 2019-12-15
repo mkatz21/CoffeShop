@@ -1,5 +1,6 @@
 package com.example.coffeshop;
 
+//Table class for future use when we want to have booked tables in appointment slots that can be checked for availability
 public class Table {
 
 public Boolean TableOutlet;

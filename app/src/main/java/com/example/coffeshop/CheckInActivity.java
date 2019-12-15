@@ -28,7 +28,7 @@ public class CheckInActivity extends AppCompatActivity implements View.OnClickLi
     String reservationCoffeeShop, reservationCoffeeShopStreet, reservationCoffeeShopCity, reservationSpinnerTime, reservationDate;
     TextView textViewReservationCoffeeShop, textViewReservationCoffeeShopStreet, textViewReservationCoffeeShopCity, textViewDate, textViewTime;
 
-    //QR Generation
+    //QR Generation pieces
     ImageView qrImage;
     String inputValue, TAG = "GenerateQRCode";
     Bitmap bitmap;
@@ -51,6 +51,7 @@ public class CheckInActivity extends AppCompatActivity implements View.OnClickLi
         //QR Generation
         qrImage = findViewById(R.id.defaultQRCode);
 
+        //getting infromation sent over from addpayment intent and saving it in strings
         Intent checkInIntent =getIntent();
         if (checkInIntent != null){
             reservationCoffeeShop = checkInIntent.getStringExtra("Coffee Shop");

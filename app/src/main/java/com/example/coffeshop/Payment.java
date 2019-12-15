@@ -2,6 +2,7 @@ package com.example.coffeshop;
 
 import java.util.Date;
 
+//Creates the class where we can save individual credit card payment methods for future use as a saved part of a user's account
 public class Payment {
 
     public String PaymentUserName;

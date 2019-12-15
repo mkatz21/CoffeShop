@@ -22,7 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
+//This class got repurposed into our Reservations activity. Keeping name as previous due to other group renaming issues experienced previously
 public class MainPaymentActivity extends AppCompatActivity {
 
     DatabaseReference reference;
@@ -32,7 +32,6 @@ public class MainPaymentActivity extends AppCompatActivity {
     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
     String email = user.getEmail();
 
-    //Adding in a comment so I can re-pull down and overwrite my mistakes
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +41,7 @@ public class MainPaymentActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.myRecycler);;
         reservationslist = new ArrayList<>();
 
+        //Code to fill up the reservationsList array with the existing UserReservation objects
         reference = FirebaseDatabase.getInstance().getReference().child("UserReservation");
         reference.addValueEventListener(new ValueEventListener() {
             @Override

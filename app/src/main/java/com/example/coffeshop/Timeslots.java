@@ -1,5 +1,6 @@
 package com.example.coffeshop;
 
+//Placeholder class for future bookable appointment slots
 public class Timeslots {
 
     public String timeslot;

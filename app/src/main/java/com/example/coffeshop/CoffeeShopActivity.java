@@ -28,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import java.text.NumberFormat;
 
+// This was our first coffeeshop page and so should really be named LabActivity. But - we occasionally had issues renaming and therefore left it as is for now
 public class CoffeeShopActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener, AdapterView.OnItemSelectedListener {
 
@@ -168,7 +169,7 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
 
         return super.onOptionsItemSelected(item);
     }
-
+    // Creating strings from info, including the basic info of the coffeeshop and sending it up to the add payment page
     @Override
     public void onClick(View view) {
         if (view == buttonAvailabilityBookNow){

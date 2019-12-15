@@ -82,6 +82,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         };
 
         /*
+        We previously allowed the user to pick time from the homepage, but instead moved to an array-based time to allow for future appointment slot checking and manipulation
+        Code is left here for potential future use if we can get it more granularly manipulable
+
         final TextView mDisplayTime = findViewById(R.id.textViewTime);
         mDisplayTime.setOnClickListener(new View.OnClickListener() {
             @Override

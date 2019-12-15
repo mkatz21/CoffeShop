@@ -25,7 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 //import android.widget.Registration;
 
 
-
+//Sign up class for users from when we weren't pushing initial login
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
     EditText FirstName, LastName, Email, PhoneNumber, Password;
