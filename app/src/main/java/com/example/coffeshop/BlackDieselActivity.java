@@ -30,8 +30,8 @@ import java.text.NumberFormat;
 public class BlackDieselActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener{
 
-    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice;
-    TextView textViewBlackDiesel, textViewDate;
+    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice, reservationCoffeeShopStreet, reservationCoffeeShopCity;
+    TextView textViewBlackDiesel, textViewDate, textViewBlackDieselStreet, textViewBlackDieselCity;
     Spinner spinnerBDtimeslots;
     TextView textViewCurrentPrice;
     Button buttonAvailabilityBookNow;
@@ -65,6 +65,8 @@ public class BlackDieselActivity extends AppCompatActivity implements View.OnCli
 
         textViewBlackDiesel = findViewById(R.id.textViewBlackDiesel);
         textViewDate = findViewById(R.id.textViewReservationDate);
+        textViewBlackDieselStreet = findViewById(R.id.textViewBlackDieselStreet);
+        textViewBlackDieselCity = findViewById(R.id.textViewBlackDieselCity);
 
         textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
 
@@ -159,14 +161,7 @@ public class BlackDieselActivity extends AppCompatActivity implements View.OnCli
             Intent signupIntent = new Intent(this, SignUpActivity.class);
             startActivity(signupIntent);
 
-        } else if(item.getItemId() == R.id.AddPayment) {
 
-            Intent addPaymentIntent = new Intent(this, AddPaymentMethodActivity.class);
-            startActivity(addPaymentIntent);
-        } else if(item.getItemId() == R.id.CheckIn) {
-
-            Intent checkInIntent = new Intent(this, CheckInActivity.class);
-            startActivity(checkInIntent);
         } else if(item.getItemId() == R.id.Home) {
 
             Intent homeIntent = new Intent(this, HomeActivity.class);
@@ -180,6 +175,8 @@ public class BlackDieselActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if (view == buttonAvailabilityBookNow){
             reservationCoffeeShop = textViewBlackDiesel.getText().toString();
+            reservationCoffeeShopStreet = textViewBlackDieselStreet.getText().toString();
+            reservationCoffeeShopCity = textViewBlackDieselCity.getText().toString();
             reservationPrice = textViewCurrentPrice.getText().toString();
             reservationSpinnerTime = spinnerBDtimeslots.getSelectedItem().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
@@ -189,6 +186,8 @@ public class BlackDieselActivity extends AppCompatActivity implements View.OnCli
             reservationIntent.putExtra("Duration", reservationDuration);
             reservationIntent.putExtra("Table Type", reservationTable);
             reservationIntent.putExtra("Price", reservationPrice);
+            reservationIntent.putExtra("Street", reservationCoffeeShopStreet);
+            reservationIntent.putExtra("City", reservationCoffeeShopCity);
             startActivity(reservationIntent);
         }
     }

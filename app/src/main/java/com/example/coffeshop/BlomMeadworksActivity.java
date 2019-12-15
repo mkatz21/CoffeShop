@@ -30,8 +30,8 @@ import java.text.NumberFormat;
 public class BlomMeadworksActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener{
 
-    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice;
-    TextView textViewBlom, textViewDate;
+    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice, reservationCoffeeShopStreet, reservationCoffeeShopCity;
+    TextView textViewBlom, textViewDate, textViewBlomStreet, textViewBlomCity;
 
     Spinner spinnerBMtimeslots;
     TextView textViewCurrentPrice;
@@ -64,6 +64,8 @@ public class BlomMeadworksActivity extends AppCompatActivity implements View.OnC
 
         textViewBlom = findViewById(R.id.textViewBlom);
         textViewDate = findViewById(R.id.textViewReservationDate);
+        textViewBlomStreet = findViewById(R.id.textViewBlomStreet);
+        textViewBlomCity = findViewById(R.id.textViewBlomCity);
 
         textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
 
@@ -155,14 +157,6 @@ public class BlomMeadworksActivity extends AppCompatActivity implements View.OnC
             Intent signupIntent = new Intent(this, SignUpActivity.class);
             startActivity(signupIntent);
 
-        } else if(item.getItemId() == R.id.AddPayment) {
-
-            Intent addPaymentIntent = new Intent(this, AddPaymentMethodActivity.class);
-            startActivity(addPaymentIntent);
-        } else if(item.getItemId() == R.id.CheckIn) {
-
-            Intent checkInIntent = new Intent(this, CheckInActivity.class);
-            startActivity(checkInIntent);
         } else if(item.getItemId() == R.id.Home) {
 
             Intent homeIntent = new Intent(this, HomeActivity.class);
@@ -176,6 +170,8 @@ public class BlomMeadworksActivity extends AppCompatActivity implements View.OnC
     public void onClick(View view) {
         if (view == buttonAvailabilityBookNow){
             reservationCoffeeShop = textViewBlom.getText().toString();
+            reservationCoffeeShopStreet = textViewBlomStreet.getText().toString();
+            reservationCoffeeShopCity = textViewBlomCity.getText().toString();
             reservationPrice = textViewCurrentPrice.getText().toString();
             reservationSpinnerTime = spinnerBMtimeslots.getSelectedItem().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
@@ -185,6 +181,8 @@ public class BlomMeadworksActivity extends AppCompatActivity implements View.OnC
             reservationIntent.putExtra("Duration", reservationDuration);
             reservationIntent.putExtra("Table Type", reservationTable);
             reservationIntent.putExtra("Price", reservationPrice);
+            reservationIntent.putExtra("Street", reservationCoffeeShopStreet);
+            reservationIntent.putExtra("City", reservationCoffeeShopCity);
             startActivity(reservationIntent);
 
         }

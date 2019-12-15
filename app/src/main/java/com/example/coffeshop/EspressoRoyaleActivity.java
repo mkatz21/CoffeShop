@@ -24,10 +24,10 @@ import java.text.NumberFormat;
 public class EspressoRoyaleActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener {
 
-    String reservationCoffeeShop, reservationDate, reservationTable, reservationPrice;
+    String reservationCoffeeShop, reservationDate, reservationTable, reservationPrice, reservationCoffeeShopStreet, reservationCoffeeShopCity;
     String reservationDuration;
     String reservationSpinnerTime;
-    TextView textViewEspressoRoyale, textViewDate;
+    TextView textViewEspressoRoyale, textViewDate, textViewEspressoRoyaleStreet, textViewEspressoRoyaleCity;
 
     Spinner spinnerERtimeslots;
     TextView textViewCurrentPrice;
@@ -50,6 +50,8 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
 
         textViewEspressoRoyale = findViewById(R.id.textViewEspressoRoyale);
         textViewDate = findViewById(R.id.textViewReservationDate);
+        textViewEspressoRoyaleStreet = findViewById(R.id.textViewEspressoRoyaleStreet);
+        textViewEspressoRoyaleCity = findViewById(R.id.textViewEspressoRoyaleCity);
 
         textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
 
@@ -101,35 +103,35 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
     public void UpdateCheckOutPrice() {
         if (radioButtonOwnTable.isChecked() & radioButton30.isChecked()) {
             newprice = oldprice*1;
-            reservationDuration = "0.5";
+            reservationDuration = "30 minutes";
             reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton30.isChecked()){
             newprice = oldprice-dblshareddiscount;
-            reservationDuration = "0.5";
+            reservationDuration = "30 minutes";
             reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton1.isChecked()){
             newprice = oldprice*2;
-            reservationDuration = "1";
+            reservationDuration = "1 hour";
             reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton1.isChecked()){
             newprice = (oldprice)*2-dblshareddiscount;
-            reservationDuration = "1";
+            reservationDuration = "1 hour";
             reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton1half.isChecked()){
             newprice = oldprice*3;
-            reservationDuration = "1.5";
+            reservationDuration = "1.5 hours";
             reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton1half.isChecked()){
             newprice = (oldprice)*3-dblshareddiscount;
-            reservationDuration = "1.5";
+            reservationDuration = "1.5 hours";
             reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton2.isChecked()){
             newprice = oldprice*4;
-            reservationDuration = "2";
+            reservationDuration = "2 hours";
             reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton2.isChecked()) {
             newprice = (oldprice) * 4 - dblshareddiscount;
-            reservationDuration = "2";
+            reservationDuration = "2 hours";
             reservationTable = "Shared Table";
         }
 
@@ -163,14 +165,6 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
             Intent signupIntent = new Intent(this, SignUpActivity.class);
             startActivity(signupIntent);
 
-        } else if (item.getItemId() == R.id.AddPayment) {
-
-            Intent addPaymentIntent = new Intent(this, AddPaymentMethodActivity.class);
-            startActivity(addPaymentIntent);
-        } else if (item.getItemId() == R.id.CheckIn) {
-
-            Intent checkInIntent = new Intent(this, CheckInActivity.class);
-            startActivity(checkInIntent);
         } else if (item.getItemId() == R.id.Home) {
 
             Intent homeIntent = new Intent(this, HomeActivity.class);
@@ -183,9 +177,10 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View view) {
         reservationCoffeeShop = textViewEspressoRoyale.getText().toString();
+        reservationCoffeeShopStreet = textViewEspressoRoyaleStreet.getText().toString();
+        reservationCoffeeShopCity = textViewEspressoRoyaleCity.getText().toString();
         reservationPrice = textViewCurrentPrice.getText().toString();
         reservationSpinnerTime = spinnerERtimeslots.getSelectedItem().toString();
-
 
         Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
         reservationIntent.putExtra("date", reservationDate);
@@ -194,6 +189,8 @@ public class EspressoRoyaleActivity extends AppCompatActivity implements View.On
         reservationIntent.putExtra("Duration", reservationDuration);
         reservationIntent.putExtra("Table Type", reservationTable);
         reservationIntent.putExtra("Price", reservationPrice);
+        reservationIntent.putExtra("Street", reservationCoffeeShopStreet);
+        reservationIntent.putExtra("City", reservationCoffeeShopCity);
         startActivity(reservationIntent);
         }
 }

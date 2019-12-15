@@ -30,8 +30,8 @@ import java.text.NumberFormat;
 public class RoosRoastActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener {
 
-    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice;
-    TextView textViewRoosRoast, textViewDate;
+    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice, reservationCoffeeShopStreet, reservationCoffeeShopCity;
+    TextView textViewRoosRoast, textViewDate, textViewRoosRoastStreet, textViewRoosRoastCity;
 
     Spinner spinnerRRtimeslots;
     TextView textViewCurrentPrice;
@@ -63,6 +63,8 @@ public class RoosRoastActivity extends AppCompatActivity implements View.OnClick
 
         textViewRoosRoast = findViewById(R.id.textViewRoosRoast);
         textViewDate = findViewById(R.id.textViewReservationDate);
+        textViewRoosRoastStreet = findViewById(R.id.textViewRoosRoastStreet);
+        textViewRoosRoastCity = findViewById(R.id.textViewRoosRoastCity);
 
         textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
 
@@ -153,14 +155,6 @@ public class RoosRoastActivity extends AppCompatActivity implements View.OnClick
             Intent signupIntent = new Intent(this, SignUpActivity.class);
             startActivity(signupIntent);
 
-        } else if(item.getItemId() == R.id.AddPayment) {
-
-            Intent addPaymentIntent = new Intent(this, AddPaymentMethodActivity.class);
-            startActivity(addPaymentIntent);
-        } else if(item.getItemId() == R.id.CheckIn) {
-
-            Intent checkInIntent = new Intent(this, CheckInActivity.class);
-            startActivity(checkInIntent);
         } else if(item.getItemId() == R.id.Home) {
 
             Intent homeIntent = new Intent(this, HomeActivity.class);
@@ -174,6 +168,8 @@ public class RoosRoastActivity extends AppCompatActivity implements View.OnClick
     public void onClick(View view) {
         if (view == buttonAvailabilityBookNow){
             reservationCoffeeShop = textViewRoosRoast.getText().toString();
+            reservationCoffeeShopStreet = textViewRoosRoastStreet.getText().toString();
+            reservationCoffeeShopCity = textViewRoosRoastCity.getText().toString();
             reservationPrice = textViewCurrentPrice.getText().toString();
             reservationSpinnerTime = spinnerRRtimeslots.getSelectedItem().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
@@ -183,6 +179,8 @@ public class RoosRoastActivity extends AppCompatActivity implements View.OnClick
             reservationIntent.putExtra("Duration", reservationDuration);
             reservationIntent.putExtra("Table Type", reservationTable);
             reservationIntent.putExtra("Price", reservationPrice);
+            reservationIntent.putExtra("Street", reservationCoffeeShopStreet);
+            reservationIntent.putExtra("City", reservationCoffeeShopCity);
             startActivity(reservationIntent);
 
         }

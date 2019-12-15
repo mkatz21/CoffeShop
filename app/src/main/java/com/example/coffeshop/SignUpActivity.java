@@ -25,10 +25,10 @@ import com.google.firebase.database.FirebaseDatabase;
 //import android.widget.Registration;
 
 
-//test
+
 public class SignUpActivity extends AppCompatActivity implements View.OnClickListener {
 
-    EditText FirstName, LastName, Email, PhoneNumber, Password, ConfirmPassword;
+    EditText FirstName, LastName, Email, PhoneNumber, Password;
     TextView textviewpolicy;
     Button Create;
 
@@ -67,11 +67,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         if (v==Create) {
 
-
-
-            //makeNewUsers(firstName_string, lastName_string, email_string, phoneNumber_string, password_string, confirmPassword_string);
-
-
             Toast.makeText(this, email_string + password_string, Toast.LENGTH_SHORT).show();
 
                 mAuth.createUserWithEmailAndPassword(email_string, password_string)
@@ -92,6 +87,7 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
                                       myUser.userInfoFirstName = firstName_string;
                                       myUser.userInfoLastName = lastName_string;
                                       myUser.userInfoEmail = email_string;
+                                      myUser.userInfoPhoneNumber = phoneNumber_string;
 
 
                                       myRef.push().setValue(myUser);
@@ -113,29 +109,6 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
 
         }
 
-/*        else if (v==Create) {
-
-            mAuth.signInWithEmailAndPassword(email_string, password_string)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if (task.isSuccessful()) {
-
-                              Intent loginIntent =  new Intent(SignUpActivity.this, HomeActivity.class);
-                              startActivity(loginIntent);
-
-
-                            }
-
-
-                        }
-                    });  commeting notw
-
-
-
-        }*/
-
-// this was added from other screens?//
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -151,18 +124,11 @@ public class SignUpActivity extends AppCompatActivity implements View.OnClickLis
             Intent mainPaymentIntent = new Intent(this, MainPaymentActivity.class);
             startActivity(mainPaymentIntent);
 
-        } else if(item.getItemId() == R.id.CheckIn) {
-
-            Toast.makeText(this, "You are already on the Check In Page", Toast.LENGTH_SHORT).show();
-
         } else if(item.getItemId() == R.id.Account) {
 
             Toast.makeText(this, "You are already on the Account Page", Toast.LENGTH_SHORT).show();
 
-        } else if(item.getItemId() == R.id.AddPayment) {
 
-            Intent addPaymentIntent = new Intent(this, AddPaymentMethodActivity.class);
-            startActivity(addPaymentIntent);
         } else if(item.getItemId() == R.id.Home) {
 
             Intent HomeIntent = new Intent(this, HomeActivity.class);

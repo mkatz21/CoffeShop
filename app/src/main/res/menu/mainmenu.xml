@@ -12,12 +12,6 @@
         android:id="@+id/YourReservations"
         android:title="Your Reservations" />
     <item
-        android:id="@+id/AddPayment"
-        android:title="Add Payment" />
-    <item
-        android:id="@+id/CheckIn"
-        android:title="Check In" />
-    <item
         android:id="@+id/Logout"
         android:title="Logout" />
 </menu>

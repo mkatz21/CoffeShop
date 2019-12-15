@@ -20,7 +20,7 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
     //Creating button and edittext objects
     EditText editTextUserName, editTextPassword;
-    Button buttonLogIn, buttonCreateAccount,buttonContinueAsGuest;
+    Button buttonLogIn, buttonCreateAccount;
 
     //Creating Firebase authentication object
     private FirebaseAuth mAuth;
@@ -35,12 +35,10 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonLogIn = findViewById(R.id.buttonLogIn);
         buttonCreateAccount = findViewById(R.id.buttonCreateAccount);
-        buttonContinueAsGuest = findViewById(R.id.buttonContinueAsGuest);
 
         //Setting buttons to onclicklistner
         buttonLogIn.setOnClickListener(this);
         buttonCreateAccount.setOnClickListener(this);
-        buttonContinueAsGuest.setOnClickListener(this);
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
@@ -91,10 +89,6 @@ public class LogInActivity extends AppCompatActivity implements View.OnClickList
 
                 }
 
-            } else if (view == buttonContinueAsGuest) {
-
-                Intent asguestIntent = new Intent(this, HomeActivity.class);
-                startActivity(asguestIntent);
             }
         }
 

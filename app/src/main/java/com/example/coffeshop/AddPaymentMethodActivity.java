@@ -139,19 +139,11 @@ public class AddPaymentMethodActivity extends AppCompatActivity implements View.
             Intent mainPaymentIntent = new Intent(this, MainPaymentActivity.class);
             startActivity(mainPaymentIntent);
 
-        } else if (item.getItemId() == R.id.AddPayment) {
-
-            Toast.makeText(this, "You are already on the Add Payment Method Page", Toast.LENGTH_SHORT).show();
-
         } else if (item.getItemId() == R.id.Account) {
 
             Intent signupIntent = new Intent(this, SignUpActivity.class);
             startActivity(signupIntent);
 
-        } else if (item.getItemId() == R.id.CheckIn) {
-
-            Intent checkInIntent = new Intent(this, CheckInActivity.class);
-            startActivity(checkInIntent);
         } else if (item.getItemId() == R.id.Home) {
 
             Intent HomeIntent = new Intent(this, HomeActivity.class);

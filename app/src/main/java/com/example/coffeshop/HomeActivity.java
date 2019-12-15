@@ -234,14 +234,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 Intent signupIntent = new Intent(this, SignUpActivity.class);
                 startActivity(signupIntent);
 
-            } else if (item.getItemId() == R.id.AddPayment) {
-
-                Intent addPaymentIntent = new Intent(this, AddPaymentMethodActivity.class);
-                startActivity(addPaymentIntent);
-            } else if (item.getItemId() == R.id.CheckIn) {
-
-                Intent checkInIntent = new Intent(this, CheckInActivity.class);
-                startActivity(checkInIntent);
             } else if (item.getItemId() == R.id.Logout) {
 
                 FirebaseAuth.getInstance().signOut();

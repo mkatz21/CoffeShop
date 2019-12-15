@@ -32,8 +32,8 @@ import java.util.Calendar;
 public class VertexActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener {
 
-    String reservationCoffeeShop, reservationDate, reservationTime, reservationDuration, reservationTable, reservationPrice;
-    TextView textViewVertex, textViewDate, textViewTime;
+    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice, reservationCoffeeShopStreet, reservationCoffeeShopCity;
+    TextView textViewVertex, textViewDate, textViewVertexStreet, textViewVertexCity;
 
     Spinner spinnerVtimeslots;
     TextView textViewCurrentPrice;
@@ -65,7 +65,8 @@ public class VertexActivity extends AppCompatActivity implements View.OnClickLis
 
         textViewVertex = findViewById(R.id.textViewVertex);
         textViewDate = findViewById(R.id.textViewReservationDate);
-        textViewTime = findViewById(R.id.textViewReservationTime);
+        textViewVertexStreet = findViewById(R.id.textViewVertexStreet);
+        textViewVertexCity = findViewById(R.id.textViewVertexCity);
 
         textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
 
@@ -98,8 +99,6 @@ public class VertexActivity extends AppCompatActivity implements View.OnClickLis
         if (vertexIntent != null) {
             reservationDate = vertexIntent.getStringExtra("date");
             textViewDate.setText(reservationDate);
-            reservationTime = vertexIntent.getStringExtra("time");
-            textViewTime.setText(reservationTime);
         }
 
         //This section is to create the date selector
@@ -132,53 +131,7 @@ public class VertexActivity extends AppCompatActivity implements View.OnClickLis
                 reservationDate = selecteddate;
             }
         };
-        final TextView mDisplayTime = findViewById(R.id.textViewReservationTime);
-        mDisplayTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                java.util.Calendar cal = java.util.Calendar.getInstance();
-                int hour = cal.get(java.util.Calendar.HOUR);
-                int minute = cal.get(Calendar.MINUTE);
-                boolean isPM = (hour>=12);
 
-                TimePickerDialog dialogtime = new TimePickerDialog(
-                        VertexActivity.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        (TimePickerDialog.OnTimeSetListener) mTimeSetListener,
-                        hour,minute,isPM);
-                dialogtime.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialogtime.show();
-            }
-        });
-
-        mTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker timePicker, int hour, int minute) {
-                String timeSet = "";
-                if (hour > 12) {
-                    hour -= 12;
-                    timeSet = "PM";
-                } else if (hour == 0) {
-                    hour += 12;
-                    timeSet = "AM";
-                } else if (hour == 12){
-                    timeSet = "PM";
-                }else{
-                    timeSet = "AM";
-                }
-
-                String min = "";
-                if (minute < 10)
-                    min = "0" + minute ;
-                else
-                    min = String.valueOf(minute);
-
-                String selectedtime = hour +":"+ minute+" "+timeSet.toString();
-                mDisplayTime.setText(selectedtime);
-                reservationTime = selectedtime;
-
-            }
-        };
     }
 
     @Override
@@ -207,14 +160,6 @@ public class VertexActivity extends AppCompatActivity implements View.OnClickLis
             Intent signupIntent = new Intent(this, SignUpActivity.class);
             startActivity(signupIntent);
 
-        } else if(item.getItemId() == R.id.AddPayment) {
-
-            Intent addPaymentIntent = new Intent(this, AddPaymentMethodActivity.class);
-            startActivity(addPaymentIntent);
-        } else if(item.getItemId() == R.id.CheckIn) {
-
-            Intent checkInIntent = new Intent(this, CheckInActivity.class);
-            startActivity(checkInIntent);
         } else if(item.getItemId() == R.id.Home) {
 
             Intent homeIntent = new Intent(this, HomeActivity.class);
@@ -228,14 +173,19 @@ public class VertexActivity extends AppCompatActivity implements View.OnClickLis
     public void onClick(View view) {
         if (view == buttonAvailabilityBookNow){
             reservationCoffeeShop = textViewVertex.getText().toString();
+            reservationCoffeeShopStreet = textViewVertexStreet.getText().toString();
+            reservationCoffeeShopCity = textViewVertexCity.getText().toString();
             reservationPrice = textViewCurrentPrice.getText().toString();
+            reservationSpinnerTime = spinnerVtimeslots.getSelectedItem().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
             reservationIntent.putExtra("date", reservationDate);
-            reservationIntent.putExtra("time", reservationTime);
+            reservationIntent.putExtra("time", reservationSpinnerTime);
             reservationIntent.putExtra("Coffee Shop", reservationCoffeeShop);
             reservationIntent.putExtra("Duration", reservationDuration);
             reservationIntent.putExtra("Table Type", reservationTable);
             reservationIntent.putExtra("Price", reservationPrice);
+            reservationIntent.putExtra("Street", reservationCoffeeShopStreet);
+            reservationIntent.putExtra("City", reservationCoffeeShopCity);
             startActivity(reservationIntent);
 
         }

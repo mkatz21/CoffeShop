@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class AccountActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -48,19 +50,11 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
             Intent mainPaymentIntent = new Intent(this, MainPaymentActivity.class);
             startActivity(mainPaymentIntent);
 
-        } else if(item.getItemId() == R.id.CheckIn) {
-
-            Toast.makeText(this, "You are already on the Check In Page", Toast.LENGTH_SHORT).show();
-
         } else if(item.getItemId() == R.id.Account) {
 
             Intent accountIntent = new Intent(this, AccountActivity.class);
             startActivity(accountIntent);
 
-        } else if(item.getItemId() == R.id.AddPayment) {
-
-            Intent signupIntent = new Intent(this, SignUpActivity.class);
-            startActivity(signupIntent);
 
         } else if(item.getItemId() == R.id.Home) {
 
@@ -68,8 +62,10 @@ public class AccountActivity extends AppCompatActivity implements View.OnClickLi
             startActivity(HomeIntent);
         } else if(item.getItemId() == R.id.Logout) {
 
-            Intent coffeeShopIntent = new Intent(this, CoffeeShopActivity.class);
-            startActivity(coffeeShopIntent);
+            FirebaseAuth.getInstance().signOut();
+            Toast.makeText(this, "Logout successful", Toast.LENGTH_LONG).show();
+            Intent logoutIntent = new Intent(this, LogInActivity.class);
+            startActivity(logoutIntent);
         }
 
         return super.onOptionsItemSelected(item);

@@ -31,8 +31,8 @@ public class LiteratiActivity extends AppCompatActivity implements View.OnClickL
         RadioButton.OnCheckedChangeListener {
 
 
-    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice;
-    TextView textViewLiterati, textViewDate;
+    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice, reservationCoffeeShopStreet, reservationCoffeeShopCity;
+    TextView textViewLiterati, textViewDate, textViewLiteratiStreet, textViewLiteratiCity;
 
     Spinner spinnerLITtimeslots;
     TextView textViewCurrentPrice;
@@ -64,6 +64,8 @@ public class LiteratiActivity extends AppCompatActivity implements View.OnClickL
 
         textViewLiterati = findViewById(R.id.textViewLiterati);
         textViewDate = findViewById(R.id.textViewReservationDate);
+        textViewLiteratiStreet = findViewById(R.id.textViewLiteratiStreet);
+        textViewLiteratiCity = findViewById(R.id.textViewLiteratiCity);
 
         buttonAvailabilityBookNow = findViewById(R.id.buttonAvailabilityBookNow);
 
@@ -154,14 +156,7 @@ public class LiteratiActivity extends AppCompatActivity implements View.OnClickL
             Intent signupIntent = new Intent(this, SignUpActivity.class);
             startActivity(signupIntent);
 
-        } else if(item.getItemId() == R.id.AddPayment) {
 
-            Intent addPaymentIntent = new Intent(this, AddPaymentMethodActivity.class);
-            startActivity(addPaymentIntent);
-        } else if(item.getItemId() == R.id.CheckIn) {
-
-            Intent checkInIntent = new Intent(this, CheckInActivity.class);
-            startActivity(checkInIntent);
         } else if(item.getItemId() == R.id.Home) {
 
             Intent homeIntent = new Intent(this, HomeActivity.class);
@@ -175,6 +170,8 @@ public class LiteratiActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View view) {
         if (view == buttonAvailabilityBookNow){
             reservationCoffeeShop = textViewLiterati.getText().toString();
+            reservationCoffeeShopStreet = textViewLiteratiStreet.getText().toString();
+            reservationCoffeeShopCity = textViewLiteratiCity.getText().toString();
             reservationPrice = textViewCurrentPrice.getText().toString();
             reservationSpinnerTime = spinnerLITtimeslots.getSelectedItem().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
@@ -184,6 +181,8 @@ public class LiteratiActivity extends AppCompatActivity implements View.OnClickL
             reservationIntent.putExtra("Duration", reservationDuration);
             reservationIntent.putExtra("Table Type", reservationTable);
             reservationIntent.putExtra("Price", reservationPrice);
+            reservationIntent.putExtra("Street", reservationCoffeeShopStreet);
+            reservationIntent.putExtra("City", reservationCoffeeShopCity);
             startActivity(reservationIntent);
 
         }

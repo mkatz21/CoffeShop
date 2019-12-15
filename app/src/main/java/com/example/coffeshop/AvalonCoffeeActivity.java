@@ -30,8 +30,8 @@ import java.text.NumberFormat;
 public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener {
 
-    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice;
-    TextView textViewAvalon, textViewDate;
+    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice, reservationCoffeeShopStreet, reservationCoffeeShopCity;
+    TextView textViewAvalon, textViewDate, textViewAvalonStreet, textViewAvalonCity;
     Spinner spinnerAVtimeslots;
     TextView textViewCurrentPrice;
     Button buttonAvailabilityBookNow;
@@ -62,6 +62,8 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
 
         textViewAvalon = findViewById(R.id.textViewAvalon);
         textViewDate = findViewById(R.id.textViewReservationDate);
+        textViewAvalonStreet =findViewById(R.id.textViewAvalonStreet);
+        textViewAvalonCity =findViewById(R.id.textViewAvalonCity);
 
         textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
 
@@ -154,14 +156,7 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
             Intent signupIntent = new Intent(this, SignUpActivity.class);
             startActivity(signupIntent);
 
-        } else if(item.getItemId() == R.id.AddPayment) {
 
-            Intent addPaymentIntent = new Intent(this, AddPaymentMethodActivity.class);
-            startActivity(addPaymentIntent);
-        } else if(item.getItemId() == R.id.CheckIn) {
-
-            Intent checkInIntent = new Intent(this, CheckInActivity.class);
-            startActivity(checkInIntent);
         } else if(item.getItemId() == R.id.Home) {
 
             Intent homeIntent = new Intent(this, HomeActivity.class);
@@ -175,6 +170,8 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View view) {
         if (view == buttonAvailabilityBookNow){
             reservationCoffeeShop = textViewAvalon.getText().toString();
+            reservationCoffeeShopStreet = textViewAvalonStreet.getText().toString();
+            reservationCoffeeShopCity = textViewAvalonCity.getText().toString();
             reservationPrice = textViewCurrentPrice.getText().toString();
             reservationSpinnerTime = spinnerAVtimeslots.getSelectedItem().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
@@ -184,6 +181,8 @@ public class AvalonCoffeeActivity extends AppCompatActivity implements View.OnCl
             reservationIntent.putExtra("Duration", reservationDuration);
             reservationIntent.putExtra("Table Type", reservationTable);
             reservationIntent.putExtra("Price", reservationPrice);
+            reservationIntent.putExtra("Street", reservationCoffeeShopStreet);
+            reservationIntent.putExtra("City", reservationCoffeeShopCity);
             startActivity(reservationIntent);
         }
     }

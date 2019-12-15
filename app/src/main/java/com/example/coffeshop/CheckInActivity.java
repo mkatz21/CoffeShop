@@ -106,19 +106,11 @@ public class CheckInActivity extends AppCompatActivity implements View.OnClickLi
             Intent mainPaymentIntent = new Intent(this, MainPaymentActivity.class);
             startActivity(mainPaymentIntent);
 
-        } else if(item.getItemId() == R.id.CheckIn) {
-
-            Toast.makeText(this, "You are already on the Check In Page", Toast.LENGTH_SHORT).show();
-
         } else if(item.getItemId() == R.id.Account) {
 
             Intent signupIntent = new Intent(this, SignUpActivity.class);
             startActivity(signupIntent);
 
-        } else if(item.getItemId() == R.id.AddPayment) {
-
-            Intent addPaymentIntent = new Intent(this, AddPaymentMethodActivity.class);
-            startActivity(addPaymentIntent);
         } else if(item.getItemId() == R.id.Home) {
 
             Intent HomeIntent = new Intent(this, HomeActivity.class);

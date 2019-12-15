@@ -160,14 +160,6 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
             Intent signupIntent = new Intent(this, SignUpActivity.class);
             startActivity(signupIntent);
 
-        } else if(item.getItemId() == R.id.AddPayment) {
-
-            Intent addPaymentIntent = new Intent(this, AddPaymentMethodActivity.class);
-            startActivity(addPaymentIntent);
-        } else if(item.getItemId() == R.id.CheckIn) {
-
-            Intent checkInIntent = new Intent(this, CheckInActivity.class);
-            startActivity(checkInIntent);
         } else if(item.getItemId() == R.id.Home) {
 
             Intent homeIntent = new Intent(this, HomeActivity.class);
@@ -217,35 +209,35 @@ public class CoffeeShopActivity extends AppCompatActivity implements View.OnClic
     public void UpdateCheckOutPrice() {
         if (radioButtonOwnTable.isChecked() & radioButton30.isChecked()) {
             newprice = oldprice*1;
-            reservationDuration = "0.5";
+            reservationDuration = "30 minutes";
             reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton30.isChecked()){
             newprice = oldprice-dblshareddiscount;
-            reservationDuration = "0.5";
+            reservationDuration = "30 minutes";
             reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton1.isChecked()){
             newprice = oldprice*2;
-            reservationDuration = "0.5";
+            reservationDuration = "1 hour";
             reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton1.isChecked()){
             newprice = (oldprice)*2-dblshareddiscount;
-            reservationDuration = "1";
+            reservationDuration = "1 hour";
             reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton1half.isChecked()){
             newprice = oldprice*3;
-            reservationDuration = "1.5";
+            reservationDuration = "1.5 hours";
             reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton1half.isChecked()){
             newprice = (oldprice)*3-dblshareddiscount;
-            reservationDuration = "1.5";
+            reservationDuration = "1.5 hours";
             reservationTable = "Shared Table";
         } else if (radioButtonOwnTable.isChecked() & radioButton2.isChecked()){
             newprice = oldprice*4;
-            reservationDuration = "2";
+            reservationDuration = "2 hours";
             reservationTable = "Own Table";
         } else if (radioButtonSharedTable.isChecked() & radioButton2.isChecked()) {
             newprice = (oldprice) * 4 - dblshareddiscount;
-            reservationDuration = "2";
+            reservationDuration = "2 hours";
             reservationTable = "Shared Table";
         }
 

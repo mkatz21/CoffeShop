@@ -30,8 +30,8 @@ import java.text.NumberFormat;
 public class CometCoffeeActivity extends AppCompatActivity implements View.OnClickListener,
         RadioButton.OnCheckedChangeListener{
 
-    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice;
-    TextView textViewComet, textViewDate;
+    String reservationCoffeeShop, reservationDate, reservationSpinnerTime, reservationDuration, reservationTable, reservationPrice, reservationCoffeeShopStreet, reservationCoffeeShopCity;
+    TextView textViewComet, textViewDate, textViewCometStreet, textViewCometCity;
 
     Spinner spinnerCCtimeslots;
     TextView textViewCurrentPrice;
@@ -63,6 +63,8 @@ public class CometCoffeeActivity extends AppCompatActivity implements View.OnCli
 
         textViewComet = findViewById(R.id.textViewComet);
         textViewDate = findViewById(R.id.textViewReservationDate);
+        textViewCometStreet = findViewById(R.id.textViewCometStreet);
+        textViewCometCity = findViewById(R.id.textViewCometCity);
 
         textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
 
@@ -153,14 +155,6 @@ public class CometCoffeeActivity extends AppCompatActivity implements View.OnCli
             Intent signupIntent = new Intent(this, SignUpActivity.class);
             startActivity(signupIntent);
 
-        } else if(item.getItemId() == R.id.AddPayment) {
-
-            Intent addPaymentIntent = new Intent(this, AddPaymentMethodActivity.class);
-            startActivity(addPaymentIntent);
-        } else if(item.getItemId() == R.id.CheckIn) {
-
-            Intent checkInIntent = new Intent(this, CheckInActivity.class);
-            startActivity(checkInIntent);
         } else if(item.getItemId() == R.id.Home) {
 
             Intent homeIntent = new Intent(this, HomeActivity.class);
@@ -174,6 +168,8 @@ public class CometCoffeeActivity extends AppCompatActivity implements View.OnCli
     public void onClick(View view) {
         if (view == buttonAvailabilityBookNow){
             reservationCoffeeShop = textViewComet.getText().toString();
+            reservationCoffeeShopStreet = textViewCometStreet.getText().toString();
+            reservationCoffeeShopCity = textViewCometCity.getText().toString();
             reservationPrice = textViewCurrentPrice.getText().toString();
             reservationSpinnerTime = spinnerCCtimeslots.getSelectedItem().toString();
             Intent reservationIntent = new Intent(this, AddPaymentMethodActivity.class);
@@ -183,6 +179,8 @@ public class CometCoffeeActivity extends AppCompatActivity implements View.OnCli
             reservationIntent.putExtra("Duration", reservationDuration);
             reservationIntent.putExtra("Table Type", reservationTable);
             reservationIntent.putExtra("Price", reservationPrice);
+            reservationIntent.putExtra("Street", reservationCoffeeShopStreet);
+            reservationIntent.putExtra("City", reservationCoffeeShopCity);
             startActivity(reservationIntent);
 
         }
