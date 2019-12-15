@@ -67,6 +67,8 @@ public class LiteratiActivity extends AppCompatActivity implements View.OnClickL
         textViewLiteratiStreet = findViewById(R.id.textViewLiteratiStreet);
         textViewLiteratiCity = findViewById(R.id.textViewLiteratiCity);
 
+        textViewCurrentPrice = findViewById(R.id.textViewCurrentPrice);
+
         buttonAvailabilityBookNow = findViewById(R.id.buttonAvailabilityBookNow);
 
         radioButtonOwnTable = findViewById(R.id.radioButtonOwnTable);
